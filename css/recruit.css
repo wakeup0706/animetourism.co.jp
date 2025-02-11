@@ -1,0 +1,316 @@
+/* Recruit page styles */
+.page-header {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+.page-header__title {
+    font-size: 4.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.page-header__subtitle {
+    font-size: 1.8rem;
+    color: #666;
+}
+
+/* Navigation */
+.recruit-nav {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 60px;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+}
+
+.recruit-nav__list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.recruit-nav__link {
+    display: block;
+    padding: 16px 0;
+    font-weight: 500;
+    color: #666;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.recruit-nav__link:hover {
+    color: #333;
+}
+
+.recruit-nav__link.active {
+    color: #333;
+}
+
+.recruit-nav__link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #333;
+}
+
+/* Common section styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.recruit-section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Message section */
+.message-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.message-text {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.message-description {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* Jobs section */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.job-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.job-card__header {
+    padding: 24px;
+    background: #f5f5f5;
+}
+
+.job-card__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.job-card__type {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #333;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 4px;
+}
+
+.job-card__content {
+    padding: 24px;
+}
+
+.job-card__description {
+    margin-bottom: 24px;
+    line-height: 1.8;
+}
+
+.job-card__meta dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 16px;
+}
+
+.job-card__meta dt {
+    color: #666;
+    font-weight: 500;
+}
+
+.job-card__footer {
+    padding: 24px;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+/* Benefits section */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.benefit-item:hover {
+    transform: translateY(-4px);
+}
+
+.benefit-item__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+}
+
+.benefit-item__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.benefit-item__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.benefit-item__description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Flow section */
+/* Flow section */
+.flow-steps {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.flow-step {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.flow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: #ddd;
+}
+
+.flow-step__number {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #4A90E2;
+    margin-right: 24px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.flow-step__content {
+    flex-grow: 1;
+}
+
+.flow-step__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.flow-step__description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Common button style */
+.button {
+    display: inline-block;
+    padding: 12px 32px;
+    background: #4A90E2;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background: #357ABD;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .jobs-grid,
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header__title {
+        font-size: 3.6rem;
+    }
+
+    .recruit-nav__list {
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .jobs-grid,
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .message-text {
+        font-size: 2rem;
+    }
+
+    .recruit-section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        font-size: 2.4rem;
+    }
+}

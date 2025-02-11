@@ -1,0 +1,120 @@
+/* About page specific styles */
+.page-header {
+    height: 240px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.page-header__inner {
+    text-align: center;
+}
+
+.page-header__title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.page-header__subtitle {
+    font-size: 1.6rem;
+    color: #666;
+}
+
+.about-content {
+    padding: 80px 0;
+}
+
+.container2 {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.about-table tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.about-table tr:first-child {
+    border-top: 1px solid #e0e0e0;
+}
+
+.about-table th {
+    width: 25%;
+    padding: 30px;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 500;
+    background-color: #f9f9f9;
+}
+
+.about-table td {
+    padding: 30px;
+    line-height: 1.8;
+}
+
+.about-table ul,
+.about-table ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-table li {
+    margin-bottom: 10px;
+}
+
+.about-table li:last-child {
+    margin-bottom: 0;
+}
+
+.about-table a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.about-table a:hover {
+    color: #004999;
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .page-header {
+        height: 180px;
+        margin-top: 60px;
+    }
+
+    .page-header__title {
+        font-size: 3rem;
+    }
+
+    .about-content {
+        padding: 40px 0;
+    }
+
+    .about-table,
+    .about-table tbody,
+    .about-table tr,
+    .about-table th,
+    .about-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .about-table th {
+        padding: 15px;
+    }
+
+    .about-table td {
+        padding: 15px;
+    }
+}

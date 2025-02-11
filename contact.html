@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 株式会社</title>
+    <meta name="description" content="株式会社アニメツーリズムへのお問い合わせはこちらから。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html">
+                    <img src="animetourism_logo2.jpg" alt="株式会社アニメツーリズム" class="header__logo-img">
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li>
+                        <a href="aboutus.html">私たちについて</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#member">メンバー紹介</a></li>
+                            <li><a href="#recruit">採用情報</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="business.html">事業内容</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#jam">JapanAnimeMaps</a></li>
+                            <li><a href="#development">受託開発</a></li>
+                            <li><a href="#other">その他の事業</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news.html">ニュース</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#news-info">お知らせ</a></li>
+                            <li><a href="#voices">お客様からのお声</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="recruit.html">採用情報</a>
+                    </li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="page-header">
+            <div class="page-header__inner">
+                <h2 class="page-header__title">Contact Us</h2>
+                <p class="page-header__subtitle">お問い合わせ</p>
+            </div>
+        </div>
+
+        <div class="contact-content">
+            <div class="container3">
+                <p class="contact-lead">お問い合せはメールでお待ちしております</p>
+                <p class="contact-description">
+                    弊社のサービス・商品に関するお問合せ、ご相談、お見積もりのご依頼等は、下記にて承ります。<br>
+                    お問合せ内容を確認させていただきまして、各担当よりメールにてご連絡させていただきます。
+                </p>
+
+                <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="company" class="form-label required">会社名</label>
+                        <input type="text" id="company" name="company" class="form-input" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lastname" class="form-label required">姓</label>
+                            <input type="text" id="lastname" name="lastname" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname" class="form-label required">名</label>
+                            <input type="text" id="firstname" name="firstname" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label required">メールアドレス</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">電話番号</label>
+                        <input type="tel" id="phone" name="phone" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label required">メッセージ</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+
+                    <div class="form-privacy">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="privacy" required>
+                            <span class="checkbox-label">プライバシーポリシーに同意する</span>
+                        </label>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="submit-button">送信する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <a href="index.html">
+                    <img src="animetourism_logo2.jpg" alt="株式会社アニメツーリズム" class="footer__logo-img">
+                    </a>
+                    <p>〒150-0043<br>東京都渋谷区道玄坂1丁目10番8号渋谷道玄坂東急ビル2F-C</p>
+                </div>
+                <nav class="footer__nav">
+                    <ul>
+                        <li><a href="aboutus.html">私たちについて</a></li>
+                        <li><a href="business.html">事業内容</a></li>
+                        <li><a href="news.html">ニュース</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                        <li><a href="/privacy">プライバシーポリシー</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <p class="footer__copyright">&copy; 2024 Anime Tourism Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

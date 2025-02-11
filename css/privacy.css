@@ -1,0 +1,90 @@
+/* Privacy Policy page styles */
+.container4 {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Header styles */
+.privacy-header {
+    margin-bottom: 40px;
+}
+
+.privacy-header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.privacy-header h2 {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Introduction text styles */
+.privacy-intro {
+    margin-bottom: 60px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Policy section styles */
+.policy-section {
+    margin-bottom: 40px;
+}
+
+.policy-section h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.policy-content {
+    font-size: 14px;
+}
+
+/* Policy item styles */
+.policy-item {
+    margin-bottom: 24px;
+}
+
+.policy-item h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.policy-item h4::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+.policy-item p {
+    padding-left: 20px;
+    margin-bottom: 16px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+    
+    .privacy-header h1 {
+        font-size: 28px;
+    }
+    
+    .privacy-header h2 {
+        font-size: 16px;
+    }
+    
+    .policy-section h3 {
+        font-size: 20px;
+    }
+}
