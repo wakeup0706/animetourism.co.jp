@@ -8,101 +8,94 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
 </head>
 <body>
-    <!DOCTYPE html>
-    <html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AnimeTourism Inc. | 株式会社アニメツーリズム</title>
-    </head>
-    <body>
-        <header class="header">
-            <div class="header__inner">
-                <h1 class="header__logo">
-                    <a href="index.html">
-                        <img src="animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
-                    </a>
-                </h1>
-                <nav class="header__nav">
-                    <ul class="header__nav-list">
-                        <li class="header__nav-item has-dropdown">
-                            <a href="business.html" class="header__nav-link">事業内容</a>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-menu__list">
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">JapanAnimeMapsの開発・運営 →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="/about-subscription" class="dropdown-menu__link">地域活性化事業の企画・運営 →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="/why-choose-us" class="dropdown-menu__link">受託開発事業 →</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                            <li class="header__nav-item has-dropdown">
-                            <a href="news.html" class="header__nav-link">お知らせ</a>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-menu__list">
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">当社からの最新情報 →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">お客様より →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="https://note.com/japananimemaps" class="dropdown-menu__link">公式note →</a>
-                                    </li>
-                                    </ul>
-                            </div>
-                        </li>
-                        <li class="header__nav-item has-dropdown">
-                            <a href="recruit.html" class="header__nav-link">採用情報</a>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-menu__list">
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">新卒採用 →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">中途採用 →</a>
-                                    </li>
-                                    </ul>
-                            </div>
-                        </li>
-                        <li class="header__nav-item has-dropdown">
-                            <a href="aboutus.html" class="header__nav-link">企業情報</a>
-                            <div class="dropdown-menu">
-                                <ul class="dropdown-menu__list">
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">私たちについて →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">企業理念 →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">会社概要 →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">メンバー紹介 →</a>
-                                    </li>
-                                    <li class="dropdown-menu__item">
-                                        <a href="/concept" class="dropdown-menu__link">採用情報 →</a>
-                                    </li>
-                                    </ul>
-                            </div>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="contact.html" class="header__nav-link header__nav-link--contact">お問い合わせ</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    </body>
-    </html>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html">
+                    <img src="animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item has-dropdown">
+                        <a href="business.html" class="header__nav-link">事業内容</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">JapanAnimeMapsの開発・運営 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/about-subscription" class="dropdown-menu__link">地域活性化事業の企画・運営 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/why-choose-us" class="dropdown-menu__link">受託開発事業 →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="news.html" class="header__nav-link">お知らせ</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">当社からの最新情報 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">お客様より →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="https://note.com/japananimemaps" class="dropdown-menu__link">公式note →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="recruit.html" class="header__nav-link">採用情報</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">新卒採用 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">中途採用 →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="aboutus.html" class="header__nav-link">企業情報</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">私たちについて →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">企業理念 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">会社概要 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">メンバー紹介 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">採用情報 →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link header__nav-link--contact">お問い合わせ</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <main>
         <section class="hero">
             <div class="hero__inner">
@@ -112,7 +105,8 @@
                         IT×アニメツーリズムで<br>
                         世の中の消費者行動を変える。
                     </span>
-                </h2>テクノロジーを活用し、世界中の人々に新しい消費行動の選択肢を提供し、<br>普及されていない新しい概念を浸透させる。</p>
+                </h2>
+                <p class="hero__text">テクノロジーを活用し、世界中の人々に新しい消費行動の選択肢を提供し、<br>普及されていない新しい概念を浸透させる。</p>
                 <p class="hero__text">私たちは、アニメファンと地域をつなぎ新しい観光の形を創造し続けます。</p>
                 <div class="hero__stats">
                     <p class="stats__item">AppStoreの平均レビュー <strong>4.3</strong>！ ※1</p>
@@ -121,7 +115,7 @@
                 </div>
             </div>
             <div class="hero__container">
-                <img src="apps_icon.png" alt="JapanAnimeMaps" class="hero__image">
+                <div id="heroSlideshow"></div>
             </div>
         </section>
 
@@ -203,6 +197,7 @@
                             </p>
                         </div>
                     </div>
+                </div>
                 <div class="works__action">
                     <a href="#more-works" class="button">開発実績一覧へ →</a>
                 </div>
@@ -283,5 +278,73 @@
             <p class="footer__copyright">© 2024 AnimeTourism Inc.</p>
         </div>
     </footer>
+
+    <!-- React Slideshow Component Script -->
+    <script type="text/javascript">
+        const HeroSlideshow = () => {
+            const [currentSlide, setCurrentSlide] = React.useState(0);
+            
+            const images = [
+                { src: "apps_icon.png", alt: "JapanAnimeMaps 1" },
+                { src: "news1.png", alt: "JapanAnimeMaps 2" },
+                { src: "test_pic1.jpeg", alt: "JapanAnimeMaps 3" }
+            ];
+
+            React.useEffect(() => {
+                const timer = setInterval(() => {
+                    setCurrentSlide((prevSlide) => 
+                        prevSlide === images.length - 1 ? 0 : prevSlide + 1
+                    );
+                }, 3000);
+
+                return () => clearInterval(timer);
+            }, []);
+
+            return React.createElement(
+                'div',
+                { className: 'relative w-full h-full' },
+                [
+                    images.map((image, index) => 
+                        React.createElement(
+                            'div',
+                            {
+                                key: index,
+                                className: `absolute inset-0 transition-opacity duration-1000 ${
+                                    index === currentSlide ? 'opacity-100' : 'opacity-0'
+                                }`
+                            },
+                            React.createElement('img', {
+                                src: image.src,
+                                alt: image.alt,
+                                className: 'w-full h-full object-cover'
+                            })
+                        )
+                    ),
+                    React.createElement(
+                        'div',
+                        {
+                            className: 'absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2'
+                        },
+                        images.map((_, index) =>
+                            React.createElement('button', {
+                                key: index,
+                                className: `w-2 h-2 rounded-full transition-colors duration-300 ${
+                                    index === currentSlide ? 'bg-primary' : 'bg-gray-300'
+                                }`,
+                                onClick: () => setCurrentSlide(index),
+                                'aria-label': `Go to slide ${index + 1}`
+                            })
+                        )
+                    )
+                ]
+            );
+        };
+
+        // React要素をマウントする
+        const container = document.getElementById('heroSlideshow');
+        if (container) {
+            ReactDOM.render(React.createElement(HeroSlideshow), container);
+        }
+    </script>
 </body>
 </html>
