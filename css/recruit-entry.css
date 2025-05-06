@@ -1,0 +1,355 @@
+/* エントリーフォーム専用CSS */
+
+.entry-form-section {
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 80px;
+    background-color: #f9fafb;
+}
+
+.entry-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.entry-description {
+    margin-bottom: 40px;
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+.entry-note {
+    background-color: #fff8e1;
+    border-left: 4px solid var(--yellow-accent);
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.entry-note i {
+    color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.required-mark {
+    color: var(--primary-color);
+    margin-left: 5px;
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+}
+
+.form-section {
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 30px;
+    padding-bottom: 0;
+}
+
+.form-section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    padding-left: 15px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.form-group.half {
+    width: 50%;
+}
+
+.form-label {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(228, 64, 95, 0.2);
+    outline: none;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.input-help {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+/* ラジオボタンスタイル */
+.radio-group {
+    display: flex;
+    gap: 30px;
+    margin-top: 5px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* セレクトボックススタイル */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.form-select {
+    padding-right: 30px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath fill='%236B7280' d='M5 6L0 .75 1.5 0 5 3.75 8.5 0 10 .75z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    min-width: 120px;
+}
+
+/* ファイルアップロードスタイル */
+.file-upload {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-label {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: var(--primary-dark);
+}
+
+.file-name {
+    margin-left: 15px;
+    font-size: 1.4rem;
+    color: var(--text-light);
+}
+
+.file-name.has-file {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* 文字数カウンター */
+.char-count {
+    text-align: right;
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.char-count .warn {
+    color: var(--primary-color);
+}
+
+/* プライバシーポリシー */
+.privacy-policy {
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.privacy-policy p {
+    margin-bottom: 15px;
+}
+
+.privacy-policy ol {
+    padding-left: 20px;
+}
+
+.privacy-policy li {
+    margin-bottom: 10px;
+}
+
+/* チェックボックススタイル */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    user-select: none;
+}
+
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+}
+
+.checkbox-label:hover input ~ .checkmark {
+    border-color: var(--primary-color);
+}
+
+.checkbox-label input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-label .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* 送信ボタン */
+.form-submit {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.submit-button {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 15px 60px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(228, 64, 95, 0.3);
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(228, 64, 95, 0.4);
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+}
+
+/* レスポンシブスタイル */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-group.half {
+        width: 100%;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .file-upload {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .file-name {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+    
+    .submit-button {
+        width: 100%;
+    }
+}

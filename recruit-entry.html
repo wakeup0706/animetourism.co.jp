@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エントリーフォーム | AnimeTourism新卒採用</title>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/recruit-more.css">
+    <link rel="stylesheet" href="css/recruit-entry.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="index.html" class="header__logo">
+                <img src="/api/placeholder/150/40" alt="AnimeTourism" class="header__logo-img">
+            </a>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">
+                            <i class="nav-icon fas fa-home"></i>ホーム
+                        </a>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="#" class="header__nav-link">サービス</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="#" class="dropdown-menu__link">アニメツーリズム</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="#" class="dropdown-menu__link">地域活性化</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="#" class="dropdown-menu__link">コンテンツ制作</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">事例</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link">会社概要</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="#" class="header__nav-link header__nav-link--contact">採用情報</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Entry Form Section -->
+    <section class="entry-form-section">
+        <div class="container">
+            <div class="recruit-breadcrumb">
+                <span>新卒採用</span> / <span>アニメツーリズムプランナー</span> / <span>エントリー</span>
+            </div>
+            <h1 class="entry-title">エントリーフォーム</h1>
+            
+            <div class="entry-description">
+                <p>AnimeTourismの新卒採用にご興味をお持ちいただき、ありがとうございます。<br>以下のフォームに必要事項をご入力の上、エントリーください。</p>
+                <div class="entry-note">
+                    <p><i class="fas fa-exclamation-circle"></i> 必須項目は<span class="required-mark">*</span>マークがついています。</p>
+                    <p><i class="fas fa-file-upload"></i> 提出書類（履歴書、成績証明書、志望動機書）は「ファイル選択」ボタンからアップロードしてください。</p>
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <form class="entry-form" action="#" method="post" enctype="multipart/form-data">
+                    <div class="form-section">
+                        <h2 class="form-section-title">基本情報</h2>
+                        
+                        <div class="form-group">
+                            <label for="entry_type" class="form-label">エントリー種別<span class="required-mark">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="entry_type" value="new_graduate" checked> 新卒（2026年4月入社）
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="entry_type" value="early_entry"> 早期入社（2025年10月入社）
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="last_name" class="form-label">姓<span class="required-mark">*</span></label>
+                                <input type="text" id="last_name" name="last_name" class="form-input" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="first_name" class="form-label">名<span class="required-mark">*</span></label>
+                                <input type="text" id="first_name" name="first_name" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="last_name_kana" class="form-label">セイ（カタカナ）<span class="required-mark">*</span></label>
+                                <input type="text" id="last_name_kana" name="last_name_kana" class="form-input" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="first_name_kana" class="form-label">メイ（カタカナ）<span class="required-mark">*</span></label>
+                                <input type="text" id="first_name_kana" name="first_name_kana" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">メールアドレス<span class="required-mark">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <p class="input-help">※確認メールをお送りしますので、正確にご入力ください</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">電話番号<span class="required-mark">*</span></label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                            <p class="input-help">※ハイフン（-）なしで入力してください</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2 class="form-section-title">学歴情報</h2>
+                        
+                        <div class="form-group">
+                            <label for="university" class="form-label">大学名<span class="required-mark">*</span></label>
+                            <input type="text" id="university" name="university" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="faculty" class="form-label">学部<span class="required-mark">*</span></label>
+                                <input type="text" id="faculty" name="faculty" class="form-input" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="department" class="form-label">学科<span class="required-mark">*</span></label>
+                                <input type="text" id="department" name="department" class="form-input" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="graduation_date" class="form-label">卒業予定年月<span class="required-mark">*</span></label>
+                            <div class="select-wrapper">
+                                <select id="graduation_year" name="graduation_year" class="form-select" required>
+                                    <option value="" disabled selected>--年--</option>
+                                    <option value="2025">2025年</option>
+                                    <option value="2026">2026年</option>
+                                </select>
+                            </div>
+                            <div class="select-wrapper">
+                                <select id="graduation_month" name="graduation_month" class="form-select" required>
+                                    <option value="" disabled selected>--月--</option>
+                                    <option value="3">3月</option>
+                                    <option value="9">9月</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2 class="form-section-title">提出書類</h2>
+                        
+                        <div class="form-group">
+                            <label class="form-label">履歴書<span class="required-mark">*</span></label>
+                            <div class="file-upload">
+                                <input type="file" id="resume" name="resume" class="file-input" required>
+                                <label for="resume" class="file-label">
+                                    <i class="fas fa-upload"></i> ファイルを選択
+                                </label>
+                                <span class="file-name">選択されていません</span>
+                            </div>
+                            <p class="input-help">※PDF形式、5MB以内</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">成績証明書<span class="required-mark">*</span></label>
+                            <div class="file-upload">
+                                <input type="file" id="transcript" name="transcript" class="file-input" required>
+                                <label for="transcript" class="file-label">
+                                    <i class="fas fa-upload"></i> ファイルを選択
+                                </label>
+                                <span class="file-name">選択されていません</span>
+                            </div>
+                            <p class="input-help">※PDF形式、5MB以内</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">志望動機書（A4・1枚）<span class="required-mark">*</span></label>
+                            <div class="file-upload">
+                                <input type="file" id="motivation" name="motivation" class="file-input" required>
+                                <label for="motivation" class="file-label">
+                                    <i class="fas fa-upload"></i> ファイルを選択
+                                </label>
+                                <span class="file-name">選択されていません</span>
+                            </div>
+                            <p class="input-help">※PDF形式、5MB以内</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2 class="form-section-title">自己PR</h2>
+                        
+                        <div class="form-group">
+                            <label for="question1" class="form-label">あなたのアニメや漫画などのコンテンツに関する経験や興味について教えてください（400字以内）<span class="required-mark">*</span></label>
+                            <textarea id="question1" name="question1" class="form-textarea" rows="5" required></textarea>
+                            <p class="char-count"><span id="question1_count">0</span>/400文字</p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="question2" class="form-label">あなたが考える「アニメツーリズム」の可能性について、具体例を挙げて説明してください（400字以内）<span class="required-mark">*</span></label>
+                            <textarea id="question2" name="question2" class="form-textarea" rows="5" required></textarea>
+                            <p class="char-count"><span id="question2_count">0</span>/400文字</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2 class="form-section-title">個人情報の取り扱いについて</h2>
+                        
+                        <div class="privacy-policy">
+                            <p>AnimeTourism株式会社（以下、「当社」）は、お客様の個人情報を以下のとおり取り扱います。</p>
+                            <ol>
+                                <li>個人情報の利用目的<br>採用選考及び採用に関する手続きのため</li>
+                                <li>個人情報の第三者提供<br>法令に基づく場合を除き、ご本人の同意なく第三者に提供することはありません</li>
+                                <li>個人情報の取り扱いの委託<br>当社は事業運営上、業務の一部を外部に委託しており、業務委託先に対して、必要な範囲で個人情報を委託する場合があります</li>
+                                <li>個人情報の開示・訂正・削除<br>ご本人からの求めにより、当社が保有する個人情報の開示・訂正・削除等に応じます</li>
+                                <li>個人情報を与えることの任意性<br>個人情報のご提供は任意ですが、必要な情報をご提供いただけない場合は、選考を行えない場合があります</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy_agreement" id="privacy_agreement" required>
+                                <span class="checkmark"></span>
+                                上記の個人情報の取り扱いについて同意します<span class="required-mark">*</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="submit-button">エントリーする</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <a href="/" class="footer__logo">
+                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+                    </a>
+                    <p class="footer__address">
+                        〒150-0043<br>
+                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
+                    </p>
+                    <!-- ソーシャルリンク -->
+                    <div class="footer__social">
+                        <a href="https://x.com/JapanAnimeMaps" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <nav class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <li><a href="business.html">事業内容</a></li>
+                        <li><a href="news.html">お知らせ</a></li>
+                        <li><a href="recruit.html">採用情報</a></li>
+                        <li><a href="aboutus.html">企業情報</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // File upload display
+            const fileInputs = document.querySelectorAll('.file-input');
+            fileInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    const fileName = this.files[0] ? this.files[0].name : '選択されていません';
+                    const fileNameElement = this.parentElement.querySelector('.file-name');
+                    fileNameElement.textContent = fileName;
+                    
+                    if (this.files[0]) {
+                        fileNameElement.classList.add('has-file');
+                    } else {
+                        fileNameElement.classList.remove('has-file');
+                    }
+                });
+            });
+            
+            // Character counter
+            const textareas = document.querySelectorAll('.form-textarea');
+            textareas.forEach(textarea => {
+                const counterId = textarea.id + '_count';
+                const counter = document.getElementById(counterId);
+                
+                textarea.addEventListener('input', function() {
+                    const count = this.value.length;
+                    counter.textContent = count;
+                    
+                    if (count > 400) {
+                        this.value = this.value.substring(0, 400);
+                        counter.textContent = 400;
+                    }
+                    
+                    if (count > 350) {
+                        counter.classList.add('warn');
+                    } else {
+                        counter.classList.remove('warn');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
