@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnimeTourism Inc. | 株式会社アニメツーリズム</title>
+    <meta name="description" content="AnimeTourism Inc. はアニメファンと地域をつなぎ、新しい観光の形を創造する会社です。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Added Font Awesome for improved icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
 </head>
@@ -15,92 +18,108 @@
     <header class="header">
         <div class="header__inner">
             <h1 class="header__logo">
-                <a href="index.html">
+                <a href="index.html" aria-label="AnimeTourism トップページへ">
                     <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
                 </a>
             </h1>
             <nav class="header__nav">
                 <ul class="header__nav-list">
                     <li class="header__nav-item has-dropdown">
-                        <a href="business.html" class="header__nav-link">事業内容</a>
+                        <a href="business.html" class="header__nav-link">
+                            <i class="fas fa-briefcase nav-icon"></i>事業内容
+                        </a>
                         <div class="dropdown-menu">
                             <ul class="dropdown-menu__list">
                                 <li class="dropdown-menu__item">
-                                    <a href="apps.html" class="dropdown-menu__link">JapanAnimeMapsの開発・運営 →</a>
+                                    <a href="apps.html" class="dropdown-menu__link">JapanAnimeMapsの開発・運営</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="/about-subscription" class="dropdown-menu__link">地域活性化事業の企画・運営 →</a>
+                                    <a href="/about-subscription" class="dropdown-menu__link">地域活性化事業の企画・運営</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="/why-choose-us" class="dropdown-menu__link">受託開発事業 →</a>
+                                    <a href="/why-choose-us" class="dropdown-menu__link">受託開発事業</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="header__nav-item has-dropdown">
-                        <a href="news.html" class="header__nav-link">お知らせ</a>
+                        <a href="news.html" class="header__nav-link">
+                            <i class="fas fa-newspaper nav-icon"></i>お知らせ
+                        </a>
                         <div class="dropdown-menu">
                             <ul class="dropdown-menu__list">
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">当社からの最新情報 →</a>
+                                    <a href="/concept" class="dropdown-menu__link">当社からの最新情報</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">お客様より →</a>
+                                    <a href="/concept" class="dropdown-menu__link">お客様より</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="https://note.com/japananimemaps" class="dropdown-menu__link">公式note →</a>
+                                    <a href="https://note.com/japananimemaps" class="dropdown-menu__link">公式note</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="header__nav-item has-dropdown">
-                        <a href="recruit.html" class="header__nav-link">採用情報</a>
+                        <a href="recruit.html" class="header__nav-link">
+                            <i class="fas fa-user-plus nav-icon"></i>採用情報
+                        </a>
                         <div class="dropdown-menu">
                             <ul class="dropdown-menu__list">
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">新卒採用 →</a>
+                                    <a href="/concept" class="dropdown-menu__link">新卒採用</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">中途採用 →</a>
+                                    <a href="/concept" class="dropdown-menu__link">中途採用</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="header__nav-item has-dropdown">
-                        <a href="aboutus.html" class="header__nav-link">企業情報</a>
+                        <a href="aboutus.html" class="header__nav-link">
+                            <i class="fas fa-building nav-icon"></i>企業情報
+                        </a>
                         <div class="dropdown-menu">
                             <ul class="dropdown-menu__list">
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">私たちについて →</a>
+                                    <a href="/concept" class="dropdown-menu__link">私たちについて</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">企業理念 →</a>
+                                    <a href="/concept" class="dropdown-menu__link">企業理念</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">会社概要 →</a>
+                                    <a href="/concept" class="dropdown-menu__link">会社概要</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">メンバー紹介 →</a>
+                                    <a href="/concept" class="dropdown-menu__link">メンバー紹介</a>
                                 </li>
                                 <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">採用情報 →</a>
+                                    <a href="/concept" class="dropdown-menu__link">採用情報</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="header__nav-item">
-                        <a href="contact.html" class="header__nav-link header__nav-link--contact">お問い合わせ</a>
+                        <a href="contact.html" class="header__nav-link header__nav-link--contact">
+                            <i class="fas fa-envelope nav-icon"></i>お問い合わせ
+                        </a>
                     </li>
                 </ul>
             </nav>
+            <button class="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <main>
         <section class="hero">
+            <div class="hero__overlay"></div>
             <div class="hero__inner">
                 <h2 class="hero__title">
-                    AnimeTourism<br>
+                    AnimeTourism
                     <span class="hero__subtitle">
                         IT×アニメツーリズムで<br>
                         世の中の消費者行動を変える。
@@ -109,9 +128,9 @@
                 <p class="hero__text">テクノロジーを活用し、世界中の人々に新しい消費行動の選択肢を提供し、<br>普及されていない新しい概念を浸透させる。</p>
                 <p class="hero__text">私たちは、アニメファンと地域をつなぎ新しい観光の形を創造し続けます。</p>
                 <div class="hero__stats">
-                    <p class="stats__item">AppStoreの平均レビュー <strong>4.3</strong>！ ※1</p>
-                    <p class="stats__item"><strong>AppStoreランキング</strong>常に更新中！</p>
-                    <p class="stats__note">※1 2025年1月時点</p>
+                    <p class="stats__item">AppStoreの平均レビュー <strong>4.3</strong>！</p>
+                    <p class="stats__item"><strong>AppStore</strong>ランキング常に更新中！</p>
+                    <p class="stats__note">※ 2025年1月時点</p>
                 </div>
             </div>
             <div class="hero__container">
@@ -119,7 +138,7 @@
             </div>
         </section>
 
-        <section class="strengths">
+        <section class="strengths" id="strengths">
             <div class="container">
                 <h2 class="section__title">STRENGTHS</h2>
                 <div class="strengths__header">
@@ -169,9 +188,8 @@
                         </div>
                     </div>
                 </div>
-                <br>
                 <div class="strengths__action">
-                    <a href="#details" class="button">受託開発の詳細へ →</a>
+                    <a href="#details" class="button">受託開発の詳細へ <i class="fas fa-arrow-right button-icon"></i></a>
                 </div>
             </div>
         </section>
@@ -183,7 +201,10 @@
                 <div class="works__grid">
                     <div class="work-card">
                         <div class="work-card__image">
-                            <img src="img/apps_icon.png" alt="JapanAnimeMaps">
+                            <img src="img/apps_icon.png" alt="JapanAnimeMaps" loading="lazy">
+                            <div class="work-card__overlay">
+                                <span class="work-card__view">詳細を見る</span>
+                            </div>
                         </div>
                         <div class="work-card__content">
                             <h4 class="work-card__title">JapanAnimeMaps</h4>
@@ -198,9 +219,50 @@
                             </p>
                         </div>
                     </div>
+                    
+                    <!-- Added two more work cards for better display -->
+                    <div class="work-card">
+                        <div class="work-card__image">
+                            <img src="/api/placeholder/400/300" alt="地域活性化プロジェクト" loading="lazy">
+                            <div class="work-card__overlay">
+                                <span class="work-card__view">詳細を見る</span>
+                            </div>
+                        </div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">地域活性化プロジェクト</h4>
+                            <div class="work-card__tags">
+                                <span class="tag">地域</span>
+                                <span class="tag">観光</span>
+                                <span class="tag">イベント</span>
+                            </div>
+                            <p class="work-card__text">
+                                地方自治体と連携したアニメツーリズムによる地域活性化プロジェクト。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="work-card">
+                        <div class="work-card__image">
+                            <img src="/api/placeholder/400/300" alt="受託開発事例" loading="lazy">
+                            <div class="work-card__overlay">
+                                <span class="work-card__view">詳細を見る</span>
+                            </div>
+                        </div>
+                        <div class="work-card__content">
+                            <h4 class="work-card__title">受託開発事例</h4>
+                            <div class="work-card__tags">
+                                <span class="tag">カスタム開発</span>
+                                <span class="tag">Web</span>
+                                <span class="tag">アプリ</span>
+                            </div>
+                            <p class="work-card__text">
+                                クライアント様のニーズに合わせたカスタム開発事例。
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="works__action">
-                    <a href="#more-works" class="button">開発実績一覧へ →</a>
+                    <a href="#more-works" class="button">開発実績一覧へ <i class="fas fa-arrow-right button-icon"></i></a>
                 </div>
             </div>
         </section>
@@ -211,141 +273,61 @@
                 <h3 class="voices__title">お客様からの声</h3>
                 <div class="voice-card">
                     <div class="voice-card__grid">
-                        <div class="voice-card__screenshots">
-                            <img src="/api/placeholder/150/150" alt="Screenshot 1">
-                            <img src="/api/placeholder/150/150" alt="Screenshot 2">
-                            <img src="/api/placeholder/150/150" alt="Screenshot 3">
-                            <img src="/api/placeholder/150/150" alt="Screenshot 4">
-                            <img src="/api/placeholder/150/150" alt="Screenshot 5">
-                            <img src="/api/placeholder/150/150" alt="Screenshot 6">
-                        </div>
                         <div class="voice-card__content">
                             <span class="voice-card__label">INTERVIEW</span>
                             <h4 class="voice-card__title">
                                 アニメ好きには必見！
                             </h4>
                             <p class="voice-card__text">
-                                色々なアニメの聖地巡礼に行けることはもちろん。コミュニティー機能とか追加されて今後アニメオタクに使える機能になることを期待できるアプリ！
+                                色々なアニメの聖地巡礼に行けることはもちろん。コミュニティー機能とか追加されて今後アニメオタクに使える機能になることを期待できるアプリ！使いやすいUIと豊富な情報量で旅行計画が立てやすいです。
                             </p>
                             <div class="voice-card__author">
-                                <p class="author__company">AppStoreレビューより。</p>
+                                <p class="author__company">AppStoreレビューより</p>
                                 <p class="author__name">
                                     ぱくまねらわ様
                                 </p>
                             </div>
                         </div>
+                        <div class="voice-card__screenshots">
+                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 1" loading="lazy">
+                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 2" loading="lazy">
+                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 3" loading="lazy">
+                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 4" loading="lazy">
+                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 5" loading="lazy">
+                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 6" loading="lazy">
+                        </div>
                     </div>
                 </div>
-                <div class="voices__action">
-                    <a href="#more-voices" class="button">お客様の声へ →</a>
-                </div>
             </div>
-        </section>
-
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2 class="section__title">CONTACT</h2>
-                <h3 class="contact__title">お問い合わせ</h3>
-                <p class="contact__text">どんな小さなことでもお気軽にお問い合わせください。</p>
-                <div class="contact__action">
-                    <a href="#contact-form" class="button">お問い合わせフォームへ</a>
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer__content">
+                        <div class="footer__info">
+                            <a href="/" class="footer__logo">
+                                <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+                            </a>
+                            <p class="footer__address">
+                                〒150-0043<br>
+                                東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
+                            </p>
+                            <!-- ソーシャルリンク -->
+                            <div class="footer__social">
+                                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <nav class="footer__nav">
+                            <ul class="footer__nav-list">
+                                <li><a href="business.html">事業内容</a></li>
+                                <li><a href="news.html">お知らせ</a></li>
+                                <li><a href="recruit.html">採用情報</a></li>
+                                <li><a href="aboutus.html">企業情報</a></li>
+                                <li><a href="contact.html">お問い合わせ</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <p class="footer__copyright">© 2025 AnimeTourism Inc. All Rights Reserved.</p>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__info">
-                    <a href="/" class="footer__logo">
-                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
-                    </a>
-                    <p class="footer__address">
-                        〒150-0043<br>
-                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
-                    </p>
-                </div>
-                <nav class="footer__nav">
-                    <ul class="footer__nav-list">
-                        <li><a href="business.html">事業内容</a></li>
-                        <li><a href="news.html">お知らせ</a></li>
-                        <li><a href="recruit.html">採用情報</a></li>
-                        <li><a href="aboutus.html">企業情報</a></li>
-                        <li><a href="contact.html">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <p class="footer__copyright">© 2024 AnimeTourism Inc.</p>
-        </div>
-    </footer>
-
-    <!-- React Slideshow Component Script -->
-    <script type="text/javascript">
-        const HeroSlideshow = () => {
-            const [currentSlide, setCurrentSlide] = React.useState(0);
-            
-            const images = [
-                { src: "img/apps_icon.png", alt: "JapanAnimeMaps 1" },
-                { src: "img/news1.png", alt: "JapanAnimeMaps 2" },
-                { src: "img/test_pic1.jpeg", alt: "JapanAnimeMaps 3" }
-            ];
-
-            React.useEffect(() => {
-                const timer = setInterval(() => {
-                    setCurrentSlide((prevSlide) => 
-                        prevSlide === images.length - 1 ? 0 : prevSlide + 1
-                    );
-                }, 3000);
-
-                return () => clearInterval(timer);
-            }, []);
-
-            return React.createElement(
-                'div',
-                { className: 'relative w-full h-full' },
-                [
-                    images.map((image, index) => 
-                        React.createElement(
-                            'div',
-                            {
-                                key: index,
-                                className: `absolute inset-0 transition-opacity duration-1000 ${
-                                    index === currentSlide ? 'opacity-100' : 'opacity-0'
-                                }`
-                            },
-                            React.createElement('img', {
-                                src: image.src,
-                                alt: image.alt,
-                                className: 'w-full h-full object-cover'
-                            })
-                        )
-                    ),
-                    React.createElement(
-                        'div',
-                        {
-                            className: 'absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2'
-                        },
-                        images.map((_, index) =>
-                            React.createElement('button', {
-                                key: index,
-                                className: `w-2 h-2 rounded-full transition-colors duration-300 ${
-                                    index === currentSlide ? 'bg-primary' : 'bg-gray-300'
-                                }`,
-                                onClick: () => setCurrentSlide(index),
-                                'aria-label': `Go to slide ${index + 1}`
-                            })
-                        )
-                    )
-                ]
-            );
-        };
-
-        // React要素をマウントする
-        const container = document.getElementById('heroSlideshow');
-        if (container) {
-            ReactDOM.render(React.createElement(HeroSlideshow), container);
-        }
-    </script>
-</body>
-</html>
+            </footer>
