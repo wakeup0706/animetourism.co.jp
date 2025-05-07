@@ -669,6 +669,62 @@ a {
     color: var(--text-light);
 }
 
+
+/* 受託開発の詳細へボタンを中央配置するためのスタイル */
+.strengths__action {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ボタンの改良スタイル */
+.strengths__action .button {
+    padding: 16px 48px;
+    font-size: 1.7rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px rgba(228, 64, 95, 0.2);
+}
+
+.strengths__action .button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(228, 64, 95, 0.3);
+}
+
+/* クリック時のアニメーション効果 */
+.strengths__action .button:active {
+    transform: translateY(2px);
+}
+
+/* ボタンのアイコンのアニメーション */
+.strengths__action .button-icon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.strengths__action .button:hover .button-icon {
+    transform: translateX(8px);
+}
+
+/* ボタンのフォーカス状態 */
+.strengths__action .button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(228, 64, 95, 0.3), 0 10px 25px rgba(228, 64, 95, 0.2);
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .strengths__action .button {
+        padding: 14px 36px;
+        font-size: 1.5rem;
+    }
+}
+
 /* Works Section Enhancement */
 .works {
     padding: 120px 0;
@@ -1203,6 +1259,63 @@ a {
     padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* サイトマップなどのリンクスタイル */
+.footer__links {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.footer__links-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.footer__links-item {
+    position: relative;
+}
+
+.footer__links-item:not(:last-child)::after {
+    content: '|';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1.2rem;
+}
+
+.footer__links-link {
+    color: #A0AEC0;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footer__links-link:hover {
+    color: var(--primary-color);
+}
+
+/* モバイル対応 */
+@media (max-width: 576px) {
+    .footer__links-list {
+        gap: 10px;
+    }
+    
+    .footer__links-item:not(:last-child)::after {
+        right: -7px;
+    }
+    
+    .footer__links-link {
+        font-size: 1.2rem;
+    }
+}
+
 
 /* Scroll To Top Button */
 .scroll-to-top {

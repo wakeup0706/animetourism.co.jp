@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>受託開発サービス | AnimeTourism Inc.</title>
+    <meta name="description" content="AnimeTourism Inc.は、アニメツーリズムを活用したITソリューションの受託開発を提供しています。お客様のニーズに合わせた最適な開発サービスをご提案します。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contract-development.css">
+    <!-- Added Font Awesome for improved icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html" class="header__logo-link" aria-label="AnimeTourism トップページへ">
+                    <img src="img/animetourism_logo_min.png" alt="AnimeTourism" class="header__logo-img">
+                    <span class="header__title">AnimeTourism</span>
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item has-dropdown">
+                        <a href="business.html" class="header__nav-link">
+                            <i class="fas fa-briefcase nav-icon"></i>事業内容
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="apps.html" class="dropdown-menu__link">JapanAnimeMapsの開発・運営</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/about-subscription" class="dropdown-menu__link">地域活性化事業の企画・運営</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/why-choose-us" class="dropdown-menu__link">受託開発事業</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="news.html" class="header__nav-link">
+                            <i class="fas fa-newspaper nav-icon"></i>お知らせ
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">当社からの最新情報</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">お客様より</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="https://note.com/japananimemaps" class="dropdown-menu__link">公式note</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="recruit.html" class="header__nav-link">
+                            <i class="fas fa-user-plus nav-icon"></i>採用情報
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">新卒採用</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">中途採用</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="aboutus.html" class="header__nav-link">
+                            <i class="fas fa-building nav-icon"></i>企業情報
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">私たちについて</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">企業理念</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">会社概要</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">メンバー紹介</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">採用情報</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link header__nav-link--contact">
+                            <i class="fas fa-envelope nav-icon"></i>お問い合わせ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ヒーローセクション -->
+        <section class="cd-hero">
+            <div class="cd-hero__inner">
+                <div class="cd-hero__content">
+                    <h2 class="cd-hero__title">
+                        <span class="cd-hero__subtitle">AnimeTourismの</span>
+                        受託開発サービス
+                    </h2>
+                    <p class="cd-hero__text">
+                        アニメツーリズムの専門知識と最新技術を組み合わせた、<br>
+                        お客様だけのオーダーメイドソリューションをご提供します。
+                    </p>
+                    <div class="cd-hero__buttons">
+                        <a href="#service" class="cd-button cd-button--primary">サービス内容を見る</a>
+                        <a href="#contact" class="cd-button cd-button--outline">お問い合わせ</a>
+                    </div>
+                </div>
+                <div class="cd-hero__visual">
+                    <div class="cd-hero__image">
+                        <div class="cd-hero__shape"></div>
+                        <img src="img/zyutaku.gif" alt="受託開発イメージ" class="cd-hero__img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- サービス概要 -->
+        <section class="cd-overview" id="service">
+            <div class="container">
+                <h2 class="section__title">SERVICE</h2>
+                <h3 class="cd-overview__title">サービス概要</h3>
+                
+                <div class="cd-overview__content">
+                    <p class="cd-overview__text">
+                        AnimeTourismの受託開発サービスは、アニメファンと地域をつなぐデジタルソリューションを中心に、お客様のニーズに合わせた最適なITシステムを構築します。モバイルアプリ開発からウェブサイト制作、APIの構築まで、幅広い技術スタックと豊富な実績で、ビジネスの成長をサポートします。
+                    </p>
+                </div>
+                
+                <div class="cd-cards">
+                    <div class="cd-card">
+                        <div class="cd-card__icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="cd-card__title">モバイルアプリ開発</h4>
+                        <p class="cd-card__text">
+                            iOS/Androidに対応したネイティブアプリやクロスプラットフォームアプリの開発を行います。アニメファン向けの位置情報アプリやARアプリなど、ユーザー体験を高める機能を実装します。
+                        </p>
+                    </div>
+                    
+                    <div class="cd-card">
+                        <div class="cd-card__icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="cd-card__title">ウェブサイト制作</h4>
+                        <p class="cd-card__text">
+                            アニメツーリズム関連のウェブサイトやポータルサイトの制作を行います。レスポンシブデザインやSEO対策、CMS導入など、ビジネスニーズに合わせた最適なウェブソリューションを提供します。
+                        </p>
+                    </div>
+                    
+                    <div class="cd-card">
+                        <div class="cd-card__icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="cd-card__title">システム開発</h4>
+                        <p class="cd-card__text">
+                            ファン参加型のデータベース構築やポイントシステム、予約システムなどのバックエンド開発を行います。APIの設計・実装から、データ分析システムまで幅広く対応します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 強み -->
+        <section class="cd-strengths" id="strengths">
+            <div class="container">
+                <h2 class="section__title">STRENGTHS</h2>
+                <h3 class="cd-strengths__title">AnimeTourismの強み</h3>
+                
+                <div class="cd-strengths__list">
+                    <div class="cd-strength-item" data-number="01">
+                        <div class="cd-strength-item__content">
+                            <h4 class="cd-strength-item__title">
+                                アニメツーリズムの<br>専門知識と実績
+                            </h4>
+                            <p class="cd-strength-item__text">
+                                JapanAnimeMapsの開発・運営から得られた知見と4.3の高評価実績を活かし、アニメファンの行動特性やニーズを深く理解した開発が可能です。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-strength-item" data-number="02">
+                        <div class="cd-strength-item__content">
+                            <h4 class="cd-strength-item__title">
+                                専任のエンジニアによる<br>伴走型開発
+                            </h4>
+                            <p class="cd-strength-item__text">
+                                企画段階から専任のエンジニアがアサインされ、開発後もサポート。お客様のビジネスに寄り添った開発プロセスで、要件定義から保守運用までトータルサポートします。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-strength-item" data-number="03">
+                        <div class="cd-strength-item__content">
+                            <h4 class="cd-strength-item__title">
+                                地域活性化の<br>ノウハウ活用
+                            </h4>
+                            <p class="cd-strength-item__text">
+                                全国各地で展開する地域活性化プロジェクトの経験をもとに、オンラインとオフラインを融合させた、地域に根ざしたデジタルソリューションを提供します。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 開発フロー -->
+        <section class="cd-flow" id="flow">
+            <div class="container">
+                <h2 class="section__title">FLOW</h2>
+                <h3 class="cd-flow__title">開発の流れ</h3>
+                
+                <div class="cd-flow__steps">
+                    <div class="cd-flow-step">
+                        <div class="cd-flow-step__number">STEP 01</div>
+                        <div class="cd-flow-step__content">
+                            <h4 class="cd-flow-step__title">ヒアリング・企画提案</h4>
+                            <p class="cd-flow-step__text">
+                                お客様のビジネス課題やニーズをヒアリングし、最適なソリューションを企画提案します。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-flow-step">
+                        <div class="cd-flow-step__number">STEP 02</div>
+                        <div class="cd-flow-step__content">
+                            <h4 class="cd-flow-step__title">要件定義・設計</h4>
+                            <p class="cd-flow-step__text">
+                                プロジェクトの目標を明確にし、システム要件や技術的な仕様を決定します。UI/UXデザインも含めた設計を行います。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-flow-step">
+                        <div class="cd-flow-step__number">STEP 03</div>
+                        <div class="cd-flow-step__content">
+                            <h4 class="cd-flow-step__title">開発・テスト</h4>
+                            <p class="cd-flow-step__text">
+                                アジャイル開発手法を取り入れ、短いスパンでの進捗確認と調整を行いながら開発を進めます。品質保証のための入念なテストも実施します。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-flow-step">
+                        <div class="cd-flow-step__number">STEP 04</div>
+                        <div class="cd-flow-step__content">
+                            <h4 class="cd-flow-step__title">リリース・運用保守</h4>
+                            <p class="cd-flow-step__text">
+                                本番環境へのリリース後も、安定した運用のためのサポートと継続的な改善を行います。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 実績 -->
+        <section class="cd-works" id="works">
+            <div class="container">
+                <h2 class="section__title">WORKS</h2>
+                <h3 class="cd-works__title">開発実績</h3>
+                
+                <div class="cd-works__slider">
+                    <div class="cd-works__track" id="worksTrack">
+                        <div class="cd-work-item">
+                            <div class="cd-work-item__image">
+                                <img src="img/apps_icon.png" alt="JapanAnimeMaps" loading="lazy">
+                            </div>
+                            <div class="cd-work-item__content">
+                                <h4 class="cd-work-item__title">JapanAnimeMaps</h4>
+                                <div class="cd-work-item__tags">
+                                    <span class="cd-tag">iOS/Android</span>
+                                    <span class="cd-tag">位置情報</span>
+                                    <span class="cd-tag">ユーザー投稿</span>
+                                </div>
+                                <p class="cd-work-item__text">
+                                    アニメの聖地巡礼情報を提供するモバイルアプリ。位置情報とユーザー投稿機能を実装し、AppStoreで高評価を獲得。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="cd-work-item">
+                            <div class="cd-work-item__image">
+                                <img src="img/moe_sami.jpg" alt="地域活性化プロジェクト" loading="lazy">
+                            </div>
+                            <div class="cd-work-item__content">
+                                <h4 class="cd-work-item__title">地域活性化ポータル</h4>
+                                <div class="cd-work-item__tags">
+                                    <span class="cd-tag">Webサイト</span>
+                                    <span class="cd-tag">イベント</span>
+                                    <span class="cd-tag">地域連携</span>
+                                </div>
+                                <p class="cd-work-item__text">
+                                    地方自治体と連携したアニメツーリズムのポータルサイト。イベント情報や周辺観光地情報を統合的に提供。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="cd-work-item">
+                            <div class="cd-work-item__image">
+                                <img src="img/zyutaku.gif" alt="ポイント管理システム" loading="lazy">
+                            </div>
+                            <div class="cd-work-item__content">
+                                <h4 class="cd-work-item__title">ポイント管理システム</h4>
+                                <div class="cd-work-item__tags">
+                                    <span class="cd-tag">バックエンド</span>
+                                    <span class="cd-tag">API開発</span>
+                                    <span class="cd-tag">決済連携</span>
+                                </div>
+                                <p class="cd-work-item__text">
+                                    アニメ関連イベント参加やグッズ購入でポイントが貯まる会員システム。スマホアプリとの連携やキャンペーン機能も実装。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-works__controls">
+                        <button class="cd-works__arrow cd-works__arrow--prev" id="worksPrev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="cd-works__dots" id="worksDots"></div>
+                        <button class="cd-works__arrow cd-works__arrow--next" id="worksNext">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- お客様の声 -->
+        <section class="cd-testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section__title">VOICE</h2>
+                <h3 class="cd-testimonials__title">お客様の声</h3>
+                
+                <div class="cd-testimonials__list">
+                    <div class="cd-testimonial">
+                        <div class="cd-testimonial__quote">
+                            <i class="fas fa-quote-left cd-testimonial__icon"></i>
+                            <blockquote class="cd-testimonial__text">
+                                アニメツーリズムに特化した知見と技術力で、私たちが思い描いていた以上のアプリが完成しました。地元のアニメイベントとの連携機能が特に好評で、予想を上回る集客に繋がっています。
+                            </blockquote>
+                        </div>
+                        <div class="cd-testimonial__author">
+                            <p class="cd-testimonial__name">山田 太郎 様</p>
+                            <p class="cd-testimonial__position">地方自治体 観光振興課</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-testimonial">
+                        <div class="cd-testimonial__quote">
+                            <i class="fas fa-quote-left cd-testimonial__icon"></i>
+                            <blockquote class="cd-testimonial__text">
+                                要件定義から丁寧にヒアリングしていただき、こちらの要望を的確に形にしていただきました。開発後のサポートも手厚く、安心して運用できています。
+                            </blockquote>
+                        </div>
+                        <div class="cd-testimonial__author">
+                            <p class="cd-testimonial__name">佐藤 花子 様</p>
+                            <p class="cd-testimonial__position">アニメ制作会社 マーケティング部</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- よくある質問 -->
+        <section class="cd-faq" id="faq">
+            <div class="container">
+                <h2 class="section__title">FAQ</h2>
+                <h3 class="cd-faq__title">よくある質問</h3>
+                
+                <div class="cd-faq__list">
+                    <div class="cd-faq-item">
+                        <div class="cd-faq-item__question">
+                            <h4>開発期間はどのくらいかかりますか？</h4>
+                            <span class="cd-faq-item__icon"></span>
+                        </div>
+                        <div class="cd-faq-item__answer">
+                            <p>プロジェクトの規模や複雑さによって異なりますが、一般的なモバイルアプリ開発では2〜4ヶ月、ウェブサイト制作では1〜2ヶ月程度です。要件定義の段階で具体的な開発期間をご提案いたします。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-faq-item">
+                        <div class="cd-faq-item__question">
+                            <h4>予算感はどのくらいでしょうか？</h4>
+                            <span class="cd-faq-item__icon"></span>
+                        </div>
+                        <div class="cd-faq-item__answer">
+                            <p>プロジェクトの内容によって大きく異なります。小規模なウェブサイトであれば50万円程度から、大規模なアプリ開発では300万円以上となることもあります。まずはお気軽にご相談ください。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-faq-item">
+                        <div class="cd-faq-item__question">
+                            <h4>開発後のサポートはありますか？</h4>
+                            <span class="cd-faq-item__icon"></span>
+                        </div>
+                        <div class="cd-faq-item__answer">
+                            <p>はい、リリース後の運用保守サポートも承っております。バグ修正や機能追加、サーバー管理など、継続的なサポートプランをご用意しています。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cd-faq-item">
+                        <div class="cd-faq-item__question">
+                            <h4>アニメツーリズム以外の開発も対応していますか？</h4>
+                            <span class="cd-faq-item__icon"></span>
+                        </div>
+                        <div class="cd-faq-item__answer">
+                            <p>はい、アニメツーリズム以外の分野でも受託開発を承っております。エンターテイメント関連や観光関連など、幅広い分野での開発実績がございます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- お問い合わせ -->
+        <section class="cd-contact" id="contact">
+            <div class="container">
+                <h2 class="section__title">CONTACT</h2>
+                <h3 class="cd-contact__title">お問い合わせ</h3>
+                
+                <div class="cd-contact__content">
+                    <p class="cd-contact__text">
+                        受託開発に関するご質問やお見積りのご依頼など、<br>
+                        お気軽にお問い合わせください。
+                    </p>
+                    
+                    <a href="contact.html" class="cd-button cd-button--large">
+                        お問い合わせフォームへ
+                        <i class="fas fa-arrow-right cd-button__icon"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <a href="/" class="footer__logo">
+                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+                    </a>
+                    <p class="footer__address">
+                        〒150-0043<br>
+                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
+                    </p>
+                    <!-- ソーシャルリンク -->
+                    <div class="footer__social">
+                        <a href="https://x.com/JapanAnimeMaps" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <nav class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <li><a href="business.html">事業内容</a></li>
+                        <li><a href="news.html">お知らせ</a></li>
+                        <li><a href="recruit.html">採用情報</a></li>
+                        <li><a href="aboutus.html">企業情報</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- サイトマップなどのリンク追加 -->
+            <div class="footer__links">
+                <ul class="footer__links-list">
+                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
+                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
+                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
+                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contract-development.js"></script>
+</body>
+</html>

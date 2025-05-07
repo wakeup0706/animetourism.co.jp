@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index-page.css">
     <!-- Added Font Awesome for improved icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
@@ -120,11 +121,12 @@
                         世の中の消費者行動を変える。
                     </span>
                 </h2>
-                <p class="hero__text">テクノロジーを活用し、世界中の人々に新しい消費行動の選択肢を提供し、<br>普及されていない新しい概念を浸透させる。</p>
+                <p class="hero__text">テクノロジーを活用し世界中の人々に新しい消費行動の選択肢を提供、<br>普及されていない新しい概念を浸透させる。</p>
                 <p class="hero__text">私たちは、アニメファンと地域をつなぎ新しい観光の形を創造し続けます。</p>
                 <div class="hero__stats">
-                    <p class="stats__item">AppStoreの平均レビュー <strong>4.3</strong>！</p>
-                    <p class="stats__item"><strong>AppStore</strong>ランキング常に更新中！</p>
+                    <p class="stats__item">AppStoreの平均レビュー <strong>4.3</strong><span class="app-badge">★★★★☆</span></p>
+                    <div class="stats__divider"></div>
+                    <p class="stats__item"><span class="app-store-text">AppStore</span> ランキング常に更新中！</p>
                     <p class="stats__note">※ 2025年1月時点</p>
                 </div>
             </div>
@@ -184,7 +186,7 @@
                     </div>
                 </div>
                 <div class="strengths__action">
-                    <a href="#details" class="button">受託開発の詳細へ <i class="fas fa-arrow-right button-icon"></i></a>
+                    <a href="contract-development.html" class="button">受託開発の詳細へ <i class="fas fa-arrow-right button-icon"></i></a>
                 </div>
             </div>
         </section>
@@ -322,10 +324,22 @@
                     </ul>
                 </nav>
             </div>
+            
+            <!-- サイトマップなどのリンク追加 -->
+            <div class="footer__links">
+                <ul class="footer__links-list">
+                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
+                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
+                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
+                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
+                </ul>
+            </div>
+            
             <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/work-card-link.js"></script>
 </body>
 </html>
