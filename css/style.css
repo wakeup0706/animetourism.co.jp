@@ -347,12 +347,15 @@ a {
     transform-origin: center;
 }
 
-/* Enhanced Hero Section */
+/* ヒーローセクションのレイアウト修正 */
 .hero {
     padding-top: var(--header-height);
     background: linear-gradient(135deg, var(--yellow-bg) 0%, #FFE0B2 100%);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: 700px; /* 最小高さを設定 */
 }
 
 .hero__overlay {
@@ -365,12 +368,17 @@ a {
     clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
+/* テキスト部分のコンテナ調整 */
 .hero__inner {
     padding: 100px 20px;
-    max-width: 1200px;
     margin: 0 auto;
     position: relative;
     z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 50%; /* テキスト部分の最大幅を設定 */
 }
 
 .hero__title {
@@ -414,7 +422,7 @@ a {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     border-radius: 16px;
-    padding: a 25px 45px;
+    padding: 25px 45px;
     margin-top: 50px;
     box-shadow: 0 8px 32px rgba(228, 64, 95, 0.1);
     border-left: 4px solid var(--primary-color);
@@ -453,7 +461,7 @@ a {
     border-top: 1px dashed rgba(0,0,0,0.1);
 }
 
-/* Enhanced Hero Slideshow */
+/* スライドショー部分の調整 */
 .hero__container {
     position: absolute;
     right: 5%;
@@ -463,6 +471,7 @@ a {
     height: 500px;
     overflow: visible;
     perspective: 1000px;
+    z-index: 5; /* テキストより下のz-indexを設定 */
 }
 
 #heroSlideshow {
@@ -550,13 +559,13 @@ a {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.9);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     z-index: 30;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
 }
 
@@ -588,14 +597,14 @@ a {
     transform: rotate(45deg);
 }
 
-/* Slide Caption Styling */
+/* スライドキャプションのスタイル修正 */
 .slide-caption {
     position: absolute;
     bottom: 20px;
     left: 0;
     right: 0;
     padding: 15px 20px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     color: white;
     font-size: 1.6rem;
     font-weight: 500;
@@ -609,6 +618,51 @@ a {
 .slide.active:hover .slide-caption {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1200px) {
+    .hero__inner {
+        max-width: 55%;
+    }
+    
+    .hero__container {
+        width: 35%;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero__inner {
+        max-width: 60%;
+    }
+    
+    .hero__container {
+        width: 30%;
+        right: 3%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        flex-direction: column;
+    }
+    
+    .hero__inner {
+        max-width: 100%;
+        padding: 80px 20px 40px;
+    }
+    
+    .hero__container {
+        position: relative;
+        width: 90%;
+        height: 350px;
+        margin: 0 auto;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin-bottom: 50px;
+    }
 }
 
 /* Enhanced Section Styles */
