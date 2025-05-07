@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よくあるお問い合わせ | 株式会社アニメツーリズム</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/faq.css">
+     <!-- Added Font Awesome for improved icons -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html">
+                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item has-dropdown">
+                        <a href="business.html" class="header__nav-link">事業内容</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">JapanAnimeMapsの開発・運営 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/about-subscription" class="dropdown-menu__link">地域活性化事業の企画・運営 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/why-choose-us" class="dropdown-menu__link">受託開発事業 →</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                        <li class="header__nav-item has-dropdown">
+                        <a href="news.html" class="header__nav-link">お知らせ</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">当社からの最新情報 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">お客様より →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="https://note.com/japananimemaps" class="dropdown-menu__link">公式note →</a>
+                                </li>
+                                </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="recruit.html" class="header__nav-link">採用情報</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">新卒採用 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">中途採用 →</a>
+                                </li>
+                                </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="aboutus.html" class="header__nav-link">企業情報</a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">私たちについて →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">企業理念 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">会社概要 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">メンバー紹介 →</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">採用情報 →</a>
+                                </li>
+                                </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link header__nav-link--contact">お問い合わせ</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="faq-container">
+            <header class="faq-header">
+                <h1>Frequently Asked Questions</h1>
+                <h2>よくあるお問い合わせ</h2>
+            </header>
+
+            <div class="faq-intro">
+                株式会社アニメツーリズムに寄せられるよくあるご質問をまとめました。お問い合わせの前にご確認ください。
+                お探しの情報が見つからない場合は、<a href="contact.html">お問い合わせフォーム</a>よりご連絡ください。
+            </div>
+
+            <div class="faq-search">
+                <input type="text" id="faqSearch" placeholder="キーワードで検索" class="faq-search__input">
+                <button class="faq-search__button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="faq-categories">
+                <button class="faq-category active" data-category="all">すべて</button>
+                <button class="faq-category" data-category="service">サービスについて</button>
+                <button class="faq-category" data-category="account">アカウントについて</button>
+                <button class="faq-category" data-category="app">アプリについて</button>
+                <button class="faq-category" data-category="business">事業連携について</button>
+                <button class="faq-category" data-category="other">その他</button>
+            </div>
+
+            <div class="faq-list">
+                <!-- サービスについて -->
+                <div class="faq-item" data-category="service">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>JapanAnimeMapsとは何ですか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>JapanAnimeMapsは、日本全国のアニメ聖地巡礼スポットを集めた位置情報アプリです。アニメの舞台となった場所や、関連イベント情報などを簡単に検索できます。ユーザー同士でスポット情報を共有することもでき、アニメファンのための新しい旅行体験を提供しています。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="service">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>どのようなサービスを提供していますか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>当社は主に3つのサービスを提供しています。<br>
+                        1. JapanAnimeMapsの開発・運営：アニメ聖地巡礼のためのスマートフォンアプリ<br>
+                        2. 地域活性化事業：アニメツーリズムを活用した地域振興企画<br>
+                        3. 受託開発事業：アニメ関連のアプリやウェブサイトの開発</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="service">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>サービスは無料で利用できますか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>JapanAnimeMapsの基本機能は無料でご利用いただけます。一部の高度な機能や広告非表示などのプレミアム機能は有料となります。また、地域活性化事業や受託開発は、個別にお見積りさせていただいております。詳細は各サービスのページをご確認ください。</p>
+                    </div>
+                </div>
+
+                <!-- アカウントについて -->
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>アカウントの作成方法を教えてください</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>アプリまたはウェブサイトから「アカウント作成」ボタンをタップし、必要情報を入力することでアカウントを作成できます。メールアドレスの他、Google、Apple、Twitterのアカウントを利用したサインアップも可能です。詳しい手順は<a href="#">こちらのガイド</a>をご覧ください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>パスワードを忘れた場合はどうすればいいですか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>ログイン画面の「パスワードをお忘れですか？」リンクから、登録済みのメールアドレスにパスワードリセット用のリンクを送信できます。メールに記載されたリンクから新しいパスワードを設定してください。SNSアカウントでログインしている場合は、該当するSNSからの認証をお試しください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>アカウント情報の変更方法を教えてください</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>ログイン後、アプリまたはウェブサイトのマイページから「アカウント設定」を選択すると、プロフィール情報やメールアドレスなどの変更が可能です。なお、セキュリティ上の理由から、メールアドレスの変更時は確認メールが送信され、認証が必要となります。</p>
+                    </div>
+                </div>
+
+                <!-- アプリについて -->
+                <div class="faq-item" data-category="app">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>アプリはどこからダウンロードできますか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>iOSをご利用の方はApp Store、Androidをご利用の方はGoogle Playからダウンロードいただけます。<br>
+                        <a href="#"><i class="fab fa-apple"></i> App Store</a><br>
+                        <a href="#"><i class="fab fa-google-play"></i> Google Play</a></p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="app">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>アプリの使い方を教えてください</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>アプリの基本的な使い方は以下の通りです：<br>
+                        1. マップ画面でアニメの聖地スポットを探す<br>
+                        2. アニメ作品から関連スポットを検索<br>
+                        3. スポットの詳細情報や他ユーザーの投稿を閲覧<br>
+                        4. 実際に訪れたスポットを投稿・共有<br>
+                        詳しい使い方は<a href="#">ユーザーガイド</a>をご覧ください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="app">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>位置情報の許可が必要なのはなぜですか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>位置情報を許可いただくことで、現在地周辺のアニメスポットを表示したり、最適なルート案内を提供したりすることが可能になります。また、実際にスポットを訪れた際の投稿時にも活用されます。位置情報の利用は任意ですが、許可いただくことでより便利にご利用いただけます。プライバシーについては<a href="privacy.html">プライバシーポリシー</a>をご確認ください。</p>
+                    </div>
+                </div>
+
+                <!-- 事業連携について -->
+                <div class="faq-item" data-category="business">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>自治体としてアニメツーリズムを活用したいのですが、どのような連携が可能ですか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>当社では自治体様との連携として、地域の観光資源とアニメを組み合わせたプロモーション企画、オリジナルスタンプラリーの実施、アプリ内での地域特集ページの作成など、様々な取り組みを行っています。地域の特性に合わせたカスタムプランをご提案いたしますので、お気軽に<a href="contact.html">お問い合わせ</a>ください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="business">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>アプリ内での広告掲載は可能ですか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>はい、JapanAnimeMapsアプリ内での広告掲載が可能です。バナー広告やスポンサードコンテンツなど、様々な広告形態をご用意しております。アニメファンに直接アプローチできる効果的な広告ソリューションをご提案いたします。広告掲載に関する詳細は<a href="#">広告掲載のご案内</a>をご覧いただくか、<a href="contact.html">お問い合わせフォーム</a>からご連絡ください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="business">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>アニメ制作会社として、当社作品の聖地情報を掲載したいです</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>アニメ制作会社様やIPホルダー様との公式タイアップも積極的に行っております。公式情報として作品の聖地情報を掲載することで、ファンの方々により正確で充実した情報を提供できます。また、放映時期に合わせた特集企画なども可能です。詳細は<a href="contact.html">お問い合わせフォーム</a>よりご連絡ください。担当者が個別にご説明させていただきます。</p>
+                    </div>
+                </div>
+
+                <!-- その他 -->
+                <div class="faq-item" data-category="other">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>不適切な投稿を見つけた場合どうすればいいですか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>不適切な投稿を発見された場合は、該当投稿の右上にある「・・・」メニューから「報告する」を選択してください。報告内容を確認の上、当社ガイドラインに違反していると判断した場合は、速やかに対応いたします。コミュニティガイドラインについては<a href="#">こちら</a>をご確認ください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="other">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>採用情報はどこで確認できますか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>当社の採用情報は<a href="recruit.html">採用情報ページ</a>にて公開しております。エンジニア、デザイナー、マーケティング、営業など様々な職種で随時採用を行っております。新卒採用については、毎年10月頃から説明会を開始しますので、ぜひチェックしてみてください。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="other">
+                    <div class="faq-question">
+                        <span class="faq-icon">Q</span>
+                        <h3>取材や講演依頼はどこに連絡すればいいですか？</h3>
+                        <div class="faq-toggle"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <span class="faq-icon">A</span>
+                        <p>取材や講演依頼については、<a href="mailto:pr@animetourism.co.jp">pr@animetourism.co.jp</a>までご連絡ください。メディア掲載実績やこれまでの講演テーマなどについては<a href="#">メディア掲載・講演実績</a>のページをご参照ください。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-no-results" style="display: none;">
+                <p>検索結果はありません。別のキーワードをお試しいただくか、<a href="contact.html">お問い合わせフォーム</a>からご質問ください。</p>
+            </div>
+
+            <div class="faq-contact">
+                <h3>お探しの情報が見つかりませんか？</h3>
+                <p>上記で解決しない場合は、お気軽にお問い合わせください。通常2営業日以内にご返答いたします。</p>
+                <a href="contact.html" class="faq-contact__button">お問い合わせはこちら</a>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <a href="/" class="footer__logo">
+                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+                    </a>
+                    <p class="footer__address">
+                        〒150-0043<br>
+                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
+                    </p>
+                    <!-- ソーシャルリンク -->
+                    <div class="footer__social">
+                        <a href="https://x.com/JapanAnimeMaps" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <nav class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <li><a href="business.html">事業内容</a></li>
+                        <li><a href="news.html">お知らせ</a></li>
+                        <li><a href="recruit.html">採用情報</a></li>
+                        <li><a href="aboutus.html">企業情報</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- サイトマップなどのリンク追加 -->
+            <div class="footer__links">
+                <ul class="footer__links-list">
+                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
+                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
+                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
+                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>
