@@ -1,0 +1,173 @@
+/* 利用規約ページ用スタイル */
+
+/* コンテナ */
+.container4 {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
+
+/* ヘッダー */
+.terms-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.terms-header h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.terms-header h2 {
+    font-size: 2.0rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* 導入文 */
+.terms-intro {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* セクション */
+.terms-section {
+    margin-bottom: 50px;
+}
+
+.terms-section h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #E4405F;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E4405F;
+}
+
+.terms-section > p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* 項目コンテンツ */
+.terms-content {
+    margin-left: 20px;
+}
+
+.terms-item {
+    margin-bottom: 30px;
+}
+
+.terms-item h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.terms-item p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+.terms-item ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.terms-item li {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 5px;
+}
+
+/* リンク */
+.terms-section a {
+    color: #E4405F;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.terms-section a:hover {
+    color: #C6193B;
+    text-decoration: none;
+}
+
+/* 更新日・制定日 */
+.terms-dates {
+    text-align: right;
+    margin-top: 50px;
+}
+
+.terms-update-date, .terms-established-date {
+    font-size: 1.4rem;
+    color: #888;
+    margin: 5px 0;
+    font-style: italic;
+    text-align: right; /* 明示的に右揃えを指定 */
+}
+
+/* レスポンシブ対応も維持 */
+@media screen and (max-width: 768px) {
+    .terms-dates {
+        text-align: right;
+    }
+    
+    .terms-update-date, .terms-established-date {
+        text-align: right;
+    }
+}
+
+/* プリント用スタイル */
+@media print {
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+    }
+
+    .header, .footer, .footer__links {
+        display: none;
+    }
+
+    .container4 {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .terms-header h1 {
+        font-size: 24pt;
+    }
+
+    .terms-header h2 {
+        font-size: 18pt;
+    }
+
+    .terms-section h3 {
+        font-size: 16pt;
+        color: #000;
+        border-bottom-color: #000;
+    }
+
+    .terms-item h4 {
+        font-size: 14pt;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .terms-section, .terms-item {
+        page-break-inside: avoid;
+    }
+}
