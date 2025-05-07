@@ -10,7 +10,7 @@ function setupHeroSlideshow() {
     // スライドの内容を設定
     const slides = [
         {
-            image: 'img/test_pic1.jpeg', // 実際の画像パスに置き換えてください
+            image: 'img/test_pic1.jpeg',
             caption: 'アニメの聖地巡礼を楽しもう'
         },
         {
