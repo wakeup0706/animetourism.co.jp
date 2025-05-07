@@ -15,21 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop;
     });
 
-    // モバイルメニュー
-    const hamburger = document.createElement('button');
-    hamburger.classList.add('hamburger');
-    hamburger.innerHTML = `
-        <span></span>
-        <span></span>
-        <span></span>
-    `;
-    document.querySelector('.header__inner').appendChild(hamburger);
+    // // モバイルメニュー
+    // const hamburger = document.createElement('button');
+    // hamburger.classList.add('hamburger');
+    // hamburger.innerHTML = `
+    //     <span></span>
+    //     <span></span>
+    //     <span></span>
+    // `;
+    // document.querySelector('.header__inner').appendChild(hamburger);
 
-    const nav = document.querySelector('.header__nav-list');
-    hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        nav.classList.toggle('active');
-    });
+    // const nav = document.querySelector('.header__nav-list');
+    // hamburger.addEventListener('click', function() {
+    //     this.classList.toggle('active');
+    //     nav.classList.toggle('active');
+    // });
 
     // スムーススクロール
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
