@@ -133,6 +133,12 @@ a {
     align-items: center;
 }
 
+/* 改善：ドロップダウンを持つアイテムにカーソルポインタを追加 */
+.header__nav-item.has-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
 .header__nav-link {
     text-decoration: none;
     color: var(--text-color);
@@ -195,23 +201,36 @@ a {
     display: none;
 }
 
-/* Enhanced Dropdown Menu */
+/* 改善されたドロップダウンメニュー */
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 15px);
+    top: calc(100% + 5px); /* アクセスしやすいようにギャップを縮小 */
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background: white;
     border-radius: var(--card-radius);
     box-shadow: var(--box-shadow);
     padding: 25px;
-    min-width: 320px;
+    min-width: 250px; /* 最小幅を小さく */
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s ease; /* より良い応答性のために短いトランジション */
     pointer-events: none;
+    z-index: 1000;
 }
 
+/* ドロップダウン用の大きな不可視ヒットエリアを追加 */
+.header__nav-item.has-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 20px; /* ドロップダウンが閉じるのを防ぐための不可視スペース */
+    background: transparent;
+}
+
+/* ナビゲーションアイテムとドロップダウンの間のコネクタを追加 */
 .dropdown-menu::before {
     content: '';
     position: absolute;
@@ -224,31 +243,35 @@ a {
     border-radius: 2px;
 }
 
-.header__nav-item:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
+/* ドロップダウンメニューとナビゲーションアイテムの間にスペースを追加 */
+.dropdown-menu::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
 }
 
 .dropdown-menu__list {
     list-style: none;
 }
 
+/* ドロップダウンメニューアイテムのスペーシングとスタイルを改善 */
 .dropdown-menu__item {
-    margin: 15px 0;
+    margin: 8px 0;
 }
 
 .dropdown-menu__link {
     text-decoration: none;
     color: var(--text-color);
     font-size: 1.5rem;
-    padding: 8px 0;
+    padding: 10px 15px; /* より大きなヒットエリアのためのパディング増加 */
+    border-radius: 8px;
     display: block;
     transition: all 0.3s ease;
     position: relative;
-    display: flex;
-    align-items: center;
 }
 
 .dropdown-menu__link::after {
@@ -261,12 +284,38 @@ a {
 
 .dropdown-menu__link:hover {
     color: var(--primary-color);
-    padding-left: 5px;
+    background-color: rgba(228, 64, 95, 0.05);
+    transform: translateX(5px);
 }
 
 .dropdown-menu__link:hover::after {
     opacity: 1;
     right: 0;
+}
+
+/* モバイル向け改善 */
+@media (max-width: 991px) {
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.05);
+        min-width: 100%;
+        padding: 10px 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .dropdown-menu::before,
+    .dropdown-menu::after {
+        display: none;
+    }
+    
+    .dropdown-menu__link {
+        padding: 12px 20px;
+        font-size: 1.6rem;
+    }
 }
 
 /* Dropdown Arrow */

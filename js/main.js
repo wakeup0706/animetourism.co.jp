@@ -1,70 +1,87 @@
+// Enhanced dropdown menu functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // ヘッダーのスクロール制御
-    let lastScrollTop = 0;
-    const header = document.querySelector('.header');
+    // Select all dropdown nav items
+    const dropdownItems = document.querySelectorAll('.has-dropdown');
     
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    dropdownItems.forEach(item => {
+        const navLink = item.querySelector('.header__nav-link');
+        const dropdownMenu = item.querySelector('.dropdown-menu');
+        let timeoutId;
         
-        if (scrollTop > lastScrollTop && scrollTop > 80) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
+        // Add event listeners to each dropdown item
+        item.addEventListener('mouseenter', function() {
+            clearTimeout(timeoutId);
+            
+            // Hide all other dropdowns first
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                if (menu !== dropdownMenu) {
+                    menu.style.opacity = '0';
+                    menu.style.visibility = 'hidden';
+                    menu.style.pointerEvents = 'none';
+                }
+            });
+            
+            // Show current dropdown
+            dropdownMenu.style.opacity = '1';
+            dropdownMenu.style.visibility = 'visible';
+            dropdownMenu.style.pointerEvents = 'auto';
+            dropdownMenu.style.transform = 'translateX(-50%) translateY(0)';
+        });
         
-        lastScrollTop = scrollTop;
-    });
-
-    // // モバイルメニュー
-    // const hamburger = document.createElement('button');
-    // hamburger.classList.add('hamburger');
-    // hamburger.innerHTML = `
-    //     <span></span>
-    //     <span></span>
-    //     <span></span>
-    // `;
-    // document.querySelector('.header__inner').appendChild(hamburger);
-
-    // const nav = document.querySelector('.header__nav-list');
-    // hamburger.addEventListener('click', function() {
-    //     this.classList.toggle('active');
-    //     nav.classList.toggle('active');
-    // });
-
-    // スムーススクロール
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        item.addEventListener('mouseleave', function() {
+            timeoutId = setTimeout(function() {
+                dropdownMenu.style.opacity = '0';
+                dropdownMenu.style.visibility = 'hidden';
+                dropdownMenu.style.pointerEvents = 'none';
+                dropdownMenu.style.transform = 'translateX(-50%) translateY(10px)';
+            }, 300); // Reduced delay to 300ms for better responsiveness
+        });
+        
+        // Handle click for mobile/accessibility
+        navLink.addEventListener('click', function(e) {
+            // Only prevent default if on mobile or if dropdown isn't visible
+            if (window.innerWidth < 992 || dropdownMenu.style.visibility !== 'visible') {
+                e.preventDefault();
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-
-                // モバイルメニューが開いている場合は閉じる
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
+                // Toggle this dropdown
+                if (dropdownMenu.style.visibility === 'visible') {
+                    dropdownMenu.style.opacity = '0';
+                    dropdownMenu.style.visibility = 'hidden';
+                    dropdownMenu.style.pointerEvents = 'none';
+                } else {
+                    // Hide all other dropdowns
+                    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                        menu.style.opacity = '0';
+                        menu.style.visibility = 'hidden';
+                        menu.style.pointerEvents = 'none';
+                    });
+                    
+                    dropdownMenu.style.opacity = '1';
+                    dropdownMenu.style.visibility = 'visible';
+                    dropdownMenu.style.pointerEvents = 'auto';
+                    dropdownMenu.style.transform = 'translateX(-50%) translateY(0)';
+                }
             }
         });
     });
-
-    // スクロールアニメーション
-    const observers = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observers.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1
+    
+    // Close dropdowns when clicking elsewhere on the page
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.has-dropdown')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.style.opacity = '0';
+                menu.style.visibility = 'hidden';
+                menu.style.pointerEvents = 'none';
+            });
+        }
     });
-
-    document.querySelectorAll('section').forEach(section => {
-        observers.observe(section);
+    
+    // Handle scroll events - hide dropdowns when scrolling
+    window.addEventListener('scroll', function() {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.style.opacity = '0';
+            menu.style.visibility = 'hidden';
+            menu.style.pointerEvents = 'none';
+        });
     });
 });
