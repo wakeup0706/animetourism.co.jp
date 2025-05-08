@@ -1020,6 +1020,21 @@ a {
     position: relative;
 }
 
+/* 新しいカードグリッド用のコンテナ */
+.voice-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .voice-cards-container {
+        grid-template-columns: 1fr; /* モバイルでは1列に */
+    }
+}
+
 .voices::before {
     content: '';
     position: absolute;
@@ -1041,10 +1056,9 @@ a {
 .voice-card {
     background: white;
     border-radius: var(--card-radius);
-    padding: 60px;
-    margin-bottom: 80px;
+    padding: 40px; /* パディングを少し小さく */
+    margin-bottom: 0; /* マージンを削除 */
     box-shadow: var(--box-shadow);
-    position: relative;
     transition: var(--transition);
 }
 
@@ -1054,16 +1068,14 @@ a {
 }
 
 .voice-card__grid {
+    /* グリッドを2列に変更、画像用のカラムを削除 */
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    gap: 30px; /* カード間の間隔を調整 */
 }
 
 .voice-card__screenshots {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    display: none;
 }
 
 .voice-card__screenshots img {
