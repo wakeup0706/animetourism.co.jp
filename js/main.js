@@ -303,3 +303,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }
 });
+
+// フォームのバリデーション
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            let isValid = true;
+            
+            // 必須項目のチェック
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            
+            requiredFields.forEach(function(field) {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('input-error');
+                } else {
+                    field.classList.remove('input-error');
+                }
+            });
+            
+            // メールアドレスの形式チェック
+            const emailField = contactForm.querySelector('#email');
+            if (emailField && emailField.value.trim()) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(emailField.value)) {
+                    isValid = false;
+                    emailField.classList.add('input-error');
+                }
+            }
+            
+            if (!isValid) {
+                event.preventDefault();
+                alert('入力内容に不備があります。必須項目をすべて入力してください。');
+            }
+        });
+    }
+});
