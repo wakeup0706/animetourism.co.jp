@@ -1,6 +1,6 @@
 /**
- * AnimeTourism ヒーロースライドショー
- * 3秒ごとに自動で切り替わるスライドショー機能
+ * AnimeTourism メインJavaScriptファイル
+ * ナビゲーション、スライドショー、レスポンシブ対応機能
  */
 
 // ヒーロースライドショーの設定と実装
@@ -144,8 +144,100 @@ function setupHeroSlideshow() {
     }
 }
 
-// スライドショー初期化とイベントリスナー設定
+// モバイルナビゲーションの設定
+function setupMobileNavigation() {
+    // モバイルトグルボタン作成（ハンバーガーメニュー）
+    const mobileToggle = document.createElement('button');
+    mobileToggle.className = 'mobile-nav-toggle';
+    mobileToggle.setAttribute('aria-label', 'メニューを開閉');
+    mobileToggle.innerHTML = `
+      <span></span>
+      <span></span>
+      <span></span>
+    `;
+    
+    // オーバーレイ作成
+    const navOverlay = document.createElement('div');
+    navOverlay.className = 'nav-overlay';
+    
+    // DOM要素に追加
+    const headerInner = document.querySelector('.header__inner');
+    headerInner.appendChild(mobileToggle);
+    document.body.appendChild(navOverlay);
+    
+    const nav = document.querySelector('.header__nav');
+    const dropdowns = document.querySelectorAll('.has-dropdown');
+    
+    // モバイルメニューのトグル（開閉）
+    mobileToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // オーバーレイクリックでメニューを閉じる
+    navOverlay.addEventListener('click', function() {
+        closeMobileMenu();
+    });
+    
+    // モバイルビューでのドロップダウン処理
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('.header__nav-link');
+        
+        // モバイル: クリックでドロップダウンをトグル
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 991) {
+                e.preventDefault();
+                
+                // 他のすべてのドロップダウンを閉じる
+                const isActive = dropdown.classList.contains('active');
+                
+                dropdowns.forEach(other => {
+                    other.classList.remove('active');
+                });
+                
+                // クリックされたドロップダウンをトグル
+                if (!isActive) {
+                    dropdown.classList.add('active');
+                }
+            }
+        });
+    });
+    
+    // メニューを閉じる関数
+    function closeMobileMenu() {
+        mobileToggle.classList.remove('active');
+        nav.classList.remove('active');
+        navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // すべてのドロップダウンを閉じる
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+    
+    // ウィンドウリサイズ時の処理
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 991) {
+            closeMobileMenu();
+        }
+    });
+    
+    // ESCキーでメニューを閉じる
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+}
+
+// DOMコンテンツロード後の処理
 document.addEventListener('DOMContentLoaded', function() {
+    // モバイルナビゲーションセットアップ
+    setupMobileNavigation();
+    
     // ヘッダーのスクロール効果
     window.addEventListener('scroll', function() {
         const header = document.querySelector('.header');
@@ -156,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ドロップダウンメニューの処理（既存の実装をそのまま使用）
+    // デスクトップ用ドロップダウンメニューの処理
     const dropdownItems = document.querySelectorAll('.has-dropdown');
     
     dropdownItems.forEach(item => {
@@ -164,46 +256,46 @@ document.addEventListener('DOMContentLoaded', function() {
         const dropdownMenu = item.querySelector('.dropdown-menu');
         let timeoutId;
         
-        item.addEventListener('mouseenter', function() {
-            clearTimeout(timeoutId);
-            
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-                if (menu !== dropdownMenu) {
-                    menu.style.opacity = '0';
-                    menu.style.visibility = 'hidden';
-                    menu.style.pointerEvents = 'none';
+        // PC表示時のみホバー処理を適用
+        if (window.innerWidth > 991) {
+            item.addEventListener('mouseenter', function() {
+                clearTimeout(timeoutId);
+                
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    if (menu !== dropdownMenu) {
+                        menu.style.opacity = '0';
+                        menu.style.visibility = 'hidden';
+                        menu.style.pointerEvents = 'none';
+                    }
+                });
+                
+                if (dropdownMenu) {
+                    dropdownMenu.style.opacity = '1';
+                    dropdownMenu.style.visibility = 'visible';
+                    dropdownMenu.style.pointerEvents = 'auto';
+                    dropdownMenu.style.transform = 'translateX(-50%) translateY(0)';
                 }
             });
             
-            if (dropdownMenu) {
-                dropdownMenu.style.opacity = '1';
-                dropdownMenu.style.visibility = 'visible';
-                dropdownMenu.style.pointerEvents = 'auto';
-                dropdownMenu.style.transform = 'translateX(-50%) translateY(0)';
-            }
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            if (dropdownMenu) {
-                timeoutId = setTimeout(function() {
-                    dropdownMenu.style.opacity = '0';
-                    dropdownMenu.style.visibility = 'hidden';
-                    dropdownMenu.style.pointerEvents = 'none';
-                    dropdownMenu.style.transform = 'translateX(-50%) translateY(10px)';
-                }, 300);
-            }
-        });
-        
-        if (navLink && dropdownMenu) {
-            navLink.addEventListener('click', function(e) {
-                if (window.innerWidth < 992 || dropdownMenu.style.visibility !== 'visible') {
-                    e.preventDefault();
-                    
-                    if (dropdownMenu.style.visibility === 'visible') {
+            item.addEventListener('mouseleave', function() {
+                if (dropdownMenu) {
+                    timeoutId = setTimeout(function() {
                         dropdownMenu.style.opacity = '0';
                         dropdownMenu.style.visibility = 'hidden';
                         dropdownMenu.style.pointerEvents = 'none';
-                    } else {
+                        dropdownMenu.style.transform = 'translateX(-50%) translateY(10px)';
+                    }, 300);
+                }
+            });
+        }
+        
+        // PCではクリック動作、モバイルではタップ動作
+        if (navLink && dropdownMenu) {
+            navLink.addEventListener('click', function(e) {
+                // モバイルでの処理は setupMobileNavigation で対応済み
+                if (window.innerWidth > 991) {
+                    if (dropdownMenu.style.visibility !== 'visible') {
+                        e.preventDefault();
                         document.querySelectorAll('.dropdown-menu').forEach(menu => {
                             menu.style.opacity = '0';
                             menu.style.visibility = 'hidden';
@@ -220,8 +312,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // ドロップダウン以外をクリックした場合に閉じる（PC表示のみ）
     document.addEventListener('click', function(e) {
-        if (!e.target.closest('.has-dropdown')) {
+        if (!e.target.closest('.has-dropdown') && window.innerWidth > 991) {
             document.querySelectorAll('.dropdown-menu').forEach(menu => {
                 menu.style.opacity = '0';
                 menu.style.visibility = 'hidden';
@@ -230,12 +323,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // スクロール時にドロップダウンを閉じる（PC表示のみ）
     window.addEventListener('scroll', function() {
-        document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            menu.style.opacity = '0';
-            menu.style.visibility = 'hidden';
-            menu.style.pointerEvents = 'none';
-        });
+        if (window.innerWidth > 991) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.style.opacity = '0';
+                menu.style.visibility = 'hidden';
+                menu.style.pointerEvents = 'none';
+            });
+        }
     });
 
     // ヒーロースライドショーの初期化
@@ -258,6 +354,18 @@ document.addEventListener('DOMContentLoaded', function() {
                         top: targetPosition,
                         behavior: 'smooth'
                     });
+                    
+                    // モバイルメニューが開いている場合は閉じる
+                    const mobileNav = document.querySelector('.header__nav');
+                    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+                    const navOverlay = document.querySelector('.nav-overlay');
+                    
+                    if (mobileNav && mobileNav.classList.contains('active')) {
+                        mobileNav.classList.remove('active');
+                        if (mobileToggle) mobileToggle.classList.remove('active');
+                        if (navOverlay) navOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 }
             }
         });
