@@ -186,8 +186,14 @@
     cursor: pointer;
 }
 
-.value-card:hover .value-card__inner {
+/* ホバーによる回転は削除し、クリックによる回転に変更 */
+.value-card__inner.is-flipped {
     transform: rotateY(180deg);
+}
+
+/* カードをクリックできることを示すスタイル */
+.value-card__inner {
+    cursor: pointer;
 }
 
 .value-card__front, .value-card__back {

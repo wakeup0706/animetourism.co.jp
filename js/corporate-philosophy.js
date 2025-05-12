@@ -95,27 +95,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // 3Dカードホバーエフェクト
+    // 3Dカードホバー効果とクリックで回転するエフェクト
     function setup3DCardEffect() {
         const cards = document.querySelectorAll('.value-card__inner');
         
         cards.forEach(card => {
+            // ホバー時の3D効果
             card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const angleX = (y - centerY) / 20;
-                const angleY = (centerX - x) / 20;
-                
-                card.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+                // カードが既に回転している場合は3D効果を適用しない
+                if (!card.classList.contains('is-flipped')) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const angleX = (y - centerY) / 20;
+                    const angleY = (centerX - x) / 20;
+                    
+                    card.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+                }
             });
             
+            // マウスが離れたときに元に戻す（回転していない場合のみ）
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'rotateX(0) rotateY(0)';
+                if (!card.classList.contains('is-flipped')) {
+                    card.style.transform = 'rotateX(0) rotateY(0)';
+                }
+            });
+            
+            // クリックで回転させる
+            card.addEventListener('click', () => {
+                card.classList.toggle('is-flipped');
+                
+                if (card.classList.contains('is-flipped')) {
+                    card.style.transform = 'rotateY(180deg)';
+                } else {
+                    card.style.transform = 'rotateX(0) rotateY(0)';
+                }
             });
         });
     }
