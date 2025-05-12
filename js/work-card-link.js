@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cardTitle === 'JapanAnimeMaps') {
             targetUrl = 'apps.html';
         } else if (cardTitle === '地域活性化プロジェクト') {
-            targetUrl = 'regional-revitalization.html';
+            targetUrl = 'loacl-activities.html';
         } else if (cardTitle === '受託開発事例') {
             targetUrl = 'contract-development.html';
         }

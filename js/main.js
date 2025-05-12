@@ -4,32 +4,68 @@
  */
 
 // ヒーロースライドショーの設定と実装
-function setupHeroSlideshow() {
-    const heroSlideshow = document.getElementById('heroSlideshow');
+function setupHeroSlideshow(slideshowId) {
+    const heroSlideshow = document.getElementById(slideshowId);
+    if (!heroSlideshow) return; // スライドショー要素がなければ終了
+
+    //現在のページを識別する
+    const currentPage = document.body.id || 'home';
+
+    //ページごとのスライドデータを定義
+    const slidesData = {
+        'index': [
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'アニメの聖地巡礼を楽しもう'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: '日本全国のアニメスポットを探索'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: '地域と文化をつなぐ新しい体験'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'JapanAnimeMapsアプリで簡単に検索'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'お気に入りの作品の舞台を訪れよう'
+            }
+        ],
+        'regional-revitalization': [
+            {
+                image: 'img/moesami.png',
+                caption: '地域活性化イベント'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'アプリを活用して地域活性化'
+            },
+            {
+                image: 'img/coding.jpg',
+                caption: '地域と文化をつなぐ新しい体験を創造'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'JapanAnimeMapsアプリで簡単に検索'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'お気に入りの作品の舞台を訪れよう'
+            }
+        ]
+    };
     
-    // スライドの内容を設定
-    const slides = [
-        {
-            image: 'img/test_pic1.jpeg',
-            caption: 'アニメの聖地巡礼を楽しもう'
-        },
-        {
-            image: 'img/test_pic1.jpeg',
-            caption: '日本全国のアニメスポットを探索'
-        },
-        {
-            image: 'img/test_pic1.jpeg',
-            caption: '地域と文化をつなぐ新しい体験'
-        },
-        {
-            image: 'img/test_pic1.jpeg',
-            caption: 'JapanAnimeMapsアプリで簡単に検索'
-        },
-        {
-            image: 'img/test_pic1.jpeg',
-            caption: 'お気に入りの作品の舞台を訪れよう'
-        }
-    ];
+    // ページに応じたスライドデータを選択
+    let slides;
+    if (slidesData[currentPage]) {
+        slides = slidesData[currentPage]; // ページごとのデータを使用
+    } else {
+        slides = slidesData['index']; // デフォルトはindexページのデータ
+    }
     
     // スライドショーの構造を作成
     const slideshowWrapper = document.createElement('div');
@@ -52,6 +88,8 @@ function setupHeroSlideshow() {
         slideElement.appendChild(caption);
         slideshowWrapper.appendChild(slideElement);
     });
+
+    
     
     // コントロールドットを作成
     const controls = document.createElement('div');
@@ -336,8 +374,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ヒーロースライドショーの初期化
     const heroSlideshow = document.getElementById('heroSlideshow');
+    const heroSlideshowRegional = document.getElementById('heroSlideshowRegional');
+    
     if (heroSlideshow) {
-        setupHeroSlideshow();
+        setupHeroSlideshow('heroSlideshow');
+    }
+    
+    if (heroSlideshowRegional) {
+        setupHeroSlideshow('heroSlideshowRegional');
     }
 
     // スムーススクロール
