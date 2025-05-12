@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cardTitle === 'JapanAnimeMaps') {
             targetUrl = 'apps.html';
         } else if (cardTitle === '地域活性化プロジェクト') {
-            targetUrl = '/about-subscription';
+            targetUrl = 'regional-revitalization.html';
         } else if (cardTitle === '受託開発事例') {
-            targetUrl = '/why-choose-us';
+            targetUrl = 'contract-development.html';
         }
         
         // カード全体をクリック可能に

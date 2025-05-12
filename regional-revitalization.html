@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地域活性化プロジェクト | Regional Revitalization Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader__icon"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html" class="header__logo-link" aria-label="AnimeTourism トップページへ">
+                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item has-dropdown">
+                        <a href="business.html" class="header__nav-link">
+                            <i class="fas fa-briefcase nav-icon"></i>事業内容
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="apps.html" class="dropdown-menu__link">JapanAnimeMapsの開発・運営</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="loacl-activities.html" class="dropdown-menu__link">地域活性化事業の企画・運営</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="contract-development.html" class="dropdown-menu__link">受託開発事業</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="news.html" class="header__nav-link">
+                            <i class="fas fa-newspaper nav-icon"></i>お知らせ
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="news.html" class="dropdown-menu__link">当社からの最新情報</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="https://note.com/japananimemaps" class="dropdown-menu__link">公式note</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="recruit.html" class="header__nav-link">
+                            <i class="fas fa-user-plus nav-icon"></i>採用情報
+                        </a>
+                        <!-- <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">新卒採用</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="/concept" class="dropdown-menu__link">中途採用</a>
+                                </li>
+                            </ul>
+                        </div> -->
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="aboutus.html" class="header__nav-link">
+                            <i class="fas fa-building nav-icon"></i>企業情報
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="aboutus.html" class="dropdown-menu__link">私たちについて</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="corporate-philosophy.html" class="dropdown-menu__link">企業理念</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="corporate.html" class="dropdown-menu__link">会社概要</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="member.html" class="dropdown-menu__link">メンバー紹介</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link header__nav-link--contact">
+                            <i class="fas fa-envelope nav-icon"></i>お問い合わせ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero__overlay"></div>
+        <div class="hero__inner">
+            <h1 class="hero__title">
+                地域の魅力を再発見
+                <span class="hero__subtitle">地域活性化プロジェクト</span>
+            </h1>
+            <p class="hero__text">
+                私たちは日本各地の伝統文化、特産品、自然景観など、地域が持つ豊かな資源を活かし、持続可能な地域活性化を支援します。地元の人々と共に歩み、未来につながる地域づくりを目指しています。
+            </p>
+            <p class="hero__text">
+                観光促進、産業振興、移住定住支援など、多角的なアプローチで地域の課題解決に取り組んでいます。
+            </p>
+            
+            <div class="hero__stats">
+                <div class="stats__item">活動地域 <strong>35</strong> 都道府県</div>
+                <div class="stats__item">支援プロジェクト <strong>150</strong> 件以上</div>
+                <div class="stats__item">参加ボランティア <strong>1,200</strong> 人</div>
+                <div class="stats__note">※2025年4月現在</div>
+            </div>
+        </div>
+        
+        <div class="hero__container">
+            <div id="heroSlideshow"></div>
+        </div>
+    </section>
+
+    <!-- Strengths Section -->
+    <section class="strengths" id="about">
+        <div class="container">
+            <div class="strengths__header">
+                <h2 class="section__title">私たちの強み</h2>
+                <h3 class="strengths__title">地域の特性を活かした持続可能な活性化を支援します</h3>
+            </div>
+            
+            <div class="strengths__list">
+                <div class="strength-item">
+                    <div class="strength-item__number">1</div>
+                    <div class="strength-item__content">
+                        <h4 class="strength-item__title">地域資源の発掘と価値創造</h4>
+                        <p class="strength-item__text">
+                            眠っている地域資源を発掘し、現代のニーズに合わせた新しい価値を創造します。伝統工芸や食文化など、地域固有の魅力を最大限に引き出し、持続可能なブランディングを支援します。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="strength-item">
+                    <div class="strength-item__number">2</div>
+                    <div class="strength-item__content">
+                        <h4 class="strength-item__title">地域住民と外部人材の協働</h4>
+                        <p class="strength-item__text">
+                            地域住民と都市部の専門家やクリエイターをつなぎ、新しい視点とアイデアで地域に刺激を与えます。多様な背景を持つ人々の協働により、革新的な解決策を生み出します。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="strength-item">
+                    <div class="strength-item__number">3</div>
+                    <div class="strength-item__content">
+                        <h4 class="strength-item__title">デジタル技術の活用</h4>
+                        <p class="strength-item__text">
+                            最新のデジタル技術を活用し、地域の魅力を国内外に発信します。オンラインマーケットプレイス、バーチャルツアー、SNSマーケティングなどを通じて、地域の認知度向上と経済活性化を実現します。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="strength-item">
+                    <div class="strength-item__number">4</div>
+                    <div class="strength-item__content">
+                        <h4 class="strength-item__title">持続可能な地域づくり</h4>
+                        <p class="strength-item__text">
+                            短期的な成果だけでなく、長期的な視点で地域の自立を支援します。地域主体の持続可能な仕組みづくりを重視し、外部支援がなくても継続できるエコシステムの構築を目指します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="strengths__action">
+                <a href="#contact" class="button">
+                    詳しく相談してみる
+                    <i class="fas fa-arrow-right button-icon"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section class="works" id="works">
+        <div class="container">
+            <h2 class="section__title">活動地域</h2>
+            <h3 class="works__title">全国各地で展開している地域活性化プロジェクト</h3>
+            
+            <div class="works__grid">
+                <!-- 1st Work Card -->
+                <div class="work-card">
+                    <div class="work-card__image">
+                        <img src="img/project-1.jpg" alt="伝統工芸復興プロジェクト">
+                        <div class="work-card__overlay">
+                            <div class="work-card__view">詳細を見る</div>
+                        </div>
+                    </div>
+                    <div class="work-card__content">
+                        <h4 class="work-card__title">伝統工芸復興プロジェクト</h4>
+                        <div class="work-card__tags">
+                            <span class="tag">石川県</span>
+                            <span class="tag">伝統工芸</span>
+                            <span class="tag">九谷焼</span>
+                        </div>
+                        <p class="work-card__text">
+                            失われつつある伝統工芸技術の継承と現代的な活用を支援。職人の技術を次世代に伝えながら、新たな価値を創造しています。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 2nd Work Card -->
+                <div class="work-card">
+                    <div class="work-card__image">
+                        <img src="img/project-2.jpg" alt="農村再生プログラム">
+                        <div class="work-card__overlay">
+                            <div class="work-card__view">詳細を見る</div>
+                        </div>
+                    </div>
+                    <div class="work-card__content">
+                        <h4 class="work-card__title">農村再生プログラム</h4>
+                        <div class="work-card__tags">
+                            <span class="tag">長野県</span>
+                            <span class="tag">農業</span>
+                            <span class="tag">移住</span>
+                        </div>
+                        <p class="work-card__text">
+                            過疎化が進む農村地域での若者の移住支援と新規就農者の育成。コミュニティ形成を重視した持続可能な地域づくりを行っています。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 3rd Work Card -->
+                <div class="work-card">
+                    <div class="work-card__image">
+                        <img src="img/project-3.jpg" alt="観光活性化支援">
+                        <div class="work-card__overlay">
+                            <div class="work-card__view">詳細を見る</div>
+                        </div>
+                    </div>
+                    <div class="work-card__content">
+                        <h4 class="work-card__title">観光活性化支援</h4>
+                        <div class="work-card__tags">
+                            <span class="tag">岡山県</span>
+                            <span class="tag">観光</span>
+                            <span class="tag">デジタル</span>
+                        </div>
+                        <p class="work-card__text">
+                            地域の観光資源を掘り起こし、デジタル技術を活用した新しい観光体験の創出。オンラインとオフラインを融合した持続可能な観光モデルを開発しています。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 4th Work Card -->
+                <div class="work-card">
+                    <div class="work-card__image">
+                        <img src="img/project-4.jpg" alt="食文化ブランディング">
+                        <div class="work-card__overlay">
+                            <div class="work-card__view">詳細を見る</div>
+                        </div>
+                    </div>
+                    <div class="work-card__content">
+                        <h4 class="work-card__title">食文化ブランディング</h4>
+                        <div class="work-card__tags">
+                            <span class="tag">北海道</span>
+                            <span class="tag">食文化</span>
+                            <span class="tag">マーケティング</span>
+                        </div>
+                        <p class="work-card__text">
+                            地域の食材や郷土料理の魅力を再発見し、現代的なブランディングとマーケティングで全国に発信。食を通じた地域活性化に取り組んでいます。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 5th Work Card -->
+                <div class="work-card">
+                    <div class="work-card__image">
+                        <img src="img/project-5.jpg" alt="クリエイティブ拠点形成">
+                        <div class="work-card__overlay">
+                            <div class="work-card__view">詳細を見る</div>
+                        </div>
+                    </div>
+                    <div class="work-card__content">
+                        <h4 class="work-card__title">クリエイティブ拠点形成</h4>
+                        <div class="work-card__tags">
+                            <span class="tag">静岡県</span>
+                            <span class="tag">文化</span>
+                            <span class="tag">コワーキング</span>
+                        </div>
+                        <p class="work-card__text">
+                            空き家や遊休施設をリノベーションし、クリエイターの活動拠点として再生。都市部から地方への人材流入と創造的な経済活動の創出に貢献しています。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 6th Work Card -->
+                <div class="work-card">
+                    <div class="work-card__image">
+                        <img src="img/project-6.jpg" alt="地域資源循環モデル">
+                        <div class="work-card__overlay">
+                            <div class="work-card__view">詳細を見る</div>
+                        </div>
+                    </div>
+                    <div class="work-card__content">
+                        <h4 class="work-card__title">地域資源循環モデル</h4>
+                        <div class="work-card__tags">
+                            <span class="tag">高知県</span>
+                            <span class="tag">環境</span>
+                            <span class="tag">循環</span>
+                        </div>
+                        <p class="work-card__text">
+                            地域の自然資源を活用した持続可能な事業モデルの構築。森林資源や水産資源の循環的な利用により、環境保全と経済活性化の両立を実現しています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="strengths__action">
+                <a href="#contact" class="button">
+                    活動地域の詳細を見る
+                    <i class="fas fa-arrow-right button-icon"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Voices Section -->
+    <section class="voices" id="voices">
+        <div class="container">
+            <h2 class="section__title">活動実績</h2>
+            <h3 class="voices__title">地域の声：プロジェクトによる変化</h3>
+            
+            <div class="voice-cards-container">
+                <!-- 1st Voice Card -->
+                <div class="voice-card">
+                    <span class="voice-card__label">地域おこし協力隊</span>
+                    <h4 class="voice-card__title">観光客数が2倍に増加、地域の認知度が大幅アップ</h4>
+                    <p class="voice-card__text">
+                        「地域活性化プロジェクトと連携し、デジタルマーケティングを強化したことで、観光客数が前年比200%に増加しました。特に若い世代の来訪が増え、SNSでの地域の露出も拡大。地元商店の売上増加にもつながっています。」
+                    </p>
+                    <div class="voice-card__author">
+                        <div class="author__company">石川県 能登町 地域振興課</div>
+                        <div class="author__name">山田 健太 様</div>
+                    </div>
+                </div>
+                
+                <!-- 2nd Voice Card -->
+                <div class="voice-card">
+                    <span class="voice-card__label">伝統工芸</span>
+                    <h4 class="voice-card__title">後継者問題の解決と伝統技術の現代的応用</h4>
+                    <p class="voice-card__text">
+                        「後継者不足に悩んでいた当地の伝統工芸が、プロジェクトの支援により若手職人の育成プログラムを開始。現代的なデザインとのコラボレーションによって新商品開発も進み、海外からの注目も集めるようになりました。」
+                    </p>
+                    <div class="voice-card__author">
+                        <div class="author__company">九谷焼 協同組合</div>
+                        <div class="author__name">佐藤 雅子 様</div>
+                    </div>
+                </div>
+                
+                <!-- 3rd Voice Card -->
+                <div class="voice-card">
+                    <span class="voice-card__label">移住定住</span>
+                    <h4 class="voice-card__title">5年間で30世帯が移住、空き家活用も進展</h4>
+                    <p class="voice-card__text">
+                        「移住支援プログラムを通じて、5年間で30世帯80人以上が当地に移住。クリエイティブ人材の流入により、空き家を活用した新しいビジネスも5件立ち上がり、地域に新たな雇用と活気が生まれています。」
+                    </p>
+                    <div class="voice-card__author">
+                        <div class="author__company">長野県 小布施町 移住支援センター</div>
+                        <div class="author__name">田中 誠一 様</div>
+                    </div>
+                </div>
+                
+                <!-- 4th Voice Card -->
+                <div class="voice-card">
+                    <span class="voice-card__label">食文化</span>
+                    <h4 class="voice-card__title">地元食材の価値向上と新たな販路開拓</h4>
+                    <p class="voice-card__text">
+                        「地元の農産物をブランディングし、オンラインでの販売体制を整えたことで、農家の所得が平均20%向上。若手農家の参入も増え、耕作放棄地の活用も進んでいます。地域の食文化に対する誇りも高まっています。」
+                    </p>
+                    <div class="voice-card__author">
+                        <div class="author__company">北海道 農業協同組合</div>
+                        <div class="author__name">鈴木 康弘 様</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section__title">お問い合わせ</h2>
+            <h3 class="contact__title">地域の未来を共に創る、第一歩</h3>
+            <p class="contact__text">
+                地域活性化についてのご相談、プロジェクトへの参加希望、取材依頼など、お気軽にお問い合わせください。専門スタッフが対応いたします。
+            </p>
+            <a href="#" class="button">
+                お問い合わせをする
+                <i class="fas fa-arrow-right button-icon"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <a href="/" class="footer__logo">
+                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+                    </a>
+                    <p class="footer__address">
+                        〒150-0043<br>
+                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
+                    </p>
+                    <!-- ソーシャルリンク -->
+                    <div class="footer__social">
+                        <a href="https://x.com/JapanAnimeMaps" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <nav class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <li><a href="business.html">事業内容</a></li>
+                        <li><a href="news.html">お知らせ</a></li>
+                        <li><a href="recruit.html">採用情報</a></li>
+                        <li><a href="aboutus.html">企業情報</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- サイトマップなどのリンク追加 -->
+            <div class="footer__links">
+                <ul class="footer__links-list">
+                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
+                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
+                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
+                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Scroll To Top Button -->
+    <button class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
