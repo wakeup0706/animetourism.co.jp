@@ -1,0 +1,579 @@
+/* member.css */
+
+/* ページヘッダー */
+.page-header {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-color), #2c3e50);
+    padding: 80px 0;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 60px;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../img/pattern.png');
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.page-header__inner {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header__title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+}
+
+.page-header__subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+}
+
+/* チーム紹介セクション */
+.team-intro {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.team-intro__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.team-intro__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+}
+
+.animated-title {
+    position: relative;
+}
+
+.animated-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: line-reveal 3s forwards;
+}
+
+@keyframes line-reveal {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+}
+
+.team-intro__text {
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-bottom: 40px;
+}
+
+/* 経営陣セクション */
+.executive-team {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
+    color: #333;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.executive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.executive-card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.executive-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.executive-card__inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.executive-card__photo {
+    position: relative;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.photo-frame {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(228, 64, 95, 0.2);
+}
+
+.executive-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.executive-card__content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.executive-card__name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: center;
+}
+
+.executive-card__position {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.executive-card__bio {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.executive-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background-color: rgba(228, 64, 95, 0.1);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.executive-card__socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* CEO カードを強調表示 */
+#ceo {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(228, 64, 95, 0.2);
+    z-index: 2;
+}
+
+#ceo .executive-card__name,
+#ceo .executive-card__position {
+    color: var(--primary-color);
+}
+
+#ceo .photo-frame {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(228, 64, 95, 0.3);
+}
+
+/* チームメンバーセクション */
+.team-members {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.teams-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn:hover {
+    background-color: rgba(228, 64, 95, 0.1);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.member-card {
+    height: 350px;
+    perspective: 1000px;
+}
+
+.member-card__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.member-card__inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.member-card__front, .member-card__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.member-card__front {
+    background-color: #fff;
+}
+
+.member-card__back {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.member-card__photo {
+    height: 70%;
+    overflow: hidden;
+}
+
+.member-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-img {
+    transform: scale(1.05);
+}
+
+.member-card__info {
+    padding: 15px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.member-card__name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.member-card__role {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.member-card__bio {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.member-card__skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: rgba(228, 64, 95, 0.1);
+    color: var(--primary-color);
+    border-radius: 15px;
+    font-size: 0.75rem;
+}
+
+/* 企業文化セクション */
+.team-culture {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.culture-item {
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.culture-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.culture-item__icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.culture-item__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.culture-item__text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* 参加セクション */
+.join-team {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary-color), #4a569d);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.join-team::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/pattern.png');
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.join-team__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.join-team__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.join-team__text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.join-team__action {
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: white;
+    color: var(--primary-color);
+    border-radius: 50px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.button i {
+    margin-left: 8px;
+}
+
+/* アニメーション用スタイル */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .executive-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    #ceo {
+        transform: scale(1.02);
+    }
+    
+    .team-intro__title {
+        font-size: 2rem;
+    }
+    
+    .join-team__title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .executive-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #ceo {
+        transform: none;
+    }
+    
+    .teams-filter {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+    }
+    
+    .photo-frame {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .executive-card__name {
+        font-size: 1.5rem;
+    }
+    
+    .page-header__title {
+        font-size: 2.5rem;
+    }
+    
+    .team-intro__title {
+        font-size: 1.8rem;
+    }
+    
+    .join-team__title {
+        font-size: 2rem;
+    }
+}

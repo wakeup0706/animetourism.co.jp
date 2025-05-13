@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メンバー紹介 | AnimeTourism Inc. | 株式会社アニメツーリズム</title>
+    <meta name="description" content="AnimeTourism Inc. のチームメンバーをご紹介します。多様な経験と専門知識を持ったプロフェッショナルが集まっています。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/member.css">
+    <link rel="icon" href="img/animetourism_logo_min.png">
+    <!-- Added Font Awesome for improved icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+</head>
+<body id="member">
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html" class="header__logo-link" aria-label="AnimeTourism トップページへ">
+                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
+                </a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item has-dropdown">
+                        <a href="business.html" class="header__nav-link">
+                            <i class="fas fa-briefcase nav-icon"></i>事業内容
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="apps.html" class="dropdown-menu__link">JapanAnimeMapsの開発・運営</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="loacl-activities.html" class="dropdown-menu__link">地域活性化事業の企画・運営</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="contract-development.html" class="dropdown-menu__link">受託開発事業</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="news.html" class="header__nav-link">
+                            <i class="fas fa-newspaper nav-icon"></i>お知らせ
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="news.html" class="dropdown-menu__link">当社からの最新情報</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="https://note.com/japananimemaps" class="dropdown-menu__link">公式note</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="recruit.html" class="header__nav-link">
+                            <i class="fas fa-user-plus nav-icon"></i>採用情報
+                        </a>
+                    </li>
+                    <li class="header__nav-item has-dropdown">
+                        <a href="aboutus.html" class="header__nav-link">
+                            <i class="fas fa-building nav-icon"></i>企業情報
+                        </a>
+                        <div class="dropdown-menu">
+                            <ul class="dropdown-menu__list">
+                                <li class="dropdown-menu__item">
+                                    <a href="aboutus.html" class="dropdown-menu__link">私たちについて</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="corporate-philosophy.html" class="dropdown-menu__link">企業理念</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="corporate.html" class="dropdown-menu__link">会社概要</a>
+                                </li>
+                                <li class="dropdown-menu__item">
+                                    <a href="member.html" class="dropdown-menu__link">メンバー紹介</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contact.html" class="header__nav-link header__nav-link--contact">
+                            <i class="fas fa-envelope nav-icon"></i>お問い合わせ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="page-header__inner">
+                <h2 class="page-header__title">メンバー紹介</h2>
+                <p class="page-header__subtitle">Our Team</p>
+            </div>
+        </section>
+
+        <section class="team-intro">
+            <div class="container">
+                <div class="team-intro__content">
+                    <h3 class="team-intro__title animated-title">多様な専門性を持つプロフェッショナル集団</h3>
+                    <p class="team-intro__text">
+                        AnimeTourism Inc.は、アニメ・IT・地域活性化のスペシャリストが集まったチームです。<br>
+                        アニメの魅力を通じて日本の地域と世界をつなぐため、様々なバックグラウンドと専門知識を持ったメンバーが協力し合い、革新的なサービスを提供しています。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="executive-team">
+            <div class="container">
+                <h3 class="section-title">経営陣</h3>
+                <div class="executive-grid">
+                    <div class="executive-card" id="ceo">
+                        <div class="executive-card__inner">
+                            <div class="executive-card__photo">
+                                <div class="photo-frame">
+                                    <img src="img/fs.jpg" alt="CEO" class="executive-img">
+                                </div>
+                            </div>
+                            <div class="executive-card__content">
+                                <h4 class="executive-card__name">福森　翔太</h4>
+                                <p class="executive-card__position">代表取締役社長 / CEO</p>
+                                <div class="executive-card__bio">
+                                    <p>
+                                        団体客向けの宿泊施設のマーケティングです。全く機能していない既存のSNSアカウントを運用し始めて3カ月で、SNS経由の売上が120万円以上。
+                                        アニメファンとしての情熱と、テクノロジーの知識を組み合わせ、「JapanAnimeMaps」の構想を実現。
+                                        アニメツーリズムを通じた地域活性化に強い信念を持つ。
+                                    </p>
+                                </div>
+                                <div class="executive-card__tags">
+                                    <span class="tag">プロダクト戦略</span>
+                                    <span class="tag">ビジネス開発</span>
+                                    <span class="tag">リーダーシップ</span>
+                                </div>
+                                <!-- <div class="executive-card__socials">
+                                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="executive-card" id="cto">
+                        <div class="executive-card__inner">
+                            <div class="executive-card__photo">
+                                <div class="photo-frame">
+                                    <img src="/api/placeholder/300/300" alt="CTO" class="executive-img">
+                                </div>
+                            </div>
+                            <div class="executive-card__content">
+                                <h4 class="executive-card__name">川上　颯太</h4>
+                                <p class="executive-card__position">最高技術責任者 / CTO</p>
+                                <div class="executive-card__bio">
+                                    <p>
+                                        企業でのエンジニア経験を経て、モバイルアプリ開発のスペシャリストとして活躍。
+                                        「JapanAnimeMaps」の技術基盤を構築し、ユーザー体験を最適化するための技術戦略を主導。
+                                        リリースまでを1人で導いて行った。
+                                        アニメと技術の融合による新たな可能性を追求している。
+                                    </p>
+                                </div>
+                                <div class="executive-card__tags">
+                                    <span class="tag">モバイル開発</span>
+                                    <span class="tag">技術戦略</span>
+                                    <span class="tag">システム設計</span>
+                                </div>
+                                <div class="executive-card__socials">
+                                    <a href="https://github.com/sota-kawakami00" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="executive-card" id="coo">
+                        <div class="executive-card__inner">
+                            <div class="executive-card__photo">
+                                <div class="photo-frame">
+                                    <img src="/api/placeholder/300/300" alt="COO" class="executive-img">
+                                </div>
+                            </div>
+                            <div class="executive-card__content">
+                                <h4 class="executive-card__name">鈴木 美穂</h4>
+                                <p class="executive-card__position">最高執行責任者 / COO</p>
+                                <div class="executive-card__bio">
+                                    <p>
+                                        地域振興や観光業界での豊富な経験を持ち、自治体との連携プロジェクトを多数成功させてきた実績がある。
+                                        アニメツーリズム事業の展開と運営において中心的な役割を果たし、持続可能な地域活性化モデルを構築。
+                                        地域とアニメファンをつなぐ橋渡し役として活躍している。
+                                    </p>
+                                </div>
+                                <div class="executive-card__tags">
+                                    <span class="tag">事業運営</span>
+                                    <span class="tag">地域連携</span>
+                                    <span class="tag">マーケティング</span>
+                                </div>
+                                <div class="executive-card__socials">
+                                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="team-members">
+            <div class="container">
+                <h3 class="section-title">チームメンバー</h3>
+                
+                <div class="teams-filter">
+                    <button class="filter-btn active" data-filter="all">すべて</button>
+                    <button class="filter-btn" data-filter="management">経営陣</button>
+                    <button class="filter-btn" data-filter="engineering">エンジニアリング</button>
+                    <button class="filter-btn" data-filter="design">デザイン</button>
+                    <button class="filter-btn" data-filter="marketing">マーケティング</button>
+                    <button class="filter-btn" data-filter="business">ビジネス開発</button>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="member-card" data-category="marketing,management">
+                        <div class="member-card__inner">
+                            <div class="member-card__front">
+                                <div class="member-card__photo">
+                                    <img src="img/fs.jpg" alt="マーケター" class="member-img">
+                                </div>
+                                <div class="member-card__info">
+                                    <h4 class="member-card__name">福森 翔太</h4>
+                                    <p class="member-card__role">代表取締役/マーケティングマネージャー</p>
+                                </div>
+                            </div>
+                            <div class="member-card__back">
+                                <div class="member-card__bio">
+                                    <p>
+                                        デジタルマーケティングの戦略立案から実行までを担当。
+                                        アニメイベントやSNSを通じたコミュニティ構築に強みを持つ。
+                                    </p>
+                                </div>
+                                <div class="member-card__skills">
+                                    <span class="skill-tag">SNSマーケティング</span>
+                                    <span class="skill-tag">コンテンツ戦略</span>
+                                    <span class="skill-tag">コミュニティ運営</span>
+                                    <span class="skill-tag">経営</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="engineering,management">
+                        <div class="member-card__inner">
+                            <div class="member-card__front">
+                                <div class="member-card__photo">
+                                    <img src="/api/placeholder/250/250" alt="エンジニア" class="member-img">
+                                </div>
+                                <div class="member-card__info">
+                                    <h4 class="member-card__name">川上 颯太</h4>
+                                    <p class="member-card__role">最高技術責任者CTO/フルスタックエンジニア</p>
+                                </div>
+                            </div>
+                            <div class="member-card__back">
+                                <div class="member-card__bio">
+                                    <p>
+                                        フルスタックエンジニアで、JapanAnimeMapsのリリースまでを手がける。
+                                        フロントからバックエンドまで多岐に渡り活動。
+                                    </p>
+                                </div>
+                                <div class="member-card__skills">
+                                    <span class="skill-tag">経営</span>
+                                    <span class="skill-tag">フルスタック</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-category="engineering,design">
+                        <div class="member-card__inner">
+                            <div class="member-card__front">
+                                <div class="member-card__photo">
+                                    <img src="/api/placeholder/250/250" alt="エンジニア" class="member-img">
+                                </div>
+                                <div class="member-card__info">
+                                    <h4 class="member-card__name">宮田 蓮</h4>
+                                    <p class="member-card__role">WEBデベロッパー</p>
+                                </div>
+                            </div>
+                            <div class="member-card__back">
+                                <div class="member-card__bio">
+                                    <p>
+                                        WEB開発をメインとするエンジニア。
+                                        ユーザー体験を最優先にした直感的なインターフェースの開発を得意とする。
+                                    </p>
+                                </div>
+                                <div class="member-card__skills">
+                                    <span class="skill-tag">HTML</span>
+                                    <span class="skill-tag">CSS</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">PHP</span>
+                                    <span class="skill-tag">TypeScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-culture">
+            <div class="container">
+                <h3 class="section-title">私たちの企業文化</h3>
+                <div class="culture-grid">
+                    <div class="culture-item" id="diversity">
+                        <div class="culture-item__icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4 class="culture-item__title">多様性の尊重</h4>
+                        <p class="culture-item__text">
+                            異なるバックグラウンドやアイデアを尊重し、多様な視点からの発想を大切にしています。国籍や経験を問わず、才能あるメンバーが活躍できる環境づくりを目指しています。
+                        </p>
+                    </div>
+
+                    <div class="culture-item" id="innovation">
+                        <div class="culture-item__icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="culture-item__title">イノベーションの追求</h4>
+                        <p class="culture-item__text">
+                            常に新しいアイデアを歓迎し、失敗を恐れずに挑戦することを奨励しています。アニメとテクノロジーの可能性を最大限に引き出すための革新的な取り組みを推進しています。
+                        </p>
+                    </div>
+
+                    <div class="culture-item" id="passion">
+                        <div class="culture-item__icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h4 class="culture-item__title">情熱と専門性</h4>
+                        <p class="culture-item__text">
+                            アニメへの情熱と各専門分野における高い技術力を大切にしています。自己成長のための学習機会を提供し、プロフェッショナルとしての成長をサポートします。
+                        </p>
+                    </div>
+
+                    <div class="culture-item" id="balance">
+                        <div class="culture-item__icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4 class="culture-item__title">ワークライフバランス</h4>
+                        <p class="culture-item__text">
+                            メンバー一人ひとりの生活と仕事のバランスを重視し、柔軟な働き方を支援しています。健康的で創造的な環境づくりがより良いサービス提供につながると考えています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="join-team">
+            <div class="container">
+                <div class="join-team__content">
+                    <h3 class="join-team__title">私たちのチームに参加しませんか？</h3>
+                    <p class="join-team__text">
+                        AnimeTourism Inc.では、アニメと地域活性化に情熱を持った仲間を募集しています。<br>
+                        あなたの才能と情熱で、新しい観光の形を一緒に創り上げましょう。
+                    </p>
+                    <div class="join-team__action">
+                        <a href="recruit.html" class="button">採用情報を見る <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__info">
+                    <a href="/" class="footer__logo">
+                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+                    </a>
+                    <p class="footer__address">
+                        〒150-0043<br>
+                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
+                    </p>
+                    <!-- ソーシャルリンク -->
+                    <div class="footer__social">
+                        <a href="https://x.com/JapanAnimeMaps" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <nav class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <li><a href="business.html">事業内容</a></li>
+                        <li><a href="news.html">お知らせ</a></li>
+                        <li><a href="recruit.html">採用情報</a></li>
+                        <li><a href="aboutus.html">企業情報</a></li>
+                        <li><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- サイトマップなどのリンク追加 -->
+            <div class="footer__links">
+                <ul class="footer__links-list">
+                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
+                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
+                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
+                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
+                </ul>
+            </div>
+            
+            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/member.js"></script>
+</body>
+</html>
