@@ -144,10 +144,9 @@ $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
                     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
                     <div class="form-group">
-                        <label for="company" class="form-label required">会社名</label>
+                        <label for="company" class="form-label">会社名</label>
                         <input type="text" id="company" name="company" class="form-input" 
-                               value="<?php echo isset($form_data['company']) ? htmlspecialchars($form_data['company'], ENT_QUOTES, 'UTF-8') : ''; ?>" 
-                               required>
+                               value="<?php echo isset($form_data['company']) ? htmlspecialchars($form_data['company'], ENT_QUOTES, 'UTF-8') : ''; ?>">
                     </div>
 
                     <div class="form-row">
@@ -184,10 +183,11 @@ $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
                     </div>
 
                     <div class="form-privacy">
-                        <label class="form-checkbox">
-                            <input type="checkbox" id="privacy" name="privacy" required 
+                        <label class="privacy-checkbox-container">
+                            <input type="checkbox" id="privacy" name="privacy" class="privacy-checkbox-input" required 
                                    <?php echo isset($form_data['privacy']) ? 'checked' : ''; ?>>
-                            <span class="checkbox-label">
+                            <span class="privacy-checkmark"></span>
+                            <span class="privacy-text">
                                 <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する
                             </span>
                         </label>
@@ -276,143 +276,7 @@ $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
                 const message = document.getElementById('message').value.trim();
                 const privacy = document.getElementById('privacy').checked;
                 
-                // バリデーション
-                if (!company) {
-                    errors.push("会社名は必須項目です。");
-                    document.getElementById('company').classList.add('input-error');
-                } else {
-                    document.getElementById('company').classList.remove('input-error');
-                }
-                
-                if (!lastname) {
-                    errors.push("姓は必須項目です。");
-                    document.getElementById('lastname').classList.add('input-error');
-                } else {
-                    document.getElementById('lastname').classList.remove('input-error');
-                }
-                
-                if (!firstname) {
-                    errors.push("名は必須項目です。");
-                    document.getElementById('firstname').classList.add('input-error');
-                } else {
-                    document.getElementById('firstname').classList.remove('input-error');
-                }
-                
-                if (!email) {
-                    errors.push("メールアドレスは必須項目です。");
-                    document.getElementById('email').classList.add('input-error');
-                } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    errors.push("有効なメールアドレスを入力してください。");
-                    document.getElementById('email').classList.add('input-error');
-                } else {
-                    document.getElementById('email').classList.remove('input-error');
-                }
-                
-                if (!message) {
-                    errors.push("メッセージは必須項目です。");
-                    document.getElementById('message').classList.add('input-error');
-                } else {
-                    document.getElementById('message').classList.remove('input-error');
-                }
-                
-                if (!privacy) {
-                    errors.push("プライバシーポリシーへの同意が必要です。");
-                }
-                
-                // エラーがある場合は送信を停止
-                if (errors.length > 0) {
-                    event.preventDefault();
-                    isValid = false;
-                    
-                    const errorList = document.getElementById('errorList');
-                    errors.forEach(error => {
-                        const li = document.createElement('li');
-                        li.textContent = error;
-                        errorList.appendChild(li);
-                    });
-                    document.getElementById('errorMessages').style.display = 'block';
-                    
-                    // エラーがある場合はページトップにスクロール
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                }
-                
-                // 送信処理中のローディング表示
-                if (isValid) {
-                    const submitButton = document.querySelector('.submit-button');
-                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 8px;"></i>送信中...';
-                    submitButton.disabled = true;
-                }
-                
-                return isValid;
-            });
-        }
-    });
-    </script>
-    <script src="js/main.js"></script>
-</body>
-</html>x"></i></a>
-                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <nav class="footer__nav">
-                    <ul class="footer__nav-list">
-                        <li><a href="business.html">事業内容</a></li>
-                        <li><a href="news.html">お知らせ</a></li>
-                        <li><a href="recruit.html">採用情報</a></li>
-                        <li><a href="aboutus.html">企業情報</a></li>
-                        <li><a href="contact.html">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <!-- サイトマップなどのリンク追加 -->
-            <div class="footer__links">
-                <ul class="footer__links-list">
-                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
-                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
-                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
-                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
-                </ul>
-            </div>
-            
-            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-    // フロントエンド側のバリデーション
-    document.addEventListener('DOMContentLoaded', function() {
-        const contactForm = document.getElementById('contactForm');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(event) {
-                let isValid = true;
-                const errors = [];
-                
-                // エラーメッセージをクリア
-                document.getElementById('errorMessages').style.display = 'none';
-                document.getElementById('errorList').innerHTML = '';
-                
-                // 入力値を取得
-                const company = document.getElementById('company').value.trim();
-                const lastname = document.getElementById('lastname').value.trim();
-                const firstname = document.getElementById('firstname').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const message = document.getElementById('message').value.trim();
-                const privacy = document.getElementById('privacy').checked;
-                
-                // バリデーション
-                if (!company) {
-                    errors.push("会社名は必須項目です。");
-                    document.getElementById('company').classList.add('input-error');
-                } else {
-                    document.getElementById('company').classList.remove('input-error');
-                }
-                
+                // バリデーション（会社名のバリデーションを削除）
                 if (!lastname) {
                     errors.push("姓は必須項目です。");
                     document.getElementById('lastname').classList.add('input-error');
