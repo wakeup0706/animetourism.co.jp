@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# .html拡張子を非表示にする
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# .htmlでアクセスされた場合は拡張子なしにリダイレクト
+RewriteCond %{THE_REQUEST} \s/+([^.]+)\.html[\s?] [NC]
+RewriteRule ^ /%1? [R=301,L]
