@@ -6,7 +6,7 @@
 
 // メールサーバーの設定
 define('MAIL_HOST', 'mail19.onamae.ne.jp');
-define('MAIL_PORT', 587);
+define('MAIL_PORT', 465);
 define('MAIL_USERNAME', 'noreply-contactform@animetourism.co.jp'); // 実際のメールアドレス
 define('MAIL_PASSWORD', '10172002Sota@'); // 実際のパスワードに変更
 define('MAIL_FROM', 'noreply-contactform@animetourism.co.jp');
