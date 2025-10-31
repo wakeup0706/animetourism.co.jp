@@ -454,6 +454,119 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         }, 500);
     }
+
+    // スクロールリビール（IntersectionObserver） - EXTREMELY PROMINENT EFFECTS (10X MORE DRAMATIC)
+    try {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const revealTargets = [];
+
+        // 既存セクションやカードなどを対象にする（コンテンツは変更しない）
+        document.querySelectorAll('.section__title, .strengths__title, .strength-item, .works__title, .work-card, .voices__title, .voice-card').forEach(el => {
+            el.classList.add('reveal');
+            revealTargets.push(el);
+        });
+        
+        // ヒーロー内の主要要素
+        const heroTitle = document.querySelector('.hero__title');
+        const heroTexts = document.querySelectorAll('.hero__text');
+        const heroStats = document.querySelector('.hero__stats');
+        
+        if (heroTitle) {
+            heroTitle.classList.add('reveal');
+            revealTargets.push(heroTitle);
+        }
+        heroTexts.forEach(el => {
+            el.classList.add('reveal');
+            revealTargets.push(el);
+        });
+        if (heroStats) {
+            heroStats.classList.add('reveal');
+            revealTargets.push(heroStats);
+        }
+
+        if (!prefersReduced && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('reveal--active');
+                        }, 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' }); // Very aggressive trigger
+
+            revealTargets.forEach(target => observer.observe(target));
+
+            // 初回ロード時、ビューポート内のヒーロー要素は即時に有効化（遅延付き - EXTREME DELAYS）
+            setTimeout(() => {
+                if (heroTitle) {
+                    heroTitle.classList.remove('reveal');
+                    setTimeout(() => {
+                        heroTitle.classList.add('reveal');
+                        setTimeout(() => heroTitle.classList.add('reveal--active'), 50);
+                    }, 50);
+                }
+            }, 300);
+            setTimeout(() => {
+                heroTexts.forEach((el, idx) => {
+                    setTimeout(() => {
+                        el.classList.remove('reveal');
+                        setTimeout(() => {
+                            el.classList.add('reveal');
+                            setTimeout(() => el.classList.add('reveal--active'), 50);
+                        }, 50);
+                    }, idx * 300);
+                });
+            }, 800);
+            setTimeout(() => {
+                if (heroStats) {
+                    heroStats.classList.remove('reveal');
+                    setTimeout(() => {
+                        heroStats.classList.add('reveal');
+                        setTimeout(() => heroStats.classList.add('reveal--active'), 50);
+                    }, 50);
+                }
+            }, 1500);
+        } else {
+            // 低モーション設定時は即時表示
+            revealTargets.forEach(el => el.classList.add('reveal--active'));
+        }
+    } catch (e) { 
+        console.error('Reveal animation error:', e);
+    }
+
+    // パララックス効果（ヒーローの背景オーバーレイとスライドショーの ULTRA STRONG 移動）
+    try {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+            const overlay = document.querySelector('.hero__overlay');
+            const slideshow = document.querySelector('#heroSlideshow');
+            const heroInner = document.querySelector('.hero__inner');
+            
+            const onScroll = () => {
+                const y = window.scrollY || window.pageYOffset;
+                const heroHeight = document.querySelector('.hero')?.offsetHeight || 700;
+                const scrollProgress = Math.min(1, y / heroHeight);
+                
+                // ULTRA STRONG パララックス効果 (further intensified)
+                const translateYOverlay = scrollProgress * 600;
+                const translateYSlideshow = scrollProgress * 400;
+                const translateYText = scrollProgress * 300;
+                
+                if (overlay) overlay.style.transform = `translateY(${translateYOverlay}px) scale(${1 + scrollProgress * 0.5}) rotateY(${scrollProgress * 12}deg)`;
+                if (slideshow) slideshow.style.transform = `translateY(${translateYSlideshow}px) scale(${1 - scrollProgress * 0.25}) rotateX(${-scrollProgress * 8}deg)`;
+                if (heroInner) heroInner.style.transform = `translateY(${translateYText}px) scale(${1 - scrollProgress * 0.1})`;
+            };
+            
+            onScroll();
+            window.addEventListener('scroll', onScroll, { passive: true });
+            // Also trigger on resize
+            window.addEventListener('resize', onScroll, { passive: true });
+        }
+    } catch (e) { 
+        console.error('Parallax error:', e);
+    }
 });
 
 // フォームのバリデーション
@@ -492,4 +605,117 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+});
+
+/**
+ * Scroll-triggered animations inspired by Minna no Ginko
+ * - Fade-in background text
+ * - Black overlay transitions
+ * - Circle reveal animations
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const strengthsSection = document.querySelector('.strengths');
+    const worksSection = document.querySelector('.works');
+    const voicesSection = document.querySelector('.voices');
+    
+    if (!strengthsSection && !worksSection && !voicesSection) return;
+    
+    // Debounce function for better performance
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+    
+    // Main scroll handler
+    function handleScrollAnimations() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        
+        // Strengths section - Text fade in
+        if (strengthsSection) {
+            const strengthsRect = strengthsSection.getBoundingClientRect();
+            const strengthsTop = strengthsRect.top + scrollY;
+            const strengthsProgress = (scrollY - strengthsTop + windowHeight) / (windowHeight + strengthsRect.height);
+            
+            if (strengthsProgress > 0.3 && strengthsProgress < 1) {
+                strengthsSection.classList.add('text-visible');
+            } else {
+                strengthsSection.classList.remove('text-visible');
+            }
+            
+            // Dark mode transition
+            if (strengthsProgress > 0.6 && strengthsProgress < 1.2) {
+                strengthsSection.classList.add('dark-mode');
+            } else {
+                strengthsSection.classList.remove('dark-mode');
+            }
+        }
+        
+        // Works section - Black overlay and text reveal
+        if (worksSection) {
+            const worksRect = worksSection.getBoundingClientRect();
+            const worksTop = worksRect.top + scrollY;
+            const worksProgress = (scrollY - worksTop + windowHeight) / (windowHeight + worksRect.height);
+            
+            // Text reveal
+            if (worksProgress > 0.2 && worksProgress < 1) {
+                worksSection.classList.add('text-visible');
+            } else {
+                worksSection.classList.remove('text-visible');
+            }
+            
+            // Black overlay appears
+            if (worksProgress > 0.4 && worksProgress < 1.1) {
+                worksSection.classList.add('dark-section');
+            } else {
+                worksSection.classList.remove('dark-section');
+            }
+        }
+        
+        // Voices section - Circle reveal
+        if (voicesSection) {
+            const voicesRect = voicesSection.getBoundingClientRect();
+            const voicesTop = voicesRect.top + scrollY;
+            const voicesProgress = (scrollY - voicesTop + windowHeight) / (windowHeight + voicesRect.height);
+            
+            // Circle expands
+            if (voicesProgress > 0.3 && voicesProgress < 1) {
+                voicesSection.classList.add('circle-reveal');
+            } else {
+                voicesSection.classList.remove('circle-reveal');
+            }
+            
+            // Switch to dark text only after the circle covers most of the section
+            if (voicesProgress > 0.6 && voicesProgress < 1.2) {
+                voicesSection.classList.add('voices-dark');
+            } else {
+                voicesSection.classList.remove('voices-dark');
+            }
+
+            // Text fade in
+            if (voicesProgress > 0.2 && voicesProgress < 1) {
+                voicesSection.classList.add('text-visible');
+            } else {
+                voicesSection.classList.remove('text-visible');
+            }
+        }
+    }
+    
+    // Optimized scroll listener with debounce
+    const debouncedScroll = debounce(handleScrollAnimations, 10);
+    
+    window.addEventListener('scroll', debouncedScroll, { passive: true });
+    
+    // Initial check on page load
+    setTimeout(handleScrollAnimations, 100);
+    
+    // Re-check on resize
+    window.addEventListener('resize', debounce(handleScrollAnimations, 150), { passive: true });
 });
