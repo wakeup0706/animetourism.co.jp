@@ -1,228 +1,94 @@
-/* 作品カードのホバー効果の強化 */
-.work-card {
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+/* Index Page Specific Styles - Clean Minimal Design */
 
-.work-card:hover .work-card__view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 詳細を見るボタンの強調表示 */
-.work-card__view {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    display: inline-block;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 15px rgba(228, 64, 95, 0.3);
-}
-
-.work-card__view:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(228, 64, 95, 0.4);
-}
-
-/* Enhanced App Stats Section Styles */
-.hero__stats {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    backdrop-filter: none;
-    border-radius: 0;
-    padding: 25px 35px;
-    margin-top: 40px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid #FF5252;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    width: 50%;  /* 画面の横幅半分まで使用 */
-    max-width: 600px;
-}
-
-.hero__stats::before {
+/* Hero Section Enhancements */
+.hero__overlay {
     display: none;
 }
 
-.hero__stats:hover {
-    transform: translateX(5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+.hero__stats {
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+    padding-top: 30px;
 }
 
 .stats__item {
-    position: relative;
-    font-size: 2.2rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-    padding-left: 35px;
-    display: flex;
-    align-items: center;
-    z-index: 2;
-    transition: transform 0.3s ease;
-}
-
-.stats__item:hover {
-    transform: translateX(5px);
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
 }
 
 .stats__item::before {
-    content: '★';
-    position: absolute;
-    left: 0;
-    color: #FFEB3B;
-    font-size: 2rem;
-    margin-right: 15px;
-    transition: transform 0.3s ease;
-}
-
-.stats__item:hover::before {
-    transform: rotate(20deg) scale(1.2);
-}
-
-.stats__item strong {
-    color: #FF5252;
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin: 0 8px;
-    position: relative;
-    display: inline-block;
-}
-
-.stats__item strong::after {
     display: none;
 }
 
-.stats__note {
-    font-size: 1.4rem;
-    color: var(--text-light);
-    margin-top: 15px;
-    padding-top: 12px;
-    border-top: 1px dashed rgba(0, 0, 0, 0.1);
-    text-align: right;
-    font-style: italic;
-    z-index: 2;
-    position: relative;
-}
-
-/* Animation for App Store review score */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.stats__item:first-child strong {
-    animation: pulse 3s infinite ease-in-out;
-}
-
-/* 2段目の星マークの修正 */
-.stats__item:nth-child(2)::before {
-    content: '★';
-    font-family: sans-serif;
-    color: var(--primary-color);
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .hero__stats {
-        width: 60%;
-    }
-}
-
-@media (max-width: 992px) {
-    .hero__stats {
-        width: 70%;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero__stats {
-        width: 85%;
-        padding: 20px 25px;
-        margin-top: 30px;
-    }
-    
-    .stats__item {
-        font-size: 1.8rem;
-    }
-    
-    .stats__item strong {
-        font-size: 2.4rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero__stats {
-        width: 100%;
-    }
-}
-
-/* Add a subtle hover effect to each stat item */
-.stats__item {
-    cursor: default;
-}
-
-.stats__item:hover strong {
-    color: var(--primary-dark);
-    text-shadow: 0 0 10px rgba(228, 64, 95, 0.3);
-}
-
-/* Add badge design for the App Store mentions */
-.app-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, #0066CC, #00AAFF);
-    color: white;
-    padding: 3px 12px;
-    border-radius: 12px;
-    font-size: 0.8em;
-    margin-left: 5px;
+.stats__item strong {
+    font-size: 2.4rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 5px rgba(0, 102, 204, 0.3);
+    color: var(--text-color);
+}
+
+.app-badge {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 1.2rem;
 }
 
 .app-store-text {
-    color: var(--primary-color);
-    font-weight: 700;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 2px;
-    background: linear-gradient(to right, var(--primary-light), var(--primary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-weight: 600;
+    color: var(--accent-color);
 }
 
-.app-store-text::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+/* Remove all yellow/black box effects */
+.hero__title {
+    background: transparent;
+    color: var(--text-light);
+    padding: 0;
 }
 
-/* 区切り線のスタイル */
-.stats__divider {
+.hero__subtitle {
+    background: transparent;
+    color: var(--text-color);
+    padding: 0;
+}
+
+.hero__inner::after {
+    display: none;
+}
+
+/* Clean section backgrounds */
+.strengths::after,
+.strengths::before,
+.works::after,
+.works::before,
+.voices::after,
+.voices::before {
+    display: none;
+}
+
+/* Remove all special effects */
+.hero__stats {
+    min-width: auto;
     width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(228, 64, 95, 0.2), transparent);
-    margin: 5px 0 15px 0;
+    border-left: none;
+    box-shadow: none;
+}
+
+.hero__stats:hover {
+    transform: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero__stats {
+        margin-left: 0;
+        padding: 20px 0;
+    }
+    
+    .stats__item {
+        font-size: 1.4rem;
+    }
+    
+    .stats__item strong {
+        font-size: 2rem;
+    }
 }
