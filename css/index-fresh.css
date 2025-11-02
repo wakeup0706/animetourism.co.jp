@@ -212,6 +212,7 @@ body {
     transition: opacity 0.1s ease;
 }
 
+
 .hero-fresh__inner {
     max-width: 1580px;
     margin: 0 auto;
@@ -443,7 +444,7 @@ body {
 /* Special Section */
 .special-fresh {
     min-height: 100vh;
-    padding: 120px 40px;
+    padding: 120px 0;
     background: var(--color-black);
     color: var(--color-white);
     border-radius: 40px 40px 0 0;
@@ -451,11 +452,13 @@ body {
     position: relative;
     will-change: transform;
     margin-top: -40px;
+    overflow-x: hidden;
 }
 
 .special-fresh__inner {
     max-width: 1580px;
     margin: 0 auto;
+    padding: 0 40px;
 }
 
 .special-fresh__heading {
@@ -465,18 +468,67 @@ body {
     margin-bottom: 80px;
 }
 
+/* Community Banner Image Container - Full Width */
+.special-fresh__banner-container {
+    width: 100vw;
+    margin: 60px 0 0 0;
+    margin-left: calc(-50vw + 50%);
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.special-fresh__banner-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.35;
+    filter: grayscale(100%);
+    transition: opacity 0.3s ease;
+    object-fit: cover;
+    object-position: center;
+}
+
+.special-fresh__banner-image:hover {
+    opacity: 0.5;
+}
+
 .special-fresh__heading-en {
-    font-size: 8rem;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 10rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    flex-direction: column;
+    color: #666666;
     opacity: 1;
-    transform: translateY(0);
-    color: var(--color-white);
+    filter: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .special-fresh__heading-en span {
     display: block;
-    color: var(--color-white);
+    opacity: 1;
+    filter: none;
+}
+
+/* Three different shades of gray for each line */
+.special-fresh__heading-en span:nth-child(1) {
+    /* WE ARE - Lightest gray */
+    color: #999999;
+}
+
+.special-fresh__heading-en span:nth-child(2) {
+    /* ANIME - Medium gray */
+    color: #666666;
+}
+
+.special-fresh__heading-en span:nth-child(3) {
+    /* TOURISM - Darkest gray */
+    color: #444444;
 }
 
 .special-fresh__heading-ja h2 {
@@ -496,17 +548,80 @@ body {
     color: var(--color-white);
 }
 
-.special-fresh__carousel {
-    width: 100%;
-    overflow: hidden;
+/* Two-Row Parallax Carousel (No Overlap) */
+.special-fresh__carousel-wrapper {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     opacity: 1;
     transform: translateY(0);
+    box-sizing: border-box;
 }
 
-.special-fresh__carousel img {
+.special-fresh__carousel-row {
     width: 100%;
-    height: auto;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.special-fresh__carousel-inner {
+    display: flex;
+    width: fit-content;
+    gap: 20px;
+    height: 100%;
+    will-change: transform;
+}
+
+.special-fresh__carousel-inner--left {
+    animation: scrollLeft 40s linear infinite;
+}
+
+.special-fresh__carousel-inner--right {
+    animation: scrollRight 42s linear infinite;
+}
+
+.special-fresh__carousel-item {
+    flex-shrink: 0;
+    width: 300px;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.special-fresh__carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Pause animation on hover for better UX */
+.special-fresh__carousel-wrapper:hover .special-fresh__carousel-inner {
+    animation-play-state: paused;
 }
 
 /* About Section */
@@ -684,6 +799,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+    overflow: visible;
 }
 
 .strength-fresh-item__number {
@@ -713,6 +830,60 @@ body {
     font-size: 1.6rem;
     line-height: 2;
     margin-top: auto;
+}
+
+/* Strength Item Circles - Random positions and sizes */
+.strength-fresh-item__circle {
+    position: absolute;
+    border: 2px solid var(--color-black);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Card 01: Only red circle - top right */
+.strength-fresh-item:nth-child(1) .strength-fresh-item__circle--red {
+    width: 65px;
+    height: 65px;
+    background: var(--color-red);
+    border-radius: 50%;
+    top: -10px;
+    right: -10px;
+    left: auto;
+}
+
+/* Card 02: Yellow circle - bottom left, Red circle - top center */
+.strength-fresh-item:nth-child(2) .strength-fresh-item__circle--yellow {
+    width: 85px;
+    height: 85px;
+    background: var(--color-yellow);
+    border-radius: 50%;
+    bottom: -15px;
+    left: -15px;
+    right: auto;
+    top: auto;
+}
+
+.strength-fresh-item:nth-child(2) .strength-fresh-item__circle--red.strength-fresh-item__circle--alt {
+    width: 55px;
+    height: 55px;
+    background: var(--color-red);
+    border-radius: 50%;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+}
+
+/* Card 03: Yellow circle - top left */
+.strength-fresh-item:nth-child(3) .strength-fresh-item__circle--yellow.strength-fresh-item__circle--alt2 {
+    width: 75px;
+    height: 75px;
+    background: var(--color-yellow);
+    border-radius: 50%;
+    top: -18px;
+    left: -18px;
+    right: auto;
+    bottom: auto;
 }
 
 .strengths-fresh__action {
@@ -778,9 +949,41 @@ body {
 .work-fresh-card {
     position: relative;
     border: 2px solid var(--color-black);
-    overflow: hidden;
+    overflow: visible;
     opacity: 0;
     transform: translateY(50px);
+}
+
+/* Work Card Circles */
+.work-fresh-card__circle {
+    position: absolute;
+    border: 2px solid var(--color-black);
+    z-index: 15;
+    pointer-events: none;
+}
+
+/* Card 1: Red circle - bottom right */
+.work-fresh-card:nth-child(1) .work-fresh-card__circle--red {
+    width: 70px;
+    height: 70px;
+    background: var(--color-red);
+    border-radius: 50%;
+    bottom: -15px;
+    right: -15px;
+    top: auto;
+    left: auto;
+}
+
+/* Card 3: Yellow circle - top left */
+.work-fresh-card:nth-child(3) .work-fresh-card__circle--yellow {
+    width: 80px;
+    height: 80px;
+    background: var(--color-yellow);
+    border-radius: 50%;
+    top: -18px;
+    left: -18px;
+    bottom: auto;
+    right: auto;
 }
 
 .work-fresh-card__image {
@@ -898,6 +1101,8 @@ body {
     border: 2px solid var(--color-black);
     opacity: 0;
     transform: translateY(50px);
+    position: relative;
+    overflow: visible;
 }
 
 .voices-fresh__card-content {
@@ -958,6 +1163,31 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+.voices-fresh__circle {
+    position: absolute;
+    border: 2px solid var(--color-black);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.voices-fresh__circle--red {
+    width: 78px;
+    height: 78px;
+    background: var(--color-red);
+    border-radius: 50%;
+    top: -20px;
+    left: -20px;
+}
+
+.voices-fresh__circle--yellow {
+    width: 120px;
+    height: 120px;
+    background: var(--color-yellow);
+    border-radius: 50%;
+    bottom: -30px;
+    right: -30px;
+}
+
 /* Stats Section */
 .stats-fresh {
     position: relative;
@@ -1009,6 +1239,42 @@ body {
     font-size: 1.4rem;
     margin-top: 20px;
     opacity: 0.7;
+}
+
+/* Community Banner Section */
+.community-banner-fresh {
+    background: var(--color-black);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    line-height: 0;
+}
+
+.community-banner-fresh__inner {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    line-height: 0;
+}
+
+.community-banner-fresh__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    opacity: 0.35;
+    filter: grayscale(100%);
+    transition: opacity 0.3s ease;
+    object-fit: cover;
+    object-position: center;
+}
+
+.community-banner-fresh__image:hover {
+    opacity: 0.5;
 }
 
 /* Footer */
@@ -1208,6 +1474,22 @@ body {
     
     .special-fresh__heading-en {
         font-size: 4.8rem;
+    }
+    
+    .special-fresh__carousel-row {
+        height: 200px;
+    }
+    
+    .special-fresh__carousel-item {
+        width: 200px;
+    }
+    
+    .special-fresh__carousel-inner {
+        gap: 12px;
+    }
+    
+    .special-fresh__carousel-wrapper {
+        gap: 12px;
     }
     
     .about-fresh__inner {

@@ -100,6 +100,208 @@ function initBounceEffect() {
             }
         });
     }
+    
+    // STRENGTHS Section Bounce Effect
+    const strengthsSection = document.querySelector('.strengths-fresh');
+    const strengthItems = document.querySelectorAll('.strength-fresh-item');
+    
+    if (strengthsSection && strengthItems.length > 0) {
+        // Create bounce animation for each strength card
+        strengthItems.forEach((item, index) => {
+            const redCircle = item.querySelector('.strength-fresh-item__circle--red');
+            const yellowCircle = item.querySelector('.strength-fresh-item__circle--yellow');
+            
+            // Collect only existing circles
+            const circles = [];
+            if (redCircle) circles.push(redCircle);
+            if (yellowCircle) circles.push(yellowCircle);
+            
+            const strengthBounceTimeline = gsap.timeline({ paused: true });
+            const elementsToAnimate = [item, ...circles];
+            
+            // Add bounce animations to timeline - bounce the card and circles together
+            strengthBounceTimeline
+                .to(elementsToAnimate, {
+                    y: -20,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                })
+                .to(elementsToAnimate, {
+                    y: 15,
+                    duration: 0.25,
+                    ease: 'power2.in'
+                })
+                .to(elementsToAnimate, {
+                    y: -10,
+                    duration: 0.2,
+                    ease: 'power2.out'
+                })
+                .to(elementsToAnimate, {
+                    y: 0,
+                    duration: 0.15,
+                    ease: 'power2.inOut'
+                });
+            
+            // ScrollTrigger to detect when each card comes into view - triggers every time
+            ScrollTrigger.create({
+                trigger: item,
+                start: 'top 85%',
+                onEnter: () => {
+                    strengthBounceTimeline.restart();
+                },
+                onEnterBack: () => {
+                    strengthBounceTimeline.restart();
+                }
+            });
+        });
+    }
+    
+    // WORKS Section Bounce Effect
+    const worksSection = document.querySelector('.works-fresh');
+    const workCards = document.querySelectorAll('.work-fresh-card');
+    
+    if (worksSection && workCards.length > 0) {
+        // Create bounce animation for each work card
+        workCards.forEach((card, index) => {
+            const redCircle = card.querySelector('.work-fresh-card__circle--red');
+            const yellowCircle = card.querySelector('.work-fresh-card__circle--yellow');
+            const cardImage = card.querySelector('.work-fresh-card__image img');
+            
+            // Collect only existing elements
+            const elements = [card];
+            if (redCircle) elements.push(redCircle);
+            if (yellowCircle) elements.push(yellowCircle);
+            if (cardImage) elements.push(cardImage);
+            
+            const workBounceTimeline = gsap.timeline({ paused: true });
+            
+            // Add bounce animations to timeline - bounce the card, circles, and image together
+            workBounceTimeline
+                .to(elements, {
+                    y: -20,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                })
+                .to(elements, {
+                    y: 15,
+                    duration: 0.25,
+                    ease: 'power2.in'
+                })
+                .to(elements, {
+                    y: -10,
+                    duration: 0.2,
+                    ease: 'power2.out'
+                })
+                .to(elements, {
+                    y: 0,
+                    duration: 0.15,
+                    ease: 'power2.inOut'
+                });
+            
+            // ScrollTrigger to detect when each card comes into view - triggers every time
+            ScrollTrigger.create({
+                trigger: card,
+                start: 'top 85%',
+                onEnter: () => {
+                    workBounceTimeline.restart();
+                },
+                onEnterBack: () => {
+                    workBounceTimeline.restart();
+                }
+            });
+        });
+    }
+    
+    // VOICES Section Bounce Effect
+    const voicesSection = document.querySelector('.voices-fresh');
+    const voicesCard = document.querySelector('.voices-fresh__card');
+    const voicesRedCircle = document.querySelector('.voices-fresh__circle--red');
+    const voicesYellowCircle = document.querySelector('.voices-fresh__circle--yellow');
+    const voicesImage = document.querySelector('.voices-fresh__card-images img');
+    
+    if (voicesSection && voicesCard && voicesRedCircle && voicesYellowCircle && voicesImage) {
+        // Create a timeline for the voices section bounce animation
+        const voicesBounceTimeline = gsap.timeline({ paused: true });
+        
+        // Add bounce animations to timeline - bounce the card, circles, and image together
+        voicesBounceTimeline
+            .to([voicesCard, voicesRedCircle, voicesYellowCircle, voicesImage], {
+                y: -20,
+                duration: 0.3,
+                ease: 'power2.out'
+            })
+            .to([voicesCard, voicesRedCircle, voicesYellowCircle, voicesImage], {
+                y: 15,
+                duration: 0.25,
+                ease: 'power2.in'
+            })
+            .to([voicesCard, voicesRedCircle, voicesYellowCircle, voicesImage], {
+                y: -10,
+                duration: 0.2,
+                ease: 'power2.out'
+            })
+            .to([voicesCard, voicesRedCircle, voicesYellowCircle, voicesImage], {
+                y: 0,
+                duration: 0.15,
+                ease: 'power2.inOut'
+            });
+        
+        // ScrollTrigger to detect when voices section comes into view - triggers every time
+        ScrollTrigger.create({
+            trigger: voicesSection,
+            start: 'top 80%',
+            onEnter: () => {
+                voicesBounceTimeline.restart();
+            },
+            onEnterBack: () => {
+                voicesBounceTimeline.restart();
+            }
+        });
+    }
+    
+    // COMMUNITY BANNER Section Bounce Effect (Above Footer)
+    const communityBannerSection = document.querySelector('.community-banner-fresh');
+    const communityBannerImage = document.querySelector('.community-banner-fresh__image');
+    
+    if (communityBannerSection && communityBannerImage) {
+        // Create a timeline for the community banner bounce animation
+        const communityBannerBounceTimeline = gsap.timeline({ paused: true });
+        
+        // Add bounce animations to timeline - bounce the image only
+        communityBannerBounceTimeline
+            .to(communityBannerImage, {
+                y: -20,
+                duration: 0.3,
+                ease: 'power2.out'
+            })
+            .to(communityBannerImage, {
+                y: 15,
+                duration: 0.25,
+                ease: 'power2.in'
+            })
+            .to(communityBannerImage, {
+                y: -10,
+                duration: 0.2,
+                ease: 'power2.out'
+            })
+            .to(communityBannerImage, {
+                y: 0,
+                duration: 0.15,
+                ease: 'power2.inOut'
+            });
+        
+        // ScrollTrigger to detect when community banner section comes into view - triggers every time
+        ScrollTrigger.create({
+            trigger: communityBannerSection,
+            start: 'top 80%',
+            onEnter: () => {
+                communityBannerBounceTimeline.restart();
+            },
+            onEnterBack: () => {
+                communityBannerBounceTimeline.restart();
+            }
+        });
+    }
 }
 
 // Register GSAP plugins
@@ -622,35 +824,52 @@ function initScrollAnimations() {
  * Initialize Carousels
  */
 function initCarousels() {
-    // Special carousel only (removed hero carousel)
-    setTimeout(() => {
-        if (typeof Splide !== 'undefined') {
-            // Special carousel
-            const specialCarousel = document.getElementById('specialCarousel');
-            if (specialCarousel) {
-                const specialSplide = new Splide('#specialCarousel', {
-                    type: 'loop',
-                    perPage: 4,
-                    gap: 16,
-                    autoplay: true,
-                    interval: 3000,
-                    speed: 0.3,
-                    easing: 'linear',
-                    pagination: false,
-                    arrows: false,
-                    pauseOnHover: false,
-                    breakpoints: {
-                        780: {
-                            perPage: 2,
-                            gap: 8
-                        }
-                    }
-                });
-                
-                specialSplide.mount();
-            }
+    // Multi-layer parallax carousel - no Splide needed
+    const carouselWrapper = document.querySelector('.special-fresh__carousel-wrapper');
+    if (carouselWrapper) {
+        // Initialize scroll-triggered parallax for multi-layer effect
+        initMultiLayerParallax();
+    }
+}
+
+/**
+ * Two-Row Parallax Effect with Scroll Trigger
+ */
+function initMultiLayerParallax() {
+    const specialSection = document.querySelector('.special-fresh');
+    if (!specialSection) return;
+    
+    // Get the two rows
+    const row1 = document.querySelector('.special-fresh__carousel-row--1 .special-fresh__carousel-inner');
+    const row2 = document.querySelector('.special-fresh__carousel-row--2 .special-fresh__carousel-inner');
+    
+    if (!row1 || !row2) return;
+    
+    // Row 1: Moving Left
+    gsap.to(row1, {
+        x: '-50%',
+        ease: 'none',
+        scrollTrigger: {
+            trigger: specialSection,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+            invalidateOnRefresh: true
         }
-    }, 100);
+    });
+    
+    // Row 2: Moving Right
+    gsap.to(row2, {
+        x: '50%',
+        ease: 'none',
+        scrollTrigger: {
+            trigger: specialSection,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+            invalidateOnRefresh: true
+        }
+    });
 }
 
 /**
@@ -746,7 +965,7 @@ function initParallaxEffects() {
                             stagger: 0.15,
                             ease: 'power2.out'
                         });
-                        gsap.to('.special-fresh__carousel', {
+                        gsap.to('.special-fresh__carousel-wrapper', {
                             opacity: 1,
                             y: 0,
                             duration: 0.8,
@@ -819,35 +1038,217 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Work card hover effects
+// Work card hover effects - Enhanced with circles and lift
 document.querySelectorAll('.work-fresh-card').forEach(card => {
     const overlay = card.querySelector('.work-fresh-card__overlay');
     const img = card.querySelector('.work-fresh-card__image img');
+    const redCircle = card.querySelector('.work-fresh-card__circle--red');
+    const yellowCircle = card.querySelector('.work-fresh-card__circle--yellow');
     
     card.addEventListener('mouseenter', () => {
-        gsap.to(overlay, {
-            opacity: 1,
-            duration: 0.3,
+        // Lift card
+        gsap.to(card, {
+            y: -12,
+            scale: 1.03,
+            duration: 0.4,
             ease: 'power2.out'
         });
-        gsap.to(img, {
-            scale: 1.1,
-            duration: 0.5,
-            ease: 'power2.out'
-        });
+        
+        // Overlay
+        if (overlay) {
+            gsap.to(overlay, {
+                opacity: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+        
+        // Image zoom
+        if (img) {
+            gsap.to(img, {
+                scale: 1.15,
+                duration: 0.5,
+                ease: 'power2.out'
+            });
+        }
+        
+        // Circles spin and scale
+        if (redCircle) {
+            gsap.to(redCircle, {
+                scale: 1.25,
+                rotation: 20,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        }
+        
+        if (yellowCircle) {
+            gsap.to(yellowCircle, {
+                scale: 1.2,
+                rotation: -20,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        }
     });
     
     card.addEventListener('mouseleave', () => {
-        gsap.to(overlay, {
-            opacity: 0,
+        // Reset card
+        gsap.to(card, {
+            y: 0,
+            scale: 1,
+            duration: 0.4,
+            ease: 'power2.out'
+        });
+        
+        // Reset overlay
+        if (overlay) {
+            gsap.to(overlay, {
+                opacity: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+        
+        // Reset image
+        if (img) {
+            gsap.to(img, {
+                scale: 1,
+                duration: 0.5,
+                ease: 'power2.out'
+            });
+        }
+        
+        // Reset circles
+        if (redCircle) {
+            gsap.to(redCircle, {
+                scale: 1,
+                rotation: 0,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        }
+        
+        if (yellowCircle) {
+            gsap.to(yellowCircle, {
+                scale: 1,
+                rotation: 0,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        }
+    });
+});
+
+// Strength card hover effects
+document.querySelectorAll('.strength-fresh-item').forEach(card => {
+    const redCircle = card.querySelector('.strength-fresh-item__circle--red');
+    const yellowCircle = card.querySelector('.strength-fresh-item__circle--yellow');
+    
+    card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+            y: -8,
+            scale: 1.02,
             duration: 0.3,
             ease: 'power2.out'
         });
-        gsap.to(img, {
+        if (redCircle) {
+            gsap.to(redCircle, {
+                scale: 1.2,
+                rotation: 15,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+        if (yellowCircle) {
+            gsap.to(yellowCircle, {
+                scale: 1.15,
+                rotation: -15,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+            y: 0,
             scale: 1,
-            duration: 0.5,
+            duration: 0.3,
             ease: 'power2.out'
         });
+        if (redCircle) {
+            gsap.to(redCircle, {
+                scale: 1,
+                rotation: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+        if (yellowCircle) {
+            gsap.to(yellowCircle, {
+                scale: 1,
+                rotation: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+    });
+});
+
+// Voices card hover effects
+document.querySelectorAll('.voices-fresh__card').forEach(card => {
+    const redCircle = card.querySelector('.voices-fresh__circle--red');
+    const yellowCircle = card.querySelector('.voices-fresh__circle--yellow');
+    
+    card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+            y: -8,
+            scale: 1.01,
+            duration: 0.3,
+            ease: 'power2.out'
+        });
+        if (redCircle) {
+            gsap.to(redCircle, {
+                scale: 1.15,
+                rotation: 15,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+        if (yellowCircle) {
+            gsap.to(yellowCircle, {
+                scale: 1.1,
+                rotation: -15,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+            y: 0,
+            scale: 1,
+            duration: 0.3,
+            ease: 'power2.out'
+        });
+        if (redCircle) {
+            gsap.to(redCircle, {
+                scale: 1,
+                rotation: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
+        if (yellowCircle) {
+            gsap.to(yellowCircle, {
+                scale: 1,
+                rotation: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        }
     });
 });
 

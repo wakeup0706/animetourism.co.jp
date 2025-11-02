@@ -24,37 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     }, 2000);
 
-    // Enhanced Slideshow with initial animation delay
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-    let slideInterval;
-    
-    function showSlide(index) {
-        slides.forEach(slide => {
-            slide.style.opacity = '0';
-            slide.style.transform = 'scale(1.1) translateX(5%)';
-        });
-        slides[index].style.opacity = '1';
-        slides[index].style.transform = 'scale(1) translateX(0)';
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    function startSlideshow() {
-        showSlide(0);
-        slideInterval = setInterval(nextSlide, 4000);
-    }
-
-    // Initialize first slide with delay and start autoplay
-    setTimeout(() => {
-        slides.forEach(slide => {
-            slide.style.transition = 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        });
-        startSlideshow();
-    }, 3000);
+    // Slideshow is handled by main.js
+    // No need for duplicate slideshow code here
 
     // Enhanced Intersection Observer for fade-in animations
     const fadeElements = document.querySelectorAll('.fade-in');

@@ -56,6 +56,28 @@ function setupHeroSlideshow(slideshowId) {
                 image: 'img/test_pic1.jpeg',
                 caption: 'お気に入りの作品の舞台を訪れよう'
             }
+        ],
+        'apps': [
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'アニメの世界へ冒険に出かけよう'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: '540+聖地スポットを探索'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'AIルート提案で最適な巡礼プラン'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'コミュニティで思い出を共有'
+            },
+            {
+                image: 'img/test_pic1.jpeg',
+                caption: 'JapanAnimeMapsで聖地巡礼を始めよう'
+            }
         ]
     };
     
@@ -549,14 +571,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const heroHeight = document.querySelector('.hero')?.offsetHeight || 700;
                 const scrollProgress = Math.min(1, y / heroHeight);
                 
-                // ULTRA STRONG パララックス効果 (further intensified)
-                const translateYOverlay = scrollProgress * 600;
-                const translateYSlideshow = scrollProgress * 400;
-                const translateYText = scrollProgress * 300;
+                // Parallax effect without rotation
+                const translateYOverlay = scrollProgress * 100;
+                const translateYSlideshow = scrollProgress * 50;
+                const translateYText = scrollProgress * 30;
                 
-                if (overlay) overlay.style.transform = `translateY(${translateYOverlay}px) scale(${1 + scrollProgress * 0.5}) rotateY(${scrollProgress * 12}deg)`;
-                if (slideshow) slideshow.style.transform = `translateY(${translateYSlideshow}px) scale(${1 - scrollProgress * 0.25}) rotateX(${-scrollProgress * 8}deg)`;
-                if (heroInner) heroInner.style.transform = `translateY(${translateYText}px) scale(${1 - scrollProgress * 0.1})`;
+                if (overlay) overlay.style.transform = `translateY(${translateYOverlay}px)`;
+                if (slideshow) slideshow.style.transform = `translateY(${translateYSlideshow}px)`;
+                if (heroInner) heroInner.style.transform = `translateY(${translateYText}px)`;
             };
             
             onScroll();
