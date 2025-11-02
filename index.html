@@ -8,26 +8,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index-page.css">
     <link rel="icon" href="img/animetourism_logo_min.png">
-    <!-- Added Font Awesome for improved icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- GSAP Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="css/index-fresh.css">
 </head>
 <body id="index">
-    <header class="header">
-        <div class="header__inner">
-            <h1 class="header__logo">
-                <a href="https://animetourism.co.jp/" class="header__logo-link" aria-label="AnimeTourism トップページへ">
-                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
+    <header class="header-fresh">
+        <div class="header-fresh__inner">
+            <h1 class="header-fresh__logo">
+                <a href="/" class="header-fresh__logo-link">
+                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header-fresh__logo-img">
                 </a>
             </h1>
-            <nav class="header__nav">
-                <ul class="header__nav-list">
-                    <li class="header__nav-item has-dropdown">
-                        <a href="business.html" class="header__nav-link">
+            <nav class="header-fresh__nav">
+                <ul class="header-fresh__nav-list">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="business.html" class="header-fresh__nav-link">
                             <i class="fas fa-briefcase nav-icon"></i>事業内容
                         </a>
                         <div class="dropdown-menu">
@@ -44,8 +47,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="news.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="news.html" class="header-fresh__nav-link">
                             <i class="fas fa-newspaper nav-icon"></i>お知らせ
                         </a>
                         <div class="dropdown-menu">
@@ -59,23 +62,13 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="recruit.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item">
+                        <a href="recruit.html" class="header-fresh__nav-link">
                             <i class="fas fa-user-plus nav-icon"></i>採用情報
                         </a>
-                        <!-- <div class="dropdown-menu">
-                            <ul class="dropdown-menu__list">
-                                <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">新卒採用</a>
-                                </li>
-                                <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">中途採用</a>
-                                </li>
-                            </ul>
-                        </div> -->
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="aboutus.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="aboutus.html" class="header-fresh__nav-link">
                             <i class="fas fa-building nav-icon"></i>企業情報
                         </a>
                         <div class="dropdown-menu">
@@ -95,8 +88,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item">
-                        <a href="contact.php" class="header__nav-link header__nav-link--contact">
+                    <li class="header-fresh__nav-item">
+                        <a href="contact.php" class="header-fresh__nav-link header-fresh__nav-link--contact">
                             <i class="fas fa-envelope nav-icon"></i>お問い合わせ
                         </a>
                     </li>
@@ -104,213 +97,263 @@
             </nav>
         </div>
     </header>
-    <main>
-        <section class="hero">
-            <div class="hero__overlay"></div>
-            <div class="hero__inner">
-                <h2 class="hero__title">
-                    AnimeTourism
-                    <span class="hero__subtitle">
-                        IT×アニメツーリズムで<br>
-                        世の中の消費者行動<br>
-                        を変える。
-                    </span>
-                </h2>
-                <p class="hero__text">テクノロジーを活用し世界中の人々に新しい消費行動の選択肢を提供、<br>普及されていない新しい概念を浸透させる。</p>
-                <p class="hero__text">私たちはアニメファンと地域をつなぎ<br>新しい観光の形を創造し続けます。</p>
-                <div class="hero__stats">
-                    <p class="stats__item">AppStoreの平均レビュー <strong>4.4</strong><span class="app-badge">★★★★☆</span></p>
-                    <div class="stats__divider"></div>
-                    <p class="stats__item"><span class="app-store-text">AppStore</span> ランキング常に更新中！</p>
-                    <p class="stats__note">※ 2025年5月時点</p>
-                </div>
-            </div>
-            <div class="hero__container">
-                <div id="heroSlideshow"></div>
-            </div>
-        </section>
 
-        <section class="strengths" id="strengths">
-            <div class="container">
-                <h2 class="section__title">STRENGTHS</h2>
-                <div class="strengths__header">
-                    <h3 class="strengths__title">
-                        いいものを着実に寄り添ってつくる。<br>
-                        専任の担当者によるあなたのお悩みを解決
-                    </h3>
-                </div>
-                <div class="strengths__list">
-                    <div class="strength-item">
-                        <div class="strength-item__number">01</div>
-                        <div class="strength-item__content">
-                            <h4 class="strength-item__title">
-                                開発の経験が少なく<br>
-                                予算も時間も膨大にかかる
-                            </h4>
-                            <p class="strength-item__text">
-                                → 専任のエンジニア担当者がつくから<br>
-                                理想のサービスを一緒に作れます。
-                            </p>
+    <main class="main-fresh">
+        <!-- Hero Section -->
+        <section class="hero-fresh" id="hero-fresh">
+            <div class="hero-fresh__wrapper">
+                <div class="hero-fresh__overlay"></div>
+                <div class="hero-fresh__inner">
+                    <div class="hero-fresh__left">
+                        <h1 class="hero-fresh__title">IT×アニメツーリズムで<br>世の中の消費者行動<br>を変える。</h1>
+                        <p class="hero-fresh__text">テクノロジーを活用し世界中の人々に新しい消費行動の選択肢を提供、<br>普及されていない新しい概念を浸透させる。</p>
+                        <p class="hero-fresh__text">私たちはアニメファンと地域をつなぎ<br>新しい観光の形を創造し続けます。</p>
+                        <div class="hero-fresh__stats">
+                            <p class="hero-fresh__stats-item">AppStoreの平均レビュー <strong>4.4</strong><span class="hero-fresh__stats-badge">★★★★☆</span></p>
+                            <p class="hero-fresh__stats-item"><span class="hero-fresh__stats-app">AppStore</span> ランキング常に更新中！</p>
+                            <p class="hero-fresh__stats-note">※ 2025年5月時点</p>
                         </div>
                     </div>
-                    <div class="strength-item">
-                        <div class="strength-item__number">02</div>
-                        <div class="strength-item__content">
-                            <h4 class="strength-item__title">
-                                IT開発を通じて新規<br>
-                                事業を最短で立ち上げたい。
-                            </h4>
-                            <p class="strength-item__text">
-                                → 弊社だから提供できる<br>
-                                寄り添った開発で解決。
-                            </p>
+                    <div class="hero-fresh__right">
+                        <div class="hero-fresh__app-promo">
+                            <h2 class="hero-fresh__app-title">聖地巡礼アプリ<br>の決定版!!</h2>
+                            <p class="hero-fresh__app-feature">チェックインして<br>あなただけの思い出<br>一覧を作ろう</p>
+                            <p class="hero-fresh__app-feature">アニメとの比較<br>も可能!</p>
+                            <p class="hero-fresh__app-feature">他ユーザの投稿<br>を見ることも!</p>
+                            <div class="hero-fresh__app-phones">
+                                <div class="hero-fresh__phone hero-fresh__phone--first">
+                                    <span class="hero-fresh__ball hero-fresh__ball--red"></span>
+                                    <img src="img/test_pic1.jpeg" alt="App Screen 1">
+                                </div>
+                                <div class="hero-fresh__phone">
+                                    <img src="img/test_pic1.jpeg" alt="App Screen 2">
+                                </div>
+                                <div class="hero-fresh__phone hero-fresh__phone--last">
+                                    <span class="hero-fresh__ball hero-fresh__ball--yellow"></span>
+                                    <img src="img/test_pic1.jpeg" alt="App Screen 3">
+                                </div>
+                            </div>
+                            <p class="hero-fresh__app-subtitle">Enjoy a pilgrimage to anime holy sites</p>
                         </div>
                     </div>
-                    <div class="strength-item">
-                        <div class="strength-item__number">03</div>
-                        <div class="strength-item__content">
-                            <h4 class="strength-item__title">
-                                IT人材が社内にいない<br>
-                                エンジニアを採用できない
-                            </h4>
-                            <p class="strength-item__text">
-                                → 寄り添った開発を行うから<br>
-                                一緒により良いものをつくれます。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="strengths__action">
-                    <a href="contract-development.html" class="button">受託開発の詳細へ <i class="fas fa-arrow-right button-icon"></i></a>
                 </div>
             </div>
         </section>
 
-        <section class="works" id="works">
-            <div class="container">
-                <h2 class="section__title">WORKS</h2>
-                <h3 class="works__title">開発実績</h3>
-                <div class="works__grid">
-                    <div class="work-card">
-                        <div class="work-card__image">
+        <!-- Special Section -->
+        <section class="special-fresh" id="special-fresh">
+            <div class="special-fresh__inner">
+                <div class="special-fresh__heading">
+                    <div class="special-fresh__heading-en">
+                        <span>WE ARE</span>
+                        <span>DIGITAL</span>
+                        <span>TOURISM</span>
+                    </div>
+                    <div class="special-fresh__heading-ja">
+                        <h2>みんなに価値ある<br/>つながりを</h2>
+                        <p>アニメファンと地域をつなぎ、<br class="br-show-sp"/>新しい観光の形を創造する。<br/>テクノロジーを活用し世界中の人々に<br/>新しい消費行動の選択肢を提供、<br/>普及されていない新しい概念を浸透させる。</p>
+                    </div>
+                </div>
+                <div class="special-fresh__carousel">
+                    <div class="splide" id="specialCarousel">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide"><img src="img/test_pic1.jpeg" alt="Carousel 1"></li>
+                                <li class="splide__slide"><img src="img/test_pic1.jpeg" alt="Carousel 2"></li>
+                                <li class="splide__slide"><img src="img/test_pic1.jpeg" alt="Carousel 3"></li>
+                                <li class="splide__slide"><img src="img/test_pic1.jpeg" alt="Carousel 4"></li>
+                                <li class="splide__slide"><img src="img/test_pic1.jpeg" alt="Carousel 5"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-fresh" id="about-fresh">
+            <div class="about-fresh__inner">
+                <div class="about-fresh__visual">
+                    <img src="img/test_pic1.jpeg" alt="About Visual">
+                    <div class="about-fresh__circle about-fresh__circle--red"></div>
+                    <div class="about-fresh__circle about-fresh__circle--yellow"></div>
+                </div>
+                <div class="about-fresh__content">
+                    <div class="about-fresh__heading">
+                        <span class="about-fresh__heading-icon">ABOUT</span>
+                        <h2>AnimeTourismとは</h2>
+                    </div>
+                    <p class="about-fresh__text">テクノロジーを活用し世界中の人々に新しい消費行動の選択肢を提供、<br>普及されていない新しい概念を浸透させる。</p>
+                    <p class="about-fresh__text">私たちはアニメファンと地域をつなぎ、<br>新しい観光の形を創造する会社です。</p>
+                    <ul class="about-fresh__list">
+                        <li><a href="aboutus.html#mission">ミッション・ビジョン・バリュー</a></li>
+                        <li><a href="aboutus.html#history">AnimeTourismの成り立ち</a></li>
+                        <li><a href="aboutus.html#data">データでみるAnimeTourism</a></li>
+                        <li><a href="aboutus.html#message">代表メッセージ</a></li>
+                        <li><a href="aboutus.html#corporate">会社概要</a></li>
+                    </ul>
+                    <a href="aboutus.html" class="about-fresh__button">詳しくみる</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strengths Section -->
+        <section class="strengths-fresh" id="strengths-fresh">
+            <div class="strengths-fresh__inner">
+                <div class="strengths-fresh__heading">
+                    <span class="strengths-fresh__heading-icon">STRENGTHS</span>
+                    <h2>いいものを着実に寄り添ってつくる。<br>専任の担当者によるあなたのお悩みを解決</h2>
+                </div>
+                <div class="strengths-fresh__list">
+                    <div class="strength-fresh-item">
+                        <div class="strength-fresh-item__number">01</div>
+                        <div class="strength-fresh-item__content">
+                            <h3>開発の経験が少なく<br>予算も時間も膨大にかかる</h3>
+                            <p>→ 専任のエンジニア担当者がつくから<br>理想のサービスを一緒に作れます。</p>
+                        </div>
+                    </div>
+                    <div class="strength-fresh-item">
+                        <div class="strength-fresh-item__number">02</div>
+                        <div class="strength-fresh-item__content">
+                            <h3>IT開発を通じて新規<br>事業を最短で立ち上げたい。</h3>
+                            <p>→ 弊社だから提供できる<br>寄り添った開発で解決。</p>
+                        </div>
+                    </div>
+                    <div class="strength-fresh-item">
+                        <div class="strength-fresh-item__number">03</div>
+                        <div class="strength-fresh-item__content">
+                            <h3>IT人材が社内にいない<br>エンジニアを採用できない</h3>
+                            <p>→ 寄り添った開発を行うから<br>一緒により良いものをつくれます。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="strengths-fresh__action">
+                    <a href="contract-development.html" class="button-fresh">受託開発の詳細へ <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section class="works-fresh" id="works-fresh">
+            <div class="works-fresh__inner">
+                <div class="works-fresh__heading">
+                    <span class="works-fresh__heading-icon">WORKS</span>
+                    <h2>開発実績</h2>
+                </div>
+                <div class="works-fresh__grid">
+                    <div class="work-fresh-card">
+                        <div class="work-fresh-card__image">
                             <img src="img/apps_icon.png" alt="JapanAnimeMaps" loading="lazy">
-                            <div class="work-card__overlay">
-                                <span class="work-card__view">詳細を見る</span>
+                            <div class="work-fresh-card__overlay">
+                                <span>詳細を見る</span>
                             </div>
                         </div>
-                        <div class="work-card__content">
-                            <h4 class="work-card__title">JapanAnimeMaps</h4>
-                            <div class="work-card__tags">
-                                <span class="tag">アニメ</span>
-                                <span class="tag">旅行</span>
-                                <span class="tag">ポイント</span>
-                                <span class="tag">投稿型</span>
+                        <div class="work-fresh-card__content">
+                            <h3>JapanAnimeMaps</h3>
+                            <div class="work-fresh-card__tags">
+                                <span class="tag-fresh">アニメ</span>
+                                <span class="tag-fresh">旅行</span>
+                                <span class="tag-fresh">ポイント</span>
+                                <span class="tag-fresh">投稿型</span>
                             </div>
-                            <p class="work-card__text">
-                                JapanAnimeMapsのモバイル開発。iOSアプリの構築からホームページ構築。
-                            </p>
+                            <p>JapanAnimeMapsのモバイル開発。iOSアプリの構築からホームページ構築。</p>
                         </div>
                     </div>
-                    
-                    <!-- Added two more work cards for better display -->
-                    <div class="work-card">
-                        <div class="work-card__image">
+                    <div class="work-fresh-card">
+                        <div class="work-fresh-card__image">
                             <img src="img/moe_sami.jpg" alt="地域活性化プロジェクト" loading="lazy">
-                            <div class="work-card__overlay">
-                                <span class="work-card__view">詳細を見る</span>
+                            <div class="work-fresh-card__overlay">
+                                <span>詳細を見る</span>
                             </div>
                         </div>
-                        <div class="work-card__content">
-                            <h4 class="work-card__title">地域活性化プロジェクト</h4>
-                            <div class="work-card__tags">
-                                <span class="tag">地域</span>
-                                <span class="tag">観光</span>
-                                <span class="tag">イベント</span>
+                        <div class="work-fresh-card__content">
+                            <h3>地域活性化プロジェクト</h3>
+                            <div class="work-fresh-card__tags">
+                                <span class="tag-fresh">地域</span>
+                                <span class="tag-fresh">観光</span>
+                                <span class="tag-fresh">イベント</span>
                             </div>
-                            <p class="work-card__text">
-                                地方自治体と連携したアニメツーリズムによる地域活性化プロジェクト。
-                            </p>
+                            <p>地方自治体と連携したアニメツーリズムによる地域活性化プロジェクト。</p>
                         </div>
                     </div>
-                    
-                    <div class="work-card">
-                        <div class="work-card__image">
+                    <div class="work-fresh-card">
+                        <div class="work-fresh-card__image">
                             <img src="img/zyutaku.gif" alt="受託開発事例" loading="lazy">
-                            <div class="work-card__overlay">
-                                <span class="work-card__view">詳細を見る</span>
+                            <div class="work-fresh-card__overlay">
+                                <span>詳細を見る</span>
                             </div>
                         </div>
-                        <div class="work-card__content">
-                            <h4 class="work-card__title">受託開発事例</h4>
-                            <div class="work-card__tags">
-                                <span class="tag">カスタム開発</span>
-                                <span class="tag">Web</span>
-                                <span class="tag">アプリ</span>
+                        <div class="work-fresh-card__content">
+                            <h3>受託開発事例</h3>
+                            <div class="work-fresh-card__tags">
+                                <span class="tag-fresh">カスタム開発</span>
+                                <span class="tag-fresh">Web</span>
+                                <span class="tag-fresh">アプリ</span>
                             </div>
-                            <p class="work-card__text">
-                                クライアント様のニーズに合わせたカスタム開発事例。
-                            </p>
+                            <p>クライアント様のニーズに合わせたカスタム開発事例。</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="voices" id="voices">
-            <div class="container">
-                <h2 class="section__title">INTERVIEW</h2>
-                <h3 class="voices__title">お客様からの声</h3>
-                <div class="voice-card">
-                    <div class="voice-card__grid">
-                        <div class="voice-card__content">
-                            <span class="voice-card__label">INTERVIEW</span>
-                            <h4 class="voice-card__title">
-                                アニメ好きには必見！
-                            </h4>
-                            <p class="voice-card__text">
-                                色々なアニメの聖地巡礼に行けることはもちろん。コミュニティー機能とか追加されて今後アニメオタクに使える機能になることを期待できるアプリ！使いやすいUIと豊富な情報量で旅行計画が立てやすいです。
-                            </p>
-                            <div class="voice-card__author">
-                                <p class="author__company">AppStoreレビューより</p>
-                                <p class="author__name">
-                                    ぱくまねらわ様
-                                </p>
-                            </div>
-                        </div>
-                        <div class="voice-card__screenshots">
-                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 1" loading="lazy">
-                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 2" loading="lazy">
-                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 3" loading="lazy">
-                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 4" loading="lazy">
-                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 5" loading="lazy">
-                            <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 6" loading="lazy">
+        <!-- Voices Section -->
+        <section class="voices-fresh" id="voices-fresh">
+            <div class="voices-fresh__inner">
+                <div class="voices-fresh__heading">
+                    <span class="voices-fresh__heading-icon">INTERVIEW</span>
+                    <h2>お客様からの声</h2>
+                </div>
+                <div class="voices-fresh__card">
+                    <div class="voices-fresh__card-content">
+                        <span class="voices-fresh__card-label">INTERVIEW</span>
+                        <h3>アニメ好きには必見！</h3>
+                        <p>色々なアニメの聖地巡礼に行けることはもちろん。コミュニティー機能とか追加されて今後アニメオタクに使える機能になることを期待できるアプリ！使いやすいUIと豊富な情報量で旅行計画が立てやすいです。</p>
+                        <div class="voices-fresh__card-author">
+                            <p class="voices-fresh__card-company">AppStoreレビューより</p>
+                            <p class="voices-fresh__card-name">ぱくまねらわ様</p>
                         </div>
                     </div>
+                    <div class="voices-fresh__card-images">
+                        <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 1" loading="lazy">
+                        <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 2" loading="lazy">
+                        <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 3" loading="lazy">
+                        <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 4" loading="lazy">
+                        <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 5" loading="lazy">
+                        <img src="/api/placeholder/150/150" alt="アプリスクリーンショット 6" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-fresh" id="stats-fresh">
+            <div class="stats-fresh__inner">
+                <div class="stats-fresh__content">
+                    <p class="stats-fresh__item">AppStoreの平均レビュー <strong>4.4</strong><span class="stats-fresh__badge">★★★★☆</span></p>
+                    <div class="stats-fresh__divider"></div>
+                    <p class="stats-fresh__item"><span class="stats-fresh__app-text">AppStore</span> ランキング常に更新中！</p>
+                    <p class="stats-fresh__note">※ 2025年5月時点</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__info">
-                    <a href="/" class="footer__logo">
-                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+    <footer class="footer-fresh">
+        <div class="footer-fresh__inner">
+            <div class="footer-fresh__main">
+                <div class="footer-fresh__left">
+                    <a href="/" class="footer-fresh__logo">
+                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer-fresh__logo-img">
                     </a>
-                    <p class="footer__address">
-                        〒150-0043<br>
-                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
-                    </p>
-                    <!-- ソーシャルリンク -->
-                    <div class="footer__social">
-                        <a href="https://x.com/JapanAnimeMaps" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
-                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <div class="footer-fresh__social">
+                        <a href="https://x.com/JapanAnimeMaps" class="footer-fresh__social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="footer-fresh__social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-fresh__social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <nav class="footer__nav">
-                    <ul class="footer__nav-list">
+                <nav class="footer-fresh__nav">
+                    <ul class="footer-fresh__nav-list">
                         <li><a href="business.html">事業内容</a></li>
                         <li><a href="news.html">お知らせ</a></li>
                         <li><a href="recruit.html">採用情報</a></li>
@@ -318,23 +361,27 @@
                         <li><a href="contact.html">お問い合わせ</a></li>
                     </ul>
                 </nav>
+                <div class="footer-fresh__links">
+                    <ul class="footer-fresh__links-list">
+                        <li><a href="sitemap.html">サイトマップ</a></li>
+                        <li><a href="privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="terms.html">利用規約</a></li>
+                        <li><a href="faq.html">よくある問い合わせ</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <!-- サイトマップなどのリンク追加 -->
-            <div class="footer__links">
-                <ul class="footer__links-list">
-                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
-                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
-                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
-                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
-                </ul>
+            <div class="footer-fresh__bottom">
+                <div class="footer-fresh__address">
+                    <p>〒150-0043<br>東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル</p>
+                </div>
+                <p class="footer-fresh__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
             </div>
-            
-            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
+        </div>
+        <div class="footer-fresh__pagetop">
+            <a href="#hero-fresh" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/work-card-link.js"></script>
+    <script src="js/index-fresh.js"></script>
 </body>
 </html>
