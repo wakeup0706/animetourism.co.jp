@@ -529,6 +529,7 @@ body {
     position: relative;
     opacity: 0;
     transform: translateX(-50px);
+    overflow: visible;
 }
 
 .about-fresh__visual img {
@@ -557,7 +558,7 @@ body {
     background: var(--color-yellow);
     bottom: -30px;
     right: -30px;
-    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    /* Removed clip-path to show full circle */
 }
 
 .about-fresh__heading {
@@ -943,15 +944,18 @@ body {
 }
 
 .voices-fresh__card-images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .voices-fresh__card-images img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* Stats Section */

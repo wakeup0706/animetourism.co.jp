@@ -4,76 +4,102 @@
  */
 
 /**
- * Bounce Effect - One instance when about section is reached
+ * Bounce Effect - Applied to ABOUT section and HERO section
+ * Triggers every time the section comes into view
  */
 function initBounceEffect() {
+    // ABOUT Section Bounce Effect
     const aboutSection = document.querySelector('.about-fresh');
+    const aboutVisual = document.querySelector('.about-fresh__visual');
+    const aboutImage = document.querySelector('.about-fresh__visual img');
+    const redCircle = document.querySelector('.about-fresh__circle--red');
+    const yellowCircle = document.querySelector('.about-fresh__circle--yellow');
+    
+    if (aboutSection && aboutVisual && aboutImage && redCircle && yellowCircle) {
+        // Create a timeline for the about section bounce animation
+        const aboutBounceTimeline = gsap.timeline({ paused: true });
+        
+        // Add bounce animations to timeline - bounce the image and circles together
+        aboutBounceTimeline
+            .to([aboutVisual, aboutImage, redCircle, yellowCircle], {
+                y: -20,
+                duration: 0.3,
+                ease: 'power2.out'
+            })
+            .to([aboutVisual, aboutImage, redCircle, yellowCircle], {
+                y: 15,
+                duration: 0.25,
+                ease: 'power2.in'
+            })
+            .to([aboutVisual, aboutImage, redCircle, yellowCircle], {
+                y: -10,
+                duration: 0.2,
+                ease: 'power2.out'
+            })
+            .to([aboutVisual, aboutImage, redCircle, yellowCircle], {
+                y: 0,
+                duration: 0.15,
+                ease: 'power2.inOut'
+            });
+        
+        // ScrollTrigger to detect when about section comes into view - triggers every time
+        ScrollTrigger.create({
+            trigger: aboutSection,
+            start: 'top 80%',
+            onEnter: () => {
+                aboutBounceTimeline.restart();
+            },
+            onEnterBack: () => {
+                aboutBounceTimeline.restart();
+            }
+        });
+    }
+    
+    // HERO Section Bounce Effect
+    const heroSection = document.querySelector('.hero-fresh');
     const redBall = document.querySelector('.hero-fresh__ball--red');
     const yellowBall = document.querySelector('.hero-fresh__ball--yellow');
     const appPhones = document.querySelector('.hero-fresh__app-phones');
     
-    if (!aboutSection || !redBall || !yellowBall || !appPhones) {
-        return;
-    }
-    
-    let hasAnimatedFromTop = false;
-    let hasAnimatedFromBottom = false;
-    
-    // Create a timeline for the bounce animation
-    const bounceTimeline = gsap.timeline({ paused: true });
-    
-    // Add bounce animations to timeline
-    bounceTimeline
-        .to([redBall, yellowBall, appPhones], {
-            y: -20,
-            duration: 0.3,
-            ease: 'power2.out'
-        })
-        .to([redBall, yellowBall, appPhones], {
-            y: 15,
-            duration: 0.25,
-            ease: 'power2.in'
-        })
-        .to([redBall, yellowBall, appPhones], {
-            y: -10,
-            duration: 0.2,
-            ease: 'power2.out'
-        })
-        .to([redBall, yellowBall, appPhones], {
-            y: 0,
-            duration: 0.15,
-            ease: 'power2.inOut'
+    if (heroSection && redBall && yellowBall && appPhones) {
+        // Create a timeline for the hero section bounce animation
+        const heroBounceTimeline = gsap.timeline({ paused: true });
+        
+        // Add bounce animations to timeline
+        heroBounceTimeline
+            .to([redBall, yellowBall, appPhones], {
+                y: -20,
+                duration: 0.3,
+                ease: 'power2.out'
+            })
+            .to([redBall, yellowBall, appPhones], {
+                y: 15,
+                duration: 0.25,
+                ease: 'power2.in'
+            })
+            .to([redBall, yellowBall, appPhones], {
+                y: -10,
+                duration: 0.2,
+                ease: 'power2.out'
+            })
+            .to([redBall, yellowBall, appPhones], {
+                y: 0,
+                duration: 0.15,
+                ease: 'power2.inOut'
+            });
+        
+        // ScrollTrigger to detect when hero section comes into view - triggers every time
+        ScrollTrigger.create({
+            trigger: heroSection,
+            start: 'top 80%',
+            onEnter: () => {
+                heroBounceTimeline.restart();
+            },
+            onEnterBack: () => {
+                heroBounceTimeline.restart();
+            }
         });
-    
-    // ScrollTrigger to detect when about section comes into view
-    ScrollTrigger.create({
-        trigger: aboutSection,
-        start: 'top 80%',
-        onEnter: () => {
-            if (!hasAnimatedFromTop) {
-                hasAnimatedFromTop = true;
-                bounceTimeline.restart();
-            }
-        },
-        onLeaveBack: () => {
-            if (!hasAnimatedFromBottom) {
-                hasAnimatedFromBottom = true;
-                bounceTimeline.restart();
-            }
-        }
-    });
-    
-    // Reset flags when scrolling away from about section
-    ScrollTrigger.create({
-        trigger: aboutSection,
-        start: 'top 120%',
-        onEnterBack: () => {
-            hasAnimatedFromTop = false;
-        },
-        onLeave: () => {
-            hasAnimatedFromBottom = false;
-        }
-    });
+    }
 }
 
 // Register GSAP plugins
@@ -89,7 +115,54 @@ document.addEventListener('DOMContentLoaded', function() {
     initParallaxEffects();
     initBounceEffect();
     initPageTop();
+    
+    // Refresh ScrollTrigger after all resources load
+    window.addEventListener('load', function() {
+        // Small delay to ensure layout is stable
+        setTimeout(function() {
+            ScrollTrigger.refresh();
+            // Fallback: Force show elements if still hidden after refresh
+            forceShowHiddenElements();
+        }, 150);
+    });
+    
+    // Also refresh on resize to handle viewport changes
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            ScrollTrigger.refresh();
+        }, 250);
+    });
+    
+    // Safety fallback: If elements are still hidden after 2 seconds, show them
+    setTimeout(function() {
+        forceShowHiddenElements();
+    }, 2000);
 });
+
+/**
+ * Fallback function to force show hidden elements if animations fail
+ */
+function forceShowHiddenElements() {
+    // Check and show elements that should be visible
+    const hiddenElements = document.querySelectorAll('.work-fresh-card, .strength-fresh-item, .voices-fresh__card, .about-fresh__visual, .special-fresh__carousel');
+    hiddenElements.forEach(function(element) {
+        if (element) {
+            const style = window.getComputedStyle(element);
+            const opacity = parseFloat(style.opacity);
+            // If element is still hidden after all animations should have run
+            if (opacity === 0 || opacity < 0.01) {
+                // Force it visible with GSAP
+                gsap.set(element, {
+                    opacity: 1,
+                    y: 0,
+                    clearProps: 'all'
+                });
+            }
+        }
+    });
+}
 
 /**
  * Navbar Dropdown Functionality
@@ -685,19 +758,8 @@ function initParallaxEffects() {
         });
     }
     
-    // Work cards parallax only (removed hero parallax)
-    const workCards = document.querySelectorAll('.work-fresh-card');
-    workCards.forEach((card, index) => {
-        gsap.to(card, {
-            y: -30 * (index % 2 === 0 ? 1 : -1),
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                end: 'bottom 15%',
-                scrub: true
-            }
-        });
-    });
+    // Work cards parallax removed - all cards stay aligned
+    // Removed parallax effect to prevent middle card from moving down
 }
 
 /**
