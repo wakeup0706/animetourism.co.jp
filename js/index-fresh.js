@@ -311,6 +311,7 @@ gsap.registerPlugin(ScrollTrigger);
 document.addEventListener('DOMContentLoaded', function() {
     initNavbarDropdowns();
     initHeroAnimations();
+    initWorksAnimations();
     initSpecialSection();
     initScrollAnimations();
     initCarousels();
@@ -538,6 +539,137 @@ function initHeroAnimations() {
 }
 
 /**
+ * Works Section – stylish animations matching Hero/About
+ */
+function initWorksAnimations() {
+    const cards = document.querySelectorAll('.work-fresh-card');
+    if (!cards.length) return;
+
+    // Responsive, more stylish layout: alternating offsets/angles with depth
+    function applyDeckLayout() {
+        const isDesktop = window.innerWidth >= 992;
+        if (isDesktop) {
+            cards.forEach((card, i) => {
+                const angle = (i % 2 === 0) ? -2.25 : 2.25;
+                const yOffset = (i % 2 === 0) ? 22 : -18;
+                gsap.set(card, {
+                    transformPerspective: 900,
+                    rotateZ: angle,
+                    y: yOffset,
+                    zIndex: 1,
+                    willChange: 'transform',
+                    boxShadow: '0 10px 24px rgba(0,0,0,0.12)'
+                });
+            });
+        } else {
+            // Reset for mobile/tablet
+            gsap.set(cards, { rotateZ: 0, y: 0, zIndex: 1, boxShadow: '0 6px 14px rgba(0,0,0,0.10)' });
+        }
+    }
+
+    applyDeckLayout();
+    window.addEventListener('resize', applyDeckLayout);
+
+    // Entrance animation (staggered)
+    gsap.set(cards, { opacity: 0, scale: 0.985, rotateX: 3 });
+    gsap.to(cards, {
+        opacity: 1,
+        scale: 1,
+        rotateX: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        stagger: 0.15,
+        scrollTrigger: {
+            trigger: '.works-fresh',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+        }
+    });
+
+    // Per-card idle float + interactive hover/parallax
+    cards.forEach((card) => {
+        const image = card.querySelector('.work-fresh-card__image img');
+        const redCircle = card.querySelector('.work-fresh-card__circle--red');
+        const yellowCircle = card.querySelector('.work-fresh-card__circle--yellow');
+        const overlay = card.querySelector('.work-fresh-card__overlay');
+
+        // Idle subtle float (runs only when card is in view)
+        const floatTl = gsap.timeline({ repeat: -1, yoyo: true, paused: true });
+        floatTl.to(card, { y: -6, duration: 2.2, ease: 'sine.inOut' })
+               .to(card, { y: 0, duration: 2.2, ease: 'sine.inOut' });
+        ScrollTrigger.create({
+            trigger: card,
+            start: 'top 85%',
+            onEnter: () => floatTl.play(),
+            onLeave: () => floatTl.pause(),
+            onEnterBack: () => floatTl.play(),
+            onLeaveBack: () => floatTl.pause()
+        });
+
+        // Hover elevate + overlay reveal + focus mode
+        const hoverTl = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } });
+        hoverTl.to(card, { y: -10, rotateZ: 0, scale: 1.03, zIndex: 5, boxShadow: '0 16px 36px rgba(0,0,0,0.22)', duration: 0.35 }, 0)
+               .to(image, { scale: 1.05, duration: 0.4 }, 0)
+               .to(redCircle, { x: -6, y: -6, duration: 0.4 }, 0)
+               .to(yellowCircle, { x: 8, y: 8, duration: 0.4 }, 0);
+        if (overlay) {
+            gsap.set(overlay, { opacity: 0 });
+            hoverTl.to(overlay, { opacity: 1, duration: 0.35 }, 0.05);
+        }
+
+        // Dim siblings on hover for a focused showcase
+        function dimSiblings(dim) {
+            const siblings = Array.from(cards).filter(c => c !== card);
+            gsap.to(siblings, { opacity: dim ? 0.6 : 1, duration: 0.25, ease: 'power2.out' });
+        }
+
+        // Mouse parallax / tilt
+        const quickRotateX = gsap.quickTo(card, 'rotateX', { duration: 0.25, ease: 'power2.out' });
+        const quickRotateY = gsap.quickTo(card, 'rotateY', { duration: 0.25, ease: 'power2.out' });
+        const quickImgX = image ? gsap.quickTo(image, 'x', { duration: 0.25 }) : null;
+        const quickImgY = image ? gsap.quickTo(image, 'y', { duration: 0.25 }) : null;
+        const quickRedX = redCircle ? gsap.quickTo(redCircle, 'x', { duration: 0.25 }) : null;
+        const quickRedY = redCircle ? gsap.quickTo(redCircle, 'y', { duration: 0.25 }) : null;
+        const quickYelX = yellowCircle ? gsap.quickTo(yellowCircle, 'x', { duration: 0.25 }) : null;
+        const quickYelY = yellowCircle ? gsap.quickTo(yellowCircle, 'y', { duration: 0.25 }) : null;
+
+        function onMove(e) {
+            const rect = card.getBoundingClientRect();
+            const relX = (e.clientX - rect.left) / rect.width - 0.5; // -0.5..0.5
+            const relY = (e.clientY - rect.top) / rect.height - 0.5;
+            quickRotateY(relX * 6); // tilt horizontally
+            quickRotateX(-relY * 6); // tilt vertically
+            if (quickImgX && quickImgY) {
+                quickImgX(relX * 10);
+                quickImgY(relY * 10);
+            }
+            if (quickRedX && quickRedY) {
+                quickRedX(-relX * 12);
+                quickRedY(-relY * 12);
+            }
+            if (quickYelX && quickYelY) {
+                quickYelX(relX * 14);
+                quickYelY(relY * 14);
+            }
+        }
+
+        function onEnter() { hoverTl.play(); dimSiblings(true); }
+        function onLeave() {
+            hoverTl.reverse();
+            dimSiblings(false);
+            quickRotateX(0); quickRotateY(0);
+            if (quickImgX && quickImgY) { quickImgX(0); quickImgY(0); }
+            if (quickRedX && quickRedY) { quickRedX(0); quickRedY(0); }
+            if (quickYelX && quickYelY) { quickYelX(0); quickYelY(0); }
+        }
+
+        card.addEventListener('mousemove', onMove);
+        card.addEventListener('mouseenter', onEnter);
+        card.addEventListener('mouseleave', onLeave);
+    });
+}
+
+/**
  * Special Section Animations
  */
 function initSpecialSection() {
@@ -733,21 +865,6 @@ function initScrollAnimations() {
         ease: 'power3.out'
     });
     
-    const workCards = document.querySelectorAll('.work-fresh-card');
-    workCards.forEach((card, index) => {
-        gsap.to(card, {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            delay: index * 0.15,
-            scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse'
-            },
-            ease: 'power3.out'
-        });
-    });
     
     // Voices section
     gsap.to('.voices-fresh__heading-icon', {

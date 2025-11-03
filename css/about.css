@@ -1,4 +1,7 @@
 /* About page specific styles */
+body {
+    overflow-x: hidden; /* prevent horizontal scroll */
+}
 .page-header {
     height: 240px;
     background-color: #f5f5f5;
@@ -25,12 +28,15 @@
 
 .about-content {
     padding: 80px 0;
+    position: relative;
+    overflow-x: hidden; /* prevent horizontal scroll from circles */
 }
 
 .container2 {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative; /* anchor circles to the table container */
 }
 
 .about-table {
@@ -40,6 +46,8 @@
 
 .about-table tr {
     border-bottom: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center;
 }
 
 .about-table tr:first-child {
@@ -53,11 +61,15 @@
     vertical-align: top;
     font-weight: 500;
     background-color: #f9f9f9;
+    transition: transform 0.3s ease;
+    transform-origin: left center;
 }
 
 .about-table td {
     padding: 30px;
     line-height: 1.8;
+    transition: transform 0.3s ease;
+    transform-origin: right center;
 }
 
 .about-table ul,
@@ -84,6 +96,32 @@
 .about-table a:hover {
     color: #004999;
     text-decoration: underline;
+}
+
+/* Accent circles positioned relative to table container */
+.aboutus-decor__circle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 10;
+    transform: translateZ(0);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+    border: 4px solid #fff;
+}
+.aboutus-decor__circle--red {
+    background-color: #ff3b3b;
+    width: 92px;
+    height: 92px;
+    top: 50%;
+    right: -46px; /* half outside, half visible from container edge */
+    transform: translateY(-50%);
+}
+.aboutus-decor__circle--yellow {
+    background-color: #ffed00;
+    width: 56px;
+    height: 56px;
+    top: 24px;
+    left: -28px; /* half outside, half visible from container edge */
+    transform: none;
 }
 
 /* Responsive styles */
@@ -116,5 +154,17 @@
 
     .about-table td {
         padding: 15px;
+    }
+
+    .aboutus-decor__circle { border-width: 3px; }
+    .aboutus-decor__circle--red { 
+        width: 64px; 
+        height: 64px; 
+        right: -32px; /* half outside for mobile */
+    }
+    .aboutus-decor__circle--yellow { 
+        width: 44px; 
+        height: 44px; 
+        left: -22px; /* half outside for mobile */
     }
 }
