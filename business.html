@@ -7,28 +7,30 @@
     <meta name="description" content="株式会社アニメツーリズムの事業内容ページです。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/business.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="img/animetourism_logo_min.png">
-     <!-- Added Font Awesome for improved icons -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+     <!-- GSAP Animation Libraries -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/EasePack.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+     <link rel="stylesheet" href="css/business.css">
 </head>
-<body>
-    <header class="header">
-        <div class="header__inner">
-            <h1 class="header__logo">
-                <a href="https://animetourism.co.jp" class="header__logo-link" aria-label="AnimeTourism トップページへ">
-                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
+<body id="business">
+    <header class="header-fresh">
+        <div class="header-fresh__inner">
+            <h1 class="header-fresh__logo">
+                <a href="/" class="header-fresh__logo-link">
+                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header-fresh__logo-img">
                 </a>
             </h1>
-            <nav class="header__nav">
-                <ul class="header__nav-list">
-                    <li class="header__nav-item has-dropdown">
-                        <a href="business.html" class="header__nav-link">
+            <nav class="header-fresh__nav">
+                <ul class="header-fresh__nav-list">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="business.html" class="header-fresh__nav-link">
                             <i class="fas fa-briefcase nav-icon"></i>事業内容
                         </a>
                         <div class="dropdown-menu">
@@ -45,8 +47,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="news.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="news.html" class="header-fresh__nav-link">
                             <i class="fas fa-newspaper nav-icon"></i>お知らせ
                         </a>
                         <div class="dropdown-menu">
@@ -60,23 +62,13 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="recruit.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item">
+                        <a href="recruit.html" class="header-fresh__nav-link">
                             <i class="fas fa-user-plus nav-icon"></i>採用情報
                         </a>
-                        <!-- <div class="dropdown-menu">
-                            <ul class="dropdown-menu__list">
-                                <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">新卒採用</a>
-                                </li>
-                                <li class="dropdown-menu__item">
-                                    <a href="/concept" class="dropdown-menu__link">中途採用</a>
-                                </li>
-                            </ul>
-                        </div> -->
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="aboutus.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="aboutus.html" class="header-fresh__nav-link">
                             <i class="fas fa-building nav-icon"></i>企業情報
                         </a>
                         <div class="dropdown-menu">
@@ -96,8 +88,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item">
-                        <a href="contact.html" class="header__nav-link header__nav-link--contact">
+                    <li class="header-fresh__nav-item">
+                        <a href="contact.php" class="header-fresh__nav-link header-fresh__nav-link--contact">
                             <i class="fas fa-envelope nav-icon"></i>お問い合わせ
                         </a>
                     </li>
@@ -106,90 +98,165 @@
         </div>
     </header>
 
-    <main>
+    <main class="main-fresh">
         <div class="page-header">
             <div class="page-header__inner">
-                <h2 class="page-header__title">Our Business</h2>
-                <p class="page-header__subtitle">事業内容</p>
+                <div class="page-header__visual">
+                    <div class="page-header__circle page-header__circle--yellow"></div>
+                    <div class="page-header__circle page-header__circle--red"></div>
+                    <div class="page-header__icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                </div>
+                <div class="page-header__content">
+                    <h2 class="page-header__title">Our Business</h2>
+                    <p class="page-header__subtitle">事業内容</p>
+                    <p class="page-header__description">
+                        Technology × Anime Tourism - We create innovative services that connect anime fans with destinations around the world.
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="business-content">
             <div class="container">
-                <section class="business-section">
-                    <h3 class="business-section__title">JapanAnimeMapsの開発・運営</h3>
+                <!-- Service 1: JapanAnimeMaps - Alternating Layout -->
+                <section class="business-section business-section--featured">
+                    <div class="business-section__decorative">
+                        <div class="business-circle business-circle--yellow"></div>
+                        <div class="business-circle business-circle--red"></div>
+                    </div>
                     
-                    <div class="service-item">
-                        <div class="service-item__media">
-                            <img src="img/apps_home.png" alt="apps_home" class="service-item__image">
-                        </div>
-                        <div class="service-item__content">
-                            <p class="service-item__tag">スマートフォンアプリの開発・運用</p>
-                            <h4 class="service-item__title">『聖地巡礼アプリの決定版！！』</h4>
-                            <p class="service-item__description">
-                                JAMでは、全国のアニメ聖地を巡り、チェックインや思い出を残す、他のユーザの投稿を見て聖地巡礼を楽しむことができます。
-                                実際の画像や動画とアニメの比較も可能で、より充実したアニメ体験が楽しめます。JAMでアニメの世界を満喫し、素晴らしい聖地巡礼をお楽しみください！
-                            </p>
-                            <a href="詳細を見る" class="service-item__link" target="_blank">
-                                詳細を見る
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
+                    <div class="service-card service-card--left">
+                        <div class="service-card__number">01</div>
+                        <div class="service-card__content">
+                            <div class="service-card__header">
+                                <span class="service-card__tag">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    Smartphone app development and operation
+                                </span>
+                                <h3 class="service-card__title">Development and operation of JapanAnimeMaps</h3>
+                            </div>
+                            
+                            <div class="service-card__body">
+                                <div class="service-card__image-wrapper">
+                                    <div class="service-card__image-decorative">
+                                        <div class="service-card__circle-small service-card__circle-small--yellow"></div>
+                                        <div class="service-card__circle-small service-card__circle-small--red"></div>
+                                    </div>
+                                    <img src="img/apps_home.png" alt="JapanAnimeMaps App" class="service-card__image">
+                                    <div class="service-card__image-overlay">
+                                        <div class="service-card__image-icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="service-card__text">
+                                    <h4 class="service-card__subtitle">"The definitive pilgrimage app!!"</h4>
+                                    <p class="service-card__description">
+                                        With JAM, you can enjoy visiting anime holy sites across the country, checking in, leaving memories, and viewing other users' posts. You can also compare actual images and videos with the anime, allowing you to enjoy a more fulfilling anime experience. Immerse yourself in the world of anime with JAM and enjoy a wonderful pilgrimage!
+                                    </p>
+                                    <a href="apps.html" class="service-card__button">
+                                        <span>Learn more</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
-            </div>
-        </div>
-        <div class="business-content">
-            <div class="container">
-                <section class="business-section">
-                    <h3 class="business-section__title">地域活性化事業の企画・運営</h3>
+
+                <!-- Service 2: Local Activities - Alternating Layout (Right) -->
+                <section class="business-section business-section--reverse">
+                    <div class="business-section__decorative">
+                        <div class="business-circle business-circle--yellow"></div>
+                        <div class="business-circle business-circle--red"></div>
+                    </div>
                     
-                    <div class="service-item">
-                        <div class="service-item__media">
-                            <img src="img/moesami.png" alt="event" class="service-item__image">
-                        </div>
-                        <div class="service-item__content">
-                            <p class="service-item__tag">地方イベントの出展・協賛</p>
-                            <h4 class="service-item__title">地方でのアニメイベント</h4>
-                            <p class="service-item__description">
-                                AnimeTourismは、IT×アニメツーリズムで地域活性化・地方活性化を目指しています。
-                                日本の素晴らしい文化、『アニメ』を地方から全世界へ。
-                            </p>
-                            <a href="https://apps.apple.com/jp/app/japananimemaps/id6608967051" class="service-item__link" target="_blank">
-                                イベント出展情報を見る
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
+                    <div class="service-card service-card--right">
+                        <div class="service-card__number">02</div>
+                        <div class="service-card__content">
+                            <div class="service-card__header">
+                                <span class="service-card__tag">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    Local event exhibition and sponsorship
+                                </span>
+                                <h3 class="service-card__title">Planning and operation of regional revitalization projects</h3>
+                            </div>
+                            
+                            <div class="service-card__body service-card__body--reverse">
+                                <div class="service-card__text">
+                                    <h4 class="service-card__subtitle">Anime events in local areas</h4>
+                                    <p class="service-card__description">
+                                        AnimeTourism aims to revitalize regions and local areas through IT × Anime Tourism. We bring Japan's wonderful culture, 'Anime', from local areas to the whole world.
+                                    </p>
+                                    <a href="loacl-activities.html" class="service-card__button">
+                                        <span>View event information</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                                
+                                <div class="service-card__image-wrapper">
+                                    <div class="service-card__image-decorative">
+                                        <div class="service-card__circle-small service-card__circle-small--yellow"></div>
+                                        <div class="service-card__circle-small service-card__circle-small--red"></div>
+                                    </div>
+                                    <img src="img/moesami.png" alt="Local Activities Event" class="service-card__image">
+                                    <div class="service-card__image-overlay">
+                                        <div class="service-card__image-icon">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
-            </div>
-        </div>
-        <div class="business-content">
-            <div class="container">
-                <section class="business-section">
-                    <h3 class="business-section__title">受託開発事業</h3>
+
+                <!-- Service 3: Contract Development - Alternating Layout (Left) -->
+                <section class="business-section business-section--featured">
+                    <div class="business-section__decorative">
+                        <div class="business-circle business-circle--yellow"></div>
+                        <div class="business-circle business-circle--red"></div>
+                    </div>
                     
-                    <div class="service-item">
-                        <div class="service-item__media">
-                            <img src="img/zyutaku.gif" alt="FinanScope" class="service-item__image">
-                        </div>
-                        <div class="service-item__content">
-                            <p class="service-item__tag">受託開発事業</p>
-                            <h4 class="service-item__title">お客様に寄り添った開発から保守運用まで</h4>
-                            <p class="service-item__description">
-                                企業様・個人の方どちらの方へも丁寧にヒアリングし、お客様それぞれに専任の担当者が付きます。
-                                AnimeTourismだからこそできる、それぞれのお客様に寄り添った開発からアプリの保守運用まで。
-                            </p>
-                            <a href="https://apps.apple.com/jp/app/japananimemaps/id6608967051" class="service-item__link" target="_blank">
-                                詳細を見る
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </a>
+                    <div class="service-card service-card--left">
+                        <div class="service-card__number">03</div>
+                        <div class="service-card__content">
+                            <div class="service-card__header">
+                                <span class="service-card__tag">
+                                    <i class="fas fa-code"></i>
+                                    Contract development business
+                                </span>
+                                <h3 class="service-card__title">Contract development business</h3>
+                            </div>
+                            
+                            <div class="service-card__body">
+                                <div class="service-card__image-wrapper">
+                                    <div class="service-card__image-decorative">
+                                        <div class="service-card__circle-small service-card__circle-small--yellow"></div>
+                                        <div class="service-card__circle-small service-card__circle-small--red"></div>
+                                    </div>
+                                    <img src="img/zyutaku.gif" alt="Contract Development" class="service-card__image">
+                                    <div class="service-card__image-overlay">
+                                        <div class="service-card__image-icon">
+                                            <i class="fas fa-laptop-code"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="service-card__text">
+                                    <h4 class="service-card__subtitle">Development to maintenance tailored to each client</h4>
+                                    <p class="service-card__description">
+                                        We carefully listen to both companies and individuals, and assign a dedicated person in charge to each client. Only AnimeTourism can provide development to app maintenance tailored to each client.
+                                    </p>
+                                    <a href="contract-development.html" class="service-card__button">
+                                        <span>Learn more</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -197,26 +264,21 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__info">
-                    <a href="/" class="footer__logo">
-                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+    <footer class="footer-fresh">
+        <div class="footer-fresh__inner">
+            <div class="footer-fresh__main">
+                <div class="footer-fresh__left">
+                    <a href="/" class="footer-fresh__logo">
+                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer-fresh__logo-img">
                     </a>
-                    <p class="footer__address">
-                        〒150-0043<br>
-                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
-                    </p>
-                    <!-- ソーシャルリンク -->
-                    <div class="footer__social">
-                        <a href="https://x.com/JapanAnimeMaps" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
-                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <div class="footer-fresh__social">
+                        <a href="https://x.com/JapanAnimeMaps" class="footer-fresh__social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="footer-fresh__social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-fresh__social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <nav class="footer__nav">
-                    <ul class="footer__nav-list">
+                <nav class="footer-fresh__nav">
+                    <ul class="footer-fresh__nav-list">
                         <li><a href="business.html">事業内容</a></li>
                         <li><a href="news.html">お知らせ</a></li>
                         <li><a href="recruit.html">採用情報</a></li>
@@ -224,21 +286,26 @@
                         <li><a href="contact.html">お問い合わせ</a></li>
                     </ul>
                 </nav>
+                <div class="footer-fresh__links">
+                    <ul class="footer-fresh__links-list">
+                        <li><a href="sitemap.html">サイトマップ</a></li>
+                        <li><a href="privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="terms.html">利用規約</a></li>
+                        <li><a href="faq.html">よくある問い合わせ</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <!-- サイトマップなどのリンク追加 -->
-            <div class="footer__links">
-                <ul class="footer__links-list">
-                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
-                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
-                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
-                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
-                </ul>
+            <div class="footer-fresh__bottom">
+                <div class="footer-fresh__address">
+                    <p>〒150-0043<br>東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル</p>
+                </div>
+                <p class="footer-fresh__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
             </div>
-            
-            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
+        </div>
+        <div class="footer-fresh__pagetop">
+            <a href="#" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
         </div>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="js/index-fresh.js"></script>
 </body>
 </html>

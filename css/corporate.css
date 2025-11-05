@@ -1,4 +1,4 @@
-/* Fresh Design Base Styles + Privacy Page Specific Styles */
+/* Fresh Design Base Styles + Corporate Page Specific Styles */
 @charset "UTF-8";
 
 :root {
@@ -359,85 +359,36 @@ body {
     height: 100%;
 }
 
-/* Privacy Page Specific Styles */
-.container4 {
-    max-width: 1000px;
+/* Corporate Page Specific Styles */
+.container {
+    max-width: 1580px;
     margin: 0 auto;
-    padding: 120px 40px 80px;
+    padding: 80px 40px;
 }
 
-.privacy-header {
-    margin-bottom: 40px;
+.page-header {
     text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 0;
+    border-bottom: 2px solid var(--color-black);
 }
 
-.privacy-header h1 {
+.page-title {
     font-size: 3.6rem;
     font-weight: 700;
-    margin-bottom: 8px;
     color: var(--color-black);
+    margin-bottom: 20px;
 }
 
-.privacy-header h2 {
-    font-size: 1.8rem;
-    color: var(--color-gray);
-}
-
-.privacy-intro {
-    margin-bottom: 60px;
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
     font-size: 1.6rem;
     line-height: 1.8;
     color: var(--color-black);
 }
 
-.policy-section {
-    margin-bottom: 40px;
-}
-
-.policy-section h3 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--color-black);
-    color: var(--color-black);
-}
-
-.policy-content {
-    font-size: 1.6rem;
-    line-height: 1.8;
-    color: var(--color-black);
-}
-
-.policy-item {
-    margin-bottom: 24px;
-}
-
-.policy-item h4 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 20px;
-    color: var(--color-black);
-}
-
-.policy-item h4::before {
-    content: "■";
-    position: absolute;
-    left: 0;
-    color: var(--color-black);
-}
-
-.policy-item p {
-    padding-left: 20px;
-    margin-bottom: 16px;
-    font-size: 1.6rem;
-    line-height: 1.8;
-    color: var(--color-black);
-}
-
-/* Responsive styles */
+/* Responsive */
 @media (max-width: 780px) {
     html {
         font-size: 50%;
@@ -477,20 +428,12 @@ body {
         text-align: left;
     }
 
-    .container4 {
-        padding: 100px 20px 60px;
+    .container {
+        padding: 60px 20px;
     }
-    
-    .privacy-header h1 {
-        font-size: 2.8rem;
-    }
-    
-    .privacy-header h2 {
-        font-size: 1.6rem;
-    }
-    
-    .policy-section h3 {
-        font-size: 2rem;
+
+    .page-title {
+        font-size: 2.4rem;
     }
 }
 
@@ -587,3 +530,4 @@ main input, main textarea, main select,
         transform: none !important;
     }
 }
+

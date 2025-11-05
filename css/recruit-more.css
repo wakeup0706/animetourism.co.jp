@@ -1,30 +1,409 @@
-/* MIXIスタイルに合わせた採用ページ用CSS */
+/* Fresh Design Base Styles + Recruit More Page Specific Styles */
+@charset "UTF-8";
 
-/* タイトルセクション */
+:root {
+    --color-black: #0d0d0d;
+    --color-white: #ffffff;
+    --color-yellow: #EEFF00;
+    --color-red: #FF0000;
+    --color-gray: #666666;
+    --font-primary: 'Noto Sans JP', sans-serif;
+    --primary-color: #E4405F;
+    --primary-light: #FF6B9D;
+    --primary-dark: #C6193B;
+    --text-color: #333;
+    --text-light: #666;
+    --yellow-bg: #FFF8E1;
+    --yellow-accent: #FFD700;
+    --accent-color: #FF6B6B;
+    --card-radius: 15px;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--color-black);
+    background: var(--color-white);
+    overflow-x: hidden;
+}
+
+/* Header */
+.header-fresh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--color-white);
+    z-index: 1000;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(13, 13, 13, 0.1);
+    transition: all 0.3s ease;
+}
+
+.header-fresh__inner {
+    max-width: 1580px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-fresh__logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.header-fresh__nav-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+}
+
+.header-fresh__nav-item {
+    position: relative;
+}
+
+.header-fresh__nav-link {
+    color: var(--color-black);
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.header-fresh__nav-link:hover {
+    color: #0066CC;
+}
+
+.header-fresh__nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #0066CC;
+    transition: width 0.3s ease;
+}
+
+.header-fresh__nav-link:hover::after {
+    width: 100%;
+}
+
+.header-fresh__nav-link--contact {
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 8px 20px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.header-fresh__nav-link--contact:hover {
+    background: #0066CC;
+    color: var(--color-white);
+}
+
+.header-fresh__nav-link--contact::after {
+    display: none;
+}
+
+.nav-icon {
+    margin-right: 6px;
+    font-size: 1.3rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #FFFFFF;
+    border: 1px solid rgba(13, 13, 13, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 16px 0;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+.header-fresh__nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu__item {
+    margin: 0;
+}
+
+.dropdown-menu__link {
+    display: block;
+    padding: 10px 24px;
+    font-size: 1.4rem;
+    color: var(--color-black);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.dropdown-menu__link:hover {
+    background-color: #F8F9FA;
+    color: #0066CC;
+}
+
+/* Main Wrapper */
+.main-fresh {
+    padding-top: 80px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+    .header-fresh__nav {
+        display: none;
+    }
+}
+
+/* Footer */
+.footer-fresh {
+    position: relative;
+    padding: 80px 40px 40px;
+    background: var(--color-white);
+    border-top: 2px solid var(--color-black);
+}
+
+.footer-fresh__inner {
+    max-width: 1580px;
+    margin: 0 auto;
+}
+
+.footer-fresh__main {
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    align-items: start;
+}
+
+.footer-fresh__left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer-fresh__nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-fresh__links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-fresh__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 40px;
+    border-top: 1px solid rgba(13, 13, 13, 0.1);
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-fresh__logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+.footer-fresh__social {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-fresh__social-link {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.6rem;
+}
+
+.footer-fresh__social-link:hover {
+    background: var(--color-black);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+.footer-fresh__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-fresh__nav-list a {
+    color: var(--color-black);
+    text-decoration: none;
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-fresh__nav-list a:hover {
+    color: #0066CC;
+    padding-left: 10px;
+}
+
+.footer-fresh__links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-fresh__links-list a {
+    color: var(--color-gray);
+    text-decoration: none;
+    font-size: 1.4rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.footer-fresh__links-list a:hover {
+    color: var(--color-black);
+}
+
+.footer-fresh__address {
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 2;
+    color: var(--color-black);
+}
+
+.footer-fresh__copyright {
+    font-size: 1.4rem;
+    color: var(--color-gray);
+    margin: 0;
+    text-align: right;
+}
+
+.footer-fresh__pagetop {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background: var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-fresh__pagetop.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-fresh__pagetop:hover {
+    background: #0066CC;
+    transform: translateY(-5px);
+}
+
+.footer-fresh__pagetop a {
+    color: var(--color-white);
+    font-size: 2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Recruit More Page Specific Styles */
 .recruit-title-section {
-    padding-top: calc(var(--header-height) + 40px);
+    padding-top: 120px;
     padding-bottom: 40px;
-    background-color: #fff;
-    border-bottom: 1px solid #e5e7eb;
+    background-color: var(--color-white);
+    border-bottom: 2px solid var(--color-black);
 }
 
 .recruit-breadcrumb {
     font-size: 1.4rem;
-    color: var(--text-light);
+    color: var(--color-gray);
     margin-bottom: 15px;
+}
+
+.recruit-breadcrumb a {
+    color: var(--color-gray);
+    text-decoration: none;
+}
+
+.recruit-breadcrumb a:hover {
+    color: var(--color-black);
 }
 
 .recruit-main-title {
     font-size: 3.2rem;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--color-black);
     margin-bottom: 40px;
 }
 
-/* タブナビゲーション */
+/* Tab navigation */
 .tab-navigation {
     display: flex;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 2px solid var(--color-black);
     margin-top: 40px;
 }
 
@@ -34,14 +413,14 @@
     align-items: center;
     padding: 15px 30px;
     margin-right: 20px;
-    color: var(--text-light);
+    color: var(--color-gray);
     text-decoration: none;
     position: relative;
     transition: all 0.3s ease;
 }
 
 .tab-item.active, .tab-item:hover {
-    color: var(--primary-color);
+    color: var(--color-black);
 }
 
 .tab-text {
@@ -63,11 +442,11 @@
 .tab-item::after {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: -2px;
     left: 0;
     width: 100%;
-    height: 3px;
-    background-color: var(--primary-color);
+    height: 2px;
+    background-color: var(--color-black);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -76,19 +455,19 @@
     transform: scaleX(1);
 }
 
-/* セクションスタイル */
+/* Section styles */
 .overview-section,
 .details-section,
 .requirements-section {
     padding: 80px 0;
-    background-color: #f9fafb;
+    background-color: var(--color-white);
 }
 
 .section-title {
     font-size: 3.2rem;
     font-weight: 700;
     text-align: center;
-    color: var(--text-color);
+    color: var(--color-black);
     margin-bottom: 60px;
     position: relative;
     display: inline-block;
@@ -103,11 +482,11 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    background: var(--color-black);
     display: block;
 }
 
-/* 概要セクション */
+/* Overview section */
 .overview-content {
     max-width: 800px;
     margin: 0 auto 60px;
@@ -117,14 +496,14 @@
     font-size: 2.4rem;
     font-weight: 700;
     margin-bottom: 30px;
-    color: var(--text-color);
+    color: var(--color-black);
 }
 
 .overview-text {
     font-size: 1.6rem;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: var(--text-color);
+    color: var(--color-black);
 }
 
 .company-stats {
@@ -144,20 +523,20 @@
 .stat-number {
     font-size: 3.6rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--color-black);
     margin-bottom: 10px;
 }
 
 .stat-label {
     font-size: 1.4rem;
-    color: var(--text-light);
+    color: var(--color-gray);
 }
 
-/* 募集内容セクション */
+/* Job detail card */
 .job-detail-card {
-    background: #fff;
+    background: var(--color-white);
+    border: 2px solid var(--color-black);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     padding: 40px;
     max-width: 900px;
     margin: 0 auto;
@@ -166,10 +545,10 @@
 .job-title {
     font-size: 2.6rem;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--color-black);
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 2px solid var(--color-black);
 }
 
 .job-section {
@@ -179,16 +558,17 @@
 .job-section-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--color-black);
     margin-bottom: 20px;
     padding-left: 15px;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid var(--color-black);
 }
 
 .job-description {
     font-size: 1.6rem;
     line-height: 1.8;
     margin-bottom: 30px;
+    color: var(--color-black);
 }
 
 .job-highlights {
@@ -200,27 +580,29 @@
 .highlight-item {
     display: flex;
     gap: 20px;
-    background: #f9fafb;
+    background: var(--color-white);
+    border: 2px solid var(--color-black);
     padding: 25px;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 .highlight-item:hover {
-    background: var(--yellow-bg);
+    background: var(--color-yellow);
+    transform: translateY(-2px);
 }
 
 .highlight-icon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: white;
+    background: var(--color-white);
+    border: 2px solid var(--color-black);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-color);
+    color: var(--color-black);
     font-size: 1.8rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
 }
 
@@ -228,13 +610,13 @@
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 10px;
-    color: var(--text-color);
+    color: var(--color-black);
 }
 
 .highlight-text {
     font-size: 1.5rem;
     line-height: 1.7;
-    color: var(--text-light);
+    color: var(--color-black);
 }
 
 .requirements-list {
@@ -248,19 +630,21 @@
     margin-bottom: 15px;
     font-size: 1.6rem;
     line-height: 1.7;
+    color: var(--color-black);
 }
 
 .requirements-list li::before {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--primary-color);
+    color: var(--color-black);
     font-weight: bold;
 }
 
-/* 社員の声 */
+/* Employee voice */
 .employee-voice {
-    background: #f9fafb;
+    background: var(--color-white);
+    border: 2px solid var(--color-black);
     border-radius: 8px;
     padding: 30px;
 }
@@ -271,8 +655,8 @@
 
 .voice-label {
     display: inline-block;
-    background: var(--primary-color);
-    color: white;
+    background: var(--color-black);
+    color: var(--color-white);
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 1.2rem;
@@ -283,20 +667,20 @@
 .voice-name {
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--color-black);
 }
 
 .voice-content {
     font-size: 1.5rem;
     line-height: 1.8;
-    color: var(--text-light);
+    color: var(--color-black);
 }
 
-/* 応募条件セクション */
+/* Requirements table */
 .requirements-table {
-    background: white;
+    background: var(--color-white);
+    border: 2px solid var(--color-black);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     max-width: 900px;
     margin: 0 auto 60px;
@@ -304,7 +688,7 @@
 
 .table-row {
     display: flex;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--color-black);
 }
 
 .table-row:last-child {
@@ -314,15 +698,17 @@
 .table-header {
     width: 25%;
     padding: 20px;
-    background-color: #f9fafb;
-    font-weight: 600;
-    border-right: 1px solid #e5e7eb;
+    background-color: var(--color-white);
+    font-weight: 700;
+    border-right: 1px solid var(--color-black);
+    color: var(--color-black);
 }
 
 .table-content {
     width: 75%;
     padding: 20px;
     line-height: 1.7;
+    color: var(--color-black);
 }
 
 .table-content ul,
@@ -336,7 +722,7 @@
     font-size: 1.5rem;
 }
 
-/* 選考フロー */
+/* Selection steps */
 .selection-steps {
     display: flex;
     flex-wrap: wrap;
@@ -359,8 +745,8 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: var(--primary-color);
-    color: white;
+    background: var(--color-black);
+    color: var(--color-white);
     border-radius: 50%;
     font-size: 1.4rem;
     font-weight: 600;
@@ -369,23 +755,23 @@
 
 .step-label {
     font-size: 1.4rem;
-    color: var(--text-color);
+    color: var(--color-black);
 }
 
 .step-arrow {
     margin: 0 15px;
-    color: var(--text-light);
+    color: var(--color-black);
     font-size: 1.6rem;
 }
 
 .note {
     font-size: 1.4rem;
-    color: var(--text-light);
+    color: var(--color-gray);
     margin-top: 20px;
     font-style: italic;
 }
 
-/* エントリーセクション */
+/* Entry section */
 .entry-section {
     text-align: center;
     margin-top: 60px;
@@ -394,29 +780,66 @@
 .entry-message {
     font-size: 1.8rem;
     margin-bottom: 30px;
-    color: var(--text-color);
+    color: var(--color-black);
 }
 
 .entry-button {
     display: inline-block;
-    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
-    color: white;
+    background: var(--color-black);
+    color: var(--color-white);
     font-size: 1.6rem;
     font-weight: 600;
     padding: 15px 40px;
     border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 5px 15px rgba(228, 64, 95, 0.3);
     transition: all 0.3s ease;
 }
 
 .entry-button:hover {
+    background: #0066CC;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(228, 64, 95, 0.4);
 }
 
-/* レスポンシブスタイル */
-@media (max-width: 1024px) {
+/* Responsive styles */
+@media (max-width: 780px) {
+    html {
+        font-size: 50%;
+    }
+    
+    .header-fresh__nav-list {
+        gap: 20px;
+    }
+    
+    .footer-fresh__nav-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .footer-fresh__links-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .footer-fresh__main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .footer-fresh__left {
+        align-items: flex-start;
+    }
+    
+    .footer-fresh__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-fresh__copyright {
+        text-align: left;
+    }
+
     .company-stats {
         flex-direction: column;
         gap: 30px;
@@ -434,7 +857,7 @@
     
     .table-header {
         border-right: none;
-        border-bottom: 1px solid #e5e7eb;
+        border-bottom: 1px solid var(--color-black);
     }
     
     .selection-steps {
@@ -446,9 +869,7 @@
         transform: rotate(90deg);
         margin: 10px 0;
     }
-}
 
-@media (max-width: 768px) {
     .recruit-main-title {
         font-size: 2.4rem;
     }
@@ -467,5 +888,99 @@
     
     .highlight-icon {
         margin-bottom: 15px;
+    }
+}
+
+/* Enhanced Animation States - Initial Hidden States */
+main h1, main h2, .main-fresh h1, .main-fresh h2 {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: opacity, transform;
+}
+
+main p, .main-fresh p {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: opacity, transform;
+}
+
+main img, .main-fresh img {
+    opacity: 0;
+    transform: scale(0.95);
+    will-change: opacity, transform;
+}
+
+main [class*="card"], .main-fresh [class*="card"], 
+main [class*="item"], .main-fresh [class*="item"] {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    will-change: opacity, transform;
+}
+
+main section, .main-fresh section {
+    opacity: 0;
+    will-change: opacity;
+}
+
+main a.button, .main-fresh a.button, 
+main .button-fresh, .main-fresh .button-fresh,
+main a[class*="button"], .main-fresh a[class*="button"] {
+    opacity: 0;
+    transform: scale(0.9);
+    will-change: opacity, transform;
+}
+
+main li, .main-fresh li {
+    opacity: 0;
+    transform: translateX(-20px);
+    will-change: opacity, transform;
+}
+
+main table, .main-fresh table {
+    opacity: 0;
+    transform: scale(0.95);
+    will-change: opacity, transform;
+}
+
+main input, main textarea, main select,
+.main-fresh input, .main-fresh textarea, .main-fresh select {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: opacity, transform;
+}
+
+/* Decorative elements - Floating animation */
+[class*="circle"], [class*="ball"], [class*="decoration"] {
+    will-change: transform;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+/* Smooth transitions for all animated elements */
+* {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    main h1, main h2, .main-fresh h1, .main-fresh h2,
+    main p, .main-fresh p,
+    main img, .main-fresh img,
+    main [class*="card"], .main-fresh [class*="card"],
+    main [class*="item"], .main-fresh [class*="item"] {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

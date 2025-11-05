@@ -307,9 +307,1999 @@ function initBounceEffect() {
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * Universal Animations for All Pages
+ * Apply animations to common elements across all pages
+ */
+function initUniversalAnimations() {
+    // Skip universal animations on pages with body ID 'regional-revitalization' or specific pages
+    const body = document.body;
+    if (body.id === 'regional-revitalization') {
+        return; // Skip all universal animations for this page
+    }
+    
+    // Animate all main headings
+    const mainHeadings = document.querySelectorAll('main h1, main h2, .main-fresh h1, .main-fresh h2');
+    mainHeadings.forEach((heading, index) => {
+        gsap.set(heading, { opacity: 0, y: 30 });
+        gsap.to(heading, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: index * 0.1,
+            scrollTrigger: {
+                trigger: heading,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power3.out'
+        });
+    });
+
+    // Animate all paragraphs
+    const paragraphs = document.querySelectorAll('main p, .main-fresh p');
+    paragraphs.forEach((p, index) => {
+        gsap.set(p, { opacity: 0, y: 20 });
+        gsap.to(p, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.05,
+            scrollTrigger: {
+                trigger: p,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    });
+
+    // Animate all images
+    const images = document.querySelectorAll('main img, .main-fresh img');
+    images.forEach((img, index) => {
+        gsap.set(img, { opacity: 0, scale: 0.95 });
+        gsap.to(img, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            delay: index * 0.08,
+            scrollTrigger: {
+                trigger: img,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    });
+
+    // Animate all buttons and links
+    const buttons = document.querySelectorAll('main a.button, .main-fresh a.button, main .button-fresh, .main-fresh .button-fresh, main a[class*="button"], .main-fresh a[class*="button"]');
+    buttons.forEach((button, index) => {
+        gsap.set(button, { opacity: 0, scale: 0.9 });
+        gsap.to(button, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            delay: index * 0.1,
+            scrollTrigger: {
+                trigger: button,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'back.out(1.7)'
+        });
+    });
+
+    // Animate all lists
+    const listItems = document.querySelectorAll('main li, .main-fresh li');
+    listItems.forEach((li, index) => {
+        gsap.set(li, { opacity: 0, x: -20 });
+        gsap.to(li, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            delay: index * 0.08,
+            scrollTrigger: {
+                trigger: li,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    });
+
+    // Animate all cards
+    const cards = document.querySelectorAll('main [class*="card"], .main-fresh [class*="card"], main [class*="item"], .main-fresh [class*="item"]');
+    cards.forEach((card, index) => {
+        gsap.set(card, { opacity: 0, y: 50, scale: 0.95 });
+        gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            delay: index * 0.1,
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power3.out'
+        });
+
+        // Add hover bounce effect
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                y: -8,
+                scale: 1.02,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                y: 0,
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+    });
+
+    // Animate all sections
+    const sections = document.querySelectorAll('main section, .main-fresh section, main [class*="section"], .main-fresh [class*="section"]');
+    sections.forEach((section, index) => {
+        gsap.set(section, { opacity: 0 });
+        gsap.to(section, {
+            opacity: 1,
+            duration: 1,
+            delay: index * 0.15,
+            scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    });
+
+    // Animate all decorative circles
+    const circles = document.querySelectorAll('[class*="circle"], [class*="ball"], [class*="decoration"]');
+    circles.forEach((circle, index) => {
+        // Initial idle float animation
+        const floatTl = gsap.timeline({ repeat: -1, yoyo: true });
+        floatTl.to(circle, {
+            y: -10,
+            rotation: 5,
+            duration: 2 + index * 0.5,
+            ease: 'sine.inOut'
+        }).to(circle, {
+            y: 0,
+            rotation: 0,
+            duration: 2 + index * 0.5,
+            ease: 'sine.inOut'
+        });
+
+        // Scroll-triggered bounce
+        ScrollTrigger.create({
+            trigger: circle,
+            start: 'top 85%',
+            onEnter: () => {
+                gsap.to(circle, {
+                    scale: 1.2,
+                    rotation: 15,
+                    duration: 0.4,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: 'power2.out'
+                });
+            },
+            onEnterBack: () => {
+                gsap.to(circle, {
+                    scale: 1.2,
+                    rotation: 15,
+                    duration: 0.4,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: 'power2.out'
+                });
+            }
+        });
+    });
+
+    // Animate FAQ items
+    const faqItems = document.querySelectorAll('.faq-item, [class*="faq"]');
+    faqItems.forEach((item, index) => {
+        gsap.set(item, { opacity: 0, x: -30 });
+        gsap.to(item, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    });
+
+    // Animate tables
+    const tables = document.querySelectorAll('main table, .main-fresh table');
+    tables.forEach((table, index) => {
+        gsap.set(table, { opacity: 0, scale: 0.95 });
+        gsap.to(table, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            delay: index * 0.1,
+            scrollTrigger: {
+                trigger: table,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    });
+
+    // Animate forms
+    const formElements = document.querySelectorAll('main input, main textarea, main select, .main-fresh input, .main-fresh textarea, .main-fresh select');
+    formElements.forEach((input, index) => {
+        gsap.set(input, { opacity: 0, y: 20 });
+        gsap.to(input, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: index * 0.05,
+            scrollTrigger: {
+                trigger: input,
+                start: 'top 90%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    });
+
+    // Add parallax effect to all images on scroll
+    const parallaxImages = document.querySelectorAll('main img, .main-fresh img');
+    parallaxImages.forEach(img => {
+        ScrollTrigger.create({
+            trigger: img,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+            onUpdate: (self) => {
+                const speed = 50;
+                const yPos = -(self.progress * speed);
+                gsap.set(img, { y: yPos });
+            }
+        });
+    });
+}
+
+/**
+ * Enhanced Header Animations
+ */
+function initHeaderAnimations() {
+    const header = document.querySelector('.header-fresh');
+    if (header) {
+        // Ensure header is always visible first
+        gsap.set(header, { opacity: 1, y: 0, clearProps: 'transform' });
+        
+        // Only animate on homepage (not on other pages)
+        if (document.body.classList.contains('home') || window.location.pathname === '/' || window.location.pathname === '/index.html') {
+            // Animate header on load
+            gsap.from(header, {
+                y: -100,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        }
+
+        // Header scroll effect with animation
+        ScrollTrigger.create({
+            trigger: 'body',
+            start: 'top -50',
+            onEnter: () => {
+                gsap.to(header, {
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                    paddingTop: '15px',
+                    paddingBottom: '15px',
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            },
+            onLeaveBack: () => {
+                gsap.to(header, {
+                    boxShadow: 'none',
+                    paddingTop: '20px',
+                    paddingBottom: '20px',
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            }
+        });
+    }
+}
+
+/**
+ * Enhanced Footer Animations
+ */
+function initFooterAnimations() {
+    const footer = document.querySelector('.footer-fresh');
+    if (footer) {
+        gsap.set(footer, { opacity: 0, y: 50 });
+        gsap.to(footer, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: footer,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power3.out'
+        });
+
+        // Animate footer links
+        const footerLinks = footer.querySelectorAll('a');
+        footerLinks.forEach((link, index) => {
+            gsap.set(link, { opacity: 0, x: -20 });
+            gsap.to(link, {
+                opacity: 1,
+                x: 0,
+                duration: 0.5,
+                delay: index * 0.05,
+                scrollTrigger: {
+                    trigger: footer,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse',
+                    once: false
+                },
+                ease: 'power2.out'
+            });
+        });
+    }
+}
+
+/**
+ * Message Section Animations
+ */
+function initMessageSectionAnimations() {
+    const messageSection = document.querySelector('.message-section');
+    if (!messageSection) return;
+
+    const messageVisual = document.querySelector('.message-visual');
+    const messageCircles = document.querySelectorAll('.message-circle');
+    const messageIcon = document.querySelector('.message-icon');
+    const messageTextLines = document.querySelectorAll('.message-text-line');
+    const messageSubText = document.querySelector('.message-sub-text');
+    const messageDescriptionCard = document.querySelector('.message-description-card');
+
+    // Animate visual elements
+    if (messageVisual) {
+        gsap.set(messageVisual, { opacity: 0, scale: 0.8 });
+        gsap.to(messageVisual, {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: messageSection,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power3.out'
+        });
+    }
+
+    // Animate circles
+    messageCircles.forEach((circle, index) => {
+        gsap.set(circle, { opacity: 0, scale: 0, rotation: -180 });
+        gsap.to(circle, {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            scrollTrigger: {
+                trigger: messageSection,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'back.out(1.7)'
+        });
+    });
+
+    // Animate icon
+    if (messageIcon) {
+        gsap.set(messageIcon, { opacity: 0, scale: 0, rotation: -180 });
+        gsap.to(messageIcon, {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 1,
+            delay: 0.4,
+            scrollTrigger: {
+                trigger: messageSection,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'back.out(1.7)'
+        });
+    }
+
+    // Animate text lines
+    messageTextLines.forEach((line, index) => {
+        gsap.set(line, { opacity: 0, y: 30 });
+        gsap.to(line, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            scrollTrigger: {
+                trigger: messageSection,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power3.out',
+            onComplete: () => {
+                line.classList.add('animated');
+            }
+        });
+    });
+
+    // Animate sub text
+    if (messageSubText) {
+        gsap.set(messageSubText, { opacity: 0, x: -30 });
+        gsap.to(messageSubText, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: messageSection,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    }
+
+    // Animate description card
+    if (messageDescriptionCard) {
+        gsap.set(messageDescriptionCard, { opacity: 0, y: 50 });
+        gsap.to(messageDescriptionCard, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.6,
+            scrollTrigger: {
+                trigger: messageSection,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power3.out'
+        });
+    }
+}
+
+/**
+ * Job Cards Animations
+ */
+function initJobCardsAnimations() {
+    const jobsSection = document.querySelector('.jobs-section');
+    if (!jobsSection) return;
+
+    const jobCards = document.querySelectorAll('.job-card');
+    const jobCardCircles = document.querySelectorAll('.job-card__circle');
+
+    jobCards.forEach((card, index) => {
+        const cardCircles = card.querySelectorAll('.job-card__circle');
+        const icon = card.querySelector('.job-card__icon-wrapper');
+        const title = card.querySelector('.job-card__title');
+        const type = card.querySelector('.job-card__type');
+        const description = card.querySelector('.job-card__description');
+        const metaItems = card.querySelectorAll('.job-meta-item');
+        const button = card.querySelector('.job-card__button');
+
+        // Set initial states
+        gsap.set(card, { opacity: 0, y: 50, scale: 0.95 });
+        gsap.set(cardCircles, { opacity: 0, scale: 0 });
+        gsap.set([icon, title, type], { opacity: 0, y: 20 });
+        gsap.set(description, { opacity: 0 });
+        gsap.set(metaItems, { opacity: 0, x: -20 });
+        gsap.set(button, { opacity: 0, scale: 0.8 });
+
+        // Create timeline
+        const cardTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+
+        // Animate card
+        cardTl.to(card, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            ease: 'power3.out'
+        });
+
+        // Animate circles
+        cardTl.to(cardCircles, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: 'back.out(1.7)',
+            stagger: 0.1
+        }, '-=0.3');
+
+        // Animate header elements
+        cardTl.to([icon, title, type], {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            stagger: 0.1
+        }, '-=0.4');
+
+        // Animate description
+        cardTl.to(description, {
+            opacity: 1,
+            duration: 0.6,
+            ease: 'power2.out'
+        }, '-=0.3');
+
+        // Animate meta items
+        cardTl.to(metaItems, {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            ease: 'power2.out',
+            stagger: 0.1
+        }, '-=0.4');
+
+        // Animate button
+        cardTl.to(button, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: 'back.out(1.7)'
+        }, '-=0.3');
+    });
+}
+
+/**
+ * Selection Process Timeline Animations
+ */
+function initSelectionProcessAnimations() {
+    const timeline = document.querySelector('.flow-timeline');
+    if (!timeline) return;
+
+    const steps = document.querySelectorAll('.flow-step');
+    const connectors = document.querySelectorAll('.flow-step__connector');
+    const cards = document.querySelectorAll('.flow-step__card');
+    const timelineLine = document.querySelector('.flow-timeline__line');
+
+    // Animate timeline line
+    if (timelineLine) {
+        gsap.set(timelineLine, { scaleY: 0, transformOrigin: 'top' });
+        gsap.to(timelineLine, {
+            scaleY: 1,
+            duration: 1.5,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: timeline,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+    }
+
+    // Animate each step with stagger
+    steps.forEach((step, index) => {
+        const connector = step.querySelector('.flow-step__connector');
+        const card = step.querySelector('.flow-step__card');
+        const number = step.querySelector('.flow-step__number');
+        const icon = step.querySelector('.flow-step__icon');
+        const title = step.querySelector('.flow-step__title');
+        const description = step.querySelector('.flow-step__description');
+
+        // Set initial states
+        gsap.set([connector, card], { opacity: 0, scale: 0.8 });
+        gsap.set(number, { opacity: 0, scale: 0, rotation: -180 });
+        gsap.set(icon, { opacity: 0, rotation: -180, scale: 0 });
+        gsap.set([title, description], { opacity: 0, y: 20 });
+
+        // Create timeline for each step
+        const stepTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: step,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+
+        // Animate connector
+        stepTl.to(connector, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'back.out(1.7)'
+        });
+
+        // Animate card
+        stepTl.to(card, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'power3.out'
+        }, '-=0.3');
+
+        // Animate number
+        stepTl.to(number, {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
+        }, '-=0.4');
+
+        // Animate icon
+        stepTl.to(icon, {
+            opacity: 1,
+            rotation: 0,
+            scale: 1,
+            duration: 0.6,
+            ease: 'back.out(1.7)'
+        }, '-=0.6');
+
+        // Animate text content
+        stepTl.to([title, description], {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            stagger: 0.1
+        }, '-=0.4');
+
+        // Add hover bounce effect
+        card.addEventListener('mouseenter', () => {
+            gsap.to([connector, card], {
+                scale: 1.05,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            gsap.to(number, {
+                rotation: 10,
+                scale: 1.1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            gsap.to(icon, {
+                rotation: 360,
+                duration: 0.5,
+                ease: 'power2.out'
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to([connector, card], {
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            gsap.to(number, {
+                rotation: 0,
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            gsap.to(icon, {
+                rotation: 0,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+
+        // Continuous float animation for connectors
+        const floatTl = gsap.timeline({ repeat: -1, yoyo: true });
+        floatTl.to(connector, {
+            y: -5,
+            duration: 2 + index * 0.3,
+            ease: 'sine.inOut'
+        }).to(connector, {
+            y: 0,
+            duration: 2 + index * 0.3,
+            ease: 'sine.inOut'
+        });
+
+        // Pulse animation for connectors
+        ScrollTrigger.create({
+            trigger: step,
+            start: 'top 85%',
+            onEnter: () => {
+                gsap.to(connector, {
+                    scale: 1.3,
+                    duration: 0.4,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: 'power2.out'
+                });
+            },
+            onEnterBack: () => {
+                gsap.to(connector, {
+                    scale: 1.3,
+                    duration: 0.4,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: 'power2.out'
+                });
+            }
+        });
+    });
+}
+
+/**
+ * Business Page Animations
+ */
+function initBusinessPageAnimations() {
+    const pageHeader = document.querySelector('.page-header');
+    if (!pageHeader) return;
+
+    // Page Header Animations
+    const headerVisual = document.querySelector('.page-header__visual');
+    const headerCircles = document.querySelectorAll('.page-header__circle');
+    const headerIcon = document.querySelector('.page-header__icon');
+    const headerTitle = document.querySelector('.page-header__title');
+    const headerSubtitle = document.querySelector('.page-header__subtitle');
+    const headerDescription = document.querySelector('.page-header__description');
+
+    if (headerVisual) {
+        gsap.set(headerVisual, { opacity: 0, scale: 0.8 });
+        gsap.to(headerVisual, {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: pageHeader,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power3.out'
+        });
+    }
+
+    headerCircles.forEach((circle, index) => {
+        gsap.set(circle, { opacity: 0, scale: 0, rotation: -180 });
+        gsap.to(circle, {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            scrollTrigger: {
+                trigger: pageHeader,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'back.out(1.7)'
+        });
+    });
+
+    if (headerIcon) {
+        gsap.set(headerIcon, { opacity: 0, scale: 0, rotation: -180 });
+        gsap.to(headerIcon, {
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 1,
+            delay: 0.4,
+            scrollTrigger: {
+                trigger: pageHeader,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'back.out(1.7)'
+        });
+    }
+
+    if (headerTitle) {
+        gsap.set(headerTitle, { opacity: 0, y: 30 });
+        gsap.to(headerTitle, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.2,
+            scrollTrigger: {
+                trigger: pageHeader,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power3.out'
+        });
+    }
+
+    if (headerSubtitle) {
+        gsap.set(headerSubtitle, { opacity: 0, y: 20 });
+        gsap.to(headerSubtitle, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.3,
+            scrollTrigger: {
+                trigger: pageHeader,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    }
+
+    if (headerDescription) {
+        gsap.set(headerDescription, { opacity: 0, x: -30 });
+        gsap.to(headerDescription, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            delay: 0.4,
+            scrollTrigger: {
+                trigger: pageHeader,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                once: false
+            },
+            ease: 'power2.out'
+        });
+    }
+
+    // Service Cards Animations
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        const cardNumber = card.querySelector('.service-card__number');
+        const cardContent = card.querySelector('.service-card__content');
+        const cardHeader = card.querySelector('.service-card__header');
+        const cardTag = card.querySelector('.service-card__tag');
+        const cardTitle = card.querySelector('.service-card__title');
+        const cardBody = card.querySelector('.service-card__body');
+        const cardImage = card.querySelector('.service-card__image');
+        const cardText = card.querySelector('.service-card__text');
+        const cardButton = card.querySelector('.service-card__button');
+        const businessCircles = card.closest('.business-section').querySelectorAll('.business-circle');
+
+        // Set initial states
+        gsap.set(cardNumber, { opacity: 0, scale: 0.5 });
+        gsap.set(cardContent, { opacity: 0, y: 50, scale: 0.95 });
+        gsap.set([cardTag, cardTitle], { opacity: 0, y: 20 });
+        gsap.set(cardImage, { opacity: 0, scale: 0.9 });
+        gsap.set(cardText, { opacity: 0, x: card.classList.contains('service-card--left') ? -30 : 30 });
+        gsap.set(cardButton, { opacity: 0, scale: 0.8 });
+        gsap.set(businessCircles, { opacity: 0, scale: 0 });
+
+        // Create timeline
+        const cardTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+
+        // Animate business circles
+        cardTl.to(businessCircles, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'back.out(1.7)',
+            stagger: 0.1
+        });
+
+        // Animate card number
+        cardTl.to(cardNumber, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
+        }, '-=0.4');
+
+        // Animate card content
+        cardTl.to(cardContent, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            ease: 'power3.out'
+        }, '-=0.5');
+
+        // Animate header elements
+        cardTl.to([cardTag, cardTitle], {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            stagger: 0.1
+        }, '-=0.4');
+
+        // Animate image
+        cardTl.to(cardImage, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'power2.out'
+        }, '-=0.3');
+
+        // Animate text
+        cardTl.to(cardText, {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: 'power2.out'
+        }, '-=0.4');
+
+        // Animate button
+        cardTl.to(cardButton, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            ease: 'back.out(1.7)'
+        }, '-=0.3');
+    });
+}
+
+/**
+ * News Page Animations
+ */
+function initNewsPageAnimations() {
+    // Only run if we're on the news page
+    if (document.body.id !== 'news') return;
+    
+    const hero = document.querySelector('.hero--enhanced');
+    if (!hero) return;
+
+    const heroContent = hero.querySelector('.hero__content');
+    const heroNumber = hero.querySelector('.hero__number');
+    const heroTitle = hero.querySelector('.hero__title');
+    const heroSubtitle = hero.querySelector('.hero__subtitle');
+    const heroText = hero.querySelector('.hero__text');
+    const heroVisual = hero.querySelector('.hero__visual');
+    const heroImage = hero.querySelector('.hero__image');
+    const heroCircles = hero.querySelectorAll('.hero__circle');
+    const heroCircleSmalls = hero.querySelectorAll('.hero__circle-small');
+
+    // Set initial states
+    if (heroContent) gsap.set(heroContent, { opacity: 0, x: -50 });
+    if (heroNumber) gsap.set(heroNumber, { opacity: 0, scale: 0.5 });
+    if (heroTitle) gsap.set(heroTitle, { opacity: 0, y: 30 });
+    if (heroSubtitle) gsap.set(heroSubtitle, { opacity: 0, y: 20 });
+    if (heroText) gsap.set(heroText, { opacity: 0, x: -30 });
+    if (heroVisual) gsap.set(heroVisual, { opacity: 0, x: 50 });
+    if (heroImage) gsap.set(heroImage, { opacity: 0, scale: 0.9 });
+    if (heroCircles.length) gsap.set(heroCircles, { opacity: 0, scale: 0 });
+    if (heroCircleSmalls.length) gsap.set(heroCircleSmalls, { opacity: 0, scale: 0 });
+
+    // Create timeline
+    const heroTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: hero,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+            once: false
+        }
+    });
+
+    // Animate decorative circles
+    if (heroCircles.length) {
+        heroTl.to(heroCircles, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+            stagger: 0.2
+        });
+    }
+
+    // Animate content
+    if (heroContent) {
+        heroTl.to(heroContent, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.5');
+    }
+
+    // Animate number
+    if (heroNumber) {
+        heroTl.to(heroNumber, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
+        }, '-=0.6');
+    }
+
+    // Animate title and subtitle
+    if (heroTitle && heroSubtitle) {
+        heroTl.to([heroTitle, heroSubtitle], {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.1
+        }, '-=0.5');
+    }
+
+    // Animate text
+    if (heroText) {
+        heroTl.to(heroText, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power2.out'
+        }, '-=0.4');
+    }
+
+    // Animate visual
+    if (heroVisual) {
+        heroTl.to(heroVisual, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.6');
+    }
+
+    // Animate image
+    if (heroImage) {
+        heroTl.to(heroImage, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'power2.out'
+        }, '-=0.5');
+    }
+
+    // Animate small circles
+    if (heroCircleSmalls.length) {
+        heroTl.to(heroCircleSmalls, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'back.out(1.7)',
+            stagger: 0.1
+        }, '-=0.4');
+    }
+
+    // News Section Animations
+    const newsSection = document.querySelector('.news-section');
+    if (newsSection) {
+        const newsTitle = newsSection.querySelector('.news-section__title');
+        const newsCards = newsSection.querySelectorAll('.news-card');
+        const newsCircles = newsSection.querySelectorAll('.news-circle');
+
+        // Set initial states
+        if (newsTitle) gsap.set(newsTitle, { opacity: 0, y: 30 });
+        if (newsCards.length) gsap.set(newsCards, { opacity: 0, y: 50, scale: 0.95 });
+        if (newsCircles.length) gsap.set(newsCircles, { opacity: 0, scale: 0 });
+
+        // Create timeline for news section
+        const newsTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: newsSection,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+
+        // Animate decorative circles
+        if (newsCircles.length) {
+            newsTl.to(newsCircles, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                ease: 'back.out(1.7)',
+                stagger: 0.1
+            });
+        }
+
+        // Animate title
+        if (newsTitle) {
+            newsTl.to(newsTitle, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            }, '-=0.4');
+        }
+
+        // Animate cards with stagger
+        if (newsCards.length) {
+            newsTl.to(newsCards, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.15
+            }, '-=0.4');
+
+            // Add hover effects to news cards
+            newsCards.forEach((card) => {
+                const cardNumber = card.querySelector('.news-card__number');
+                const cardImage = card.querySelector('.news-card__image img');
+                const cardCircles = card.querySelectorAll('.news-card__circle-small');
+                const cardIcon = card.querySelector('.news-card__image-icon');
+
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, {
+                        y: -12,
+                        scale: 1.02,
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                    if (cardNumber) {
+                        gsap.to(cardNumber, {
+                            scale: 1.1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardImage) {
+                        gsap.to(cardImage, {
+                            scale: 1.1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardCircles.length) {
+                        gsap.to(cardCircles, {
+                            scale: 1.2,
+                            rotation: 15,
+                            duration: 0.4,
+                            ease: 'power2.out',
+                            stagger: 0.1
+                        });
+                    }
+                    if (cardIcon) {
+                        gsap.to(cardIcon, {
+                            scale: 1,
+                            rotation: 360,
+                            duration: 0.5,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        y: 0,
+                        scale: 1,
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                    if (cardNumber) {
+                        gsap.to(cardNumber, {
+                            scale: 1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardImage) {
+                        gsap.to(cardImage, {
+                            scale: 1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardCircles.length) {
+                        gsap.to(cardCircles, {
+                            scale: 1,
+                            rotation: 0,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardIcon) {
+                        gsap.to(cardIcon, {
+                            scale: 0.8,
+                            rotation: 0,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+            });
+        }
+    }
+}
+
+/**
+ * Corporate Philosophy Page Animations
+ */
+function initCorporatePhilosophyPageAnimations() {
+    // Only run if we're on the philosophy page
+    if (document.body.id !== 'philosophy') return;
+    
+    const hero = document.querySelector('.hero--enhanced');
+    if (!hero) return;
+
+    const heroContent = hero.querySelector('.hero__content');
+    const heroNumber = hero.querySelector('.hero__number');
+    const heroTitle = hero.querySelector('.hero__title');
+    const heroSubtitle = hero.querySelector('.hero__subtitle');
+    const heroText = hero.querySelector('.hero__text');
+    const heroVisual = hero.querySelector('.hero__visual');
+    const heroImage = hero.querySelector('.hero__image');
+    const heroCircles = hero.querySelectorAll('.hero__circle');
+    const heroCircleSmalls = hero.querySelectorAll('.hero__circle-small');
+
+    // Set initial states
+    if (heroContent) gsap.set(heroContent, { opacity: 0, x: -50 });
+    if (heroNumber) gsap.set(heroNumber, { opacity: 0, scale: 0.5 });
+    if (heroTitle) gsap.set(heroTitle, { opacity: 0, y: 30 });
+    if (heroSubtitle) gsap.set(heroSubtitle, { opacity: 0, y: 20 });
+    if (heroText) gsap.set(heroText, { opacity: 0, x: -30 });
+    if (heroVisual) gsap.set(heroVisual, { opacity: 0, x: 50 });
+    if (heroImage) gsap.set(heroImage, { opacity: 0, scale: 0.9 });
+    if (heroCircles.length) gsap.set(heroCircles, { opacity: 0, scale: 0 });
+    if (heroCircleSmalls.length) gsap.set(heroCircleSmalls, { opacity: 0, scale: 0 });
+
+    // Create timeline
+    const heroTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: hero,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+            once: false
+        }
+    });
+
+    // Animate decorative circles
+    if (heroCircles.length) {
+        heroTl.to(heroCircles, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+            stagger: 0.2
+        });
+    }
+
+    // Animate content
+    if (heroContent) {
+        heroTl.to(heroContent, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.5');
+    }
+
+    // Animate number
+    if (heroNumber) {
+        heroTl.to(heroNumber, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
+        }, '-=0.6');
+    }
+
+    // Animate title and subtitle
+    if (heroTitle && heroSubtitle) {
+        heroTl.to([heroTitle, heroSubtitle], {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.1
+        }, '-=0.5');
+    }
+
+    // Animate text
+    if (heroText) {
+        heroTl.to(heroText, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power2.out'
+        }, '-=0.4');
+    }
+
+    // Animate visual
+    if (heroVisual) {
+        heroTl.to(heroVisual, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.6');
+    }
+
+    // Animate image (logo)
+    if (heroImage) {
+        heroTl.to(heroImage, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'power2.out'
+        }, '-=0.5');
+    }
+
+    // Animate small circles
+    if (heroCircleSmalls.length) {
+        heroTl.to(heroCircleSmalls, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'back.out(1.7)',
+            stagger: 0.1
+        }, '-=0.4');
+    }
+
+    // Core Values Section Animations
+    const coreValuesSection = document.querySelector('.core-values');
+    if (coreValuesSection) {
+        const sectionTitle = coreValuesSection.querySelector('.section-title');
+        const valueCards = coreValuesSection.querySelectorAll('.value-card');
+        const philosophyCircles = coreValuesSection.querySelectorAll('.philosophy-circle');
+
+        // Set initial states
+        if (sectionTitle) gsap.set(sectionTitle, { opacity: 0, y: 30 });
+        if (valueCards.length) gsap.set(valueCards, { opacity: 0, y: 50, scale: 0.95 });
+        if (philosophyCircles.length) gsap.set(philosophyCircles, { opacity: 0, scale: 0 });
+
+        // Create timeline for core values section
+        const valuesTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: coreValuesSection,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+
+        // Animate decorative circles
+        if (philosophyCircles.length) {
+            valuesTl.to(philosophyCircles, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                ease: 'back.out(1.7)',
+                stagger: 0.1
+            });
+        }
+
+        // Animate title
+        if (sectionTitle) {
+            valuesTl.to(sectionTitle, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            }, '-=0.4');
+        }
+
+        // Animate cards with stagger
+        if (valueCards.length) {
+            valuesTl.to(valueCards, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.1
+            }, '-=0.4');
+
+            // Add hover effects to value cards
+            valueCards.forEach((card) => {
+                const cardNumber = card.querySelector('.value-card__number');
+                const cardInner = card.querySelector('.value-card__inner');
+                const cardIcon = card.querySelector('.value-card__icon');
+
+                card.addEventListener('mouseenter', () => {
+                    if (cardNumber) {
+                        gsap.to(cardNumber, {
+                            scale: 1.1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardIcon) {
+                        gsap.to(cardIcon, {
+                            scale: 1.1,
+                            rotation: 5,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    if (cardNumber) {
+                        gsap.to(cardNumber, {
+                            scale: 1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardIcon) {
+                        gsap.to(cardIcon, {
+                            scale: 1,
+                            rotation: 0,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+            });
+        }
+    }
+}
+
+/**
+ * Member Page Animations
+ */
+function initMemberPageAnimations() {
+    // Only run if we're on the member page
+    if (document.body.id !== 'member') return;
+    
+    const hero = document.querySelector('.hero--enhanced');
+    if (!hero) return;
+
+    const heroContent = hero.querySelector('.hero__content');
+    const heroNumber = hero.querySelector('.hero__number');
+    const heroTitle = hero.querySelector('.hero__title');
+    const heroSubtitle = hero.querySelector('.hero__subtitle');
+    const heroText = hero.querySelector('.hero__text');
+    const heroVisual = hero.querySelector('.hero__visual');
+    const heroImage = hero.querySelector('.hero__image');
+    const heroCircles = hero.querySelectorAll('.hero__circle');
+    const heroCircleSmalls = hero.querySelectorAll('.hero__circle-small');
+
+    // Set initial states - keep hero image visible
+    if (heroContent) gsap.set(heroContent, { opacity: 0, x: -50 });
+    if (heroNumber) gsap.set(heroNumber, { opacity: 0, scale: 0.5 });
+    if (heroTitle) gsap.set(heroTitle, { opacity: 0, y: 30 });
+    if (heroSubtitle) gsap.set(heroSubtitle, { opacity: 0, y: 20 });
+    if (heroText) gsap.set(heroText, { opacity: 0, x: -30 });
+    if (heroVisual) gsap.set(heroVisual, { opacity: 0, x: 50 });
+    // Keep hero image visible - don't hide it initially
+    if (heroImage) gsap.set(heroImage, { opacity: 1, scale: 1, clearProps: 'all' });
+    if (heroCircles.length) gsap.set(heroCircles, { opacity: 0, scale: 0 });
+    if (heroCircleSmalls.length) gsap.set(heroCircleSmalls, { opacity: 0, scale: 0 });
+
+    // Create timeline
+    const heroTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: hero,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+            once: false
+        }
+    });
+
+    // Animate decorative circles
+    if (heroCircles.length) {
+        heroTl.to(heroCircles, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+            stagger: 0.2
+        });
+    }
+
+    // Animate content
+    if (heroContent) {
+        heroTl.to(heroContent, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.5');
+    }
+
+    // Animate number
+    if (heroNumber) {
+        heroTl.to(heroNumber, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
+        }, '-=0.6');
+    }
+
+    // Animate title and subtitle
+    if (heroTitle && heroSubtitle) {
+        heroTl.to([heroTitle, heroSubtitle], {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.1
+        }, '-=0.5');
+    }
+
+    // Animate text
+    if (heroText) {
+        heroTl.to(heroText, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power2.out'
+        }, '-=0.4');
+    }
+
+    // Animate visual
+    if (heroVisual) {
+        heroTl.to(heroVisual, {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.6');
+    }
+
+    // Hero image is already visible, just add a subtle fade-in effect
+    if (heroImage) {
+        heroTl.from(heroImage, {
+            opacity: 0.7,
+            scale: 0.98,
+            duration: 0.8,
+            ease: 'power2.out'
+        }, '-=0.5');
+    }
+
+    // Animate small circles
+    if (heroCircleSmalls.length) {
+        heroTl.to(heroCircleSmalls, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            ease: 'back.out(1.7)',
+            stagger: 0.1
+        }, '-=0.4');
+    }
+
+    // Executive Team Section Animations
+    const executiveSection = document.querySelector('.executive-team');
+    if (executiveSection) {
+        const sectionTitle = executiveSection.querySelector('.section-title');
+        const executiveCards = executiveSection.querySelectorAll('.executive-card');
+        const memberCircles = executiveSection.querySelectorAll('.member-circle');
+
+        // Set initial states
+        if (sectionTitle) gsap.set(sectionTitle, { opacity: 0, y: 30 });
+        if (executiveCards.length) gsap.set(executiveCards, { opacity: 0, y: 50, scale: 0.95 });
+        if (memberCircles.length) gsap.set(memberCircles, { opacity: 0, scale: 0 });
+
+        // Create timeline for executive section
+        const executiveTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: executiveSection,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+
+        // Animate decorative circles
+        if (memberCircles.length) {
+            executiveTl.to(memberCircles, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                ease: 'back.out(1.7)',
+                stagger: 0.1
+            });
+        }
+
+        // Animate title
+        if (sectionTitle) {
+            executiveTl.to(sectionTitle, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            }, '-=0.4');
+        }
+
+        // Animate cards with stagger
+        if (executiveCards.length) {
+            executiveTl.to(executiveCards, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.15
+            }, '-=0.4');
+
+            // Add hover effects to executive cards
+            executiveCards.forEach((card) => {
+                const cardNumber = card.querySelector('.executive-card__number');
+                const cardPhoto = card.querySelector('.photo-frame');
+                const cardIcon = card.querySelector('.executive-card__icon');
+
+                card.addEventListener('mouseenter', () => {
+                    if (cardNumber) {
+                        gsap.to(cardNumber, {
+                            scale: 1.1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardPhoto) {
+                        gsap.to(cardPhoto, {
+                            scale: 1.05,
+                            rotation: 2,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    if (cardNumber) {
+                        gsap.to(cardNumber, {
+                            scale: 1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (cardPhoto) {
+                        gsap.to(cardPhoto, {
+                            scale: 1,
+                            rotation: 0,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+            });
+        }
+    }
+
+    // Team Members Section Animations
+    const teamMembersSection = document.querySelector('.team-members');
+    if (teamMembersSection) {
+        const sectionTitle = teamMembersSection.querySelector('.section-title');
+        const memberCards = teamMembersSection.querySelectorAll('.member-card');
+        const filterButtons = teamMembersSection.querySelectorAll('.filter-btn');
+
+        // Set initial states
+        if (sectionTitle) gsap.set(sectionTitle, { opacity: 0, y: 30 });
+        if (memberCards.length) gsap.set(memberCards, { opacity: 0, y: 50, scale: 0.95 });
+        if (filterButtons.length) gsap.set(filterButtons, { opacity: 0, scale: 0.9 });
+
+        // Create timeline for team members section
+        const teamTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: teamMembersSection,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+
+        // Animate title
+        if (sectionTitle) {
+            teamTl.to(sectionTitle, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        }
+
+        // Animate filter buttons
+        if (filterButtons.length) {
+            teamTl.to(filterButtons, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                ease: 'back.out(1.7)',
+                stagger: 0.1
+            }, '-=0.4');
+        }
+
+        // Animate cards with stagger
+        if (memberCards.length) {
+            teamTl.to(memberCards, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.1
+            }, '-=0.4');
+
+            // Add hover effects to member cards
+            memberCards.forEach((card) => {
+                const cardNumber = card.querySelector('.member-card__number');
+                const cardInner = card.querySelector('.member-card__inner');
+
+                card.addEventListener('mouseenter', () => {
+                    if (cardNumber) {
+                        gsap.to(cardNumber, {
+                            scale: 1.1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    if (cardNumber) {
+                        gsap.to(cardNumber, {
+                            scale: 1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+
+                // Card flip functionality
+                card.addEventListener('click', () => {
+                    if (cardInner) {
+                        cardInner.classList.toggle('is-flipped');
+                    }
+                });
+            });
+        }
+    }
+
+    // Team Culture Section Animations
+    const teamCultureSection = document.querySelector('.team-culture');
+    if (teamCultureSection) {
+        const sectionTitle = teamCultureSection.querySelector('.section-title');
+        const cultureItems = teamCultureSection.querySelectorAll('.culture-item');
+        const memberCircles = teamCultureSection.querySelectorAll('.member-circle');
+
+        // Set initial states
+        if (sectionTitle) gsap.set(sectionTitle, { opacity: 0, y: 30 });
+        if (cultureItems.length) gsap.set(cultureItems, { opacity: 0, y: 50, scale: 0.95 });
+        if (memberCircles.length) gsap.set(memberCircles, { opacity: 0, scale: 0 });
+
+        // Create timeline for culture section
+        const cultureTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: teamCultureSection,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+                once: false
+            }
+        });
+
+        // Animate decorative circles
+        if (memberCircles.length) {
+            cultureTl.to(memberCircles, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.6,
+                ease: 'back.out(1.7)',
+                stagger: 0.1
+            });
+        }
+
+        // Animate title
+        if (sectionTitle) {
+            cultureTl.to(sectionTitle, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            }, '-=0.4');
+        }
+
+        // Animate items with stagger
+        if (cultureItems.length) {
+            cultureTl.to(cultureItems, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.1
+            }, '-=0.4');
+
+            // Add hover effects to culture items
+            cultureItems.forEach((item) => {
+                const itemNumber = item.querySelector('.culture-item__number');
+                const itemIcon = item.querySelector('.culture-item__icon');
+
+                item.addEventListener('mouseenter', () => {
+                    if (itemNumber) {
+                        gsap.to(itemNumber, {
+                            scale: 1.1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (itemIcon) {
+                        gsap.to(itemIcon, {
+                            scale: 1.1,
+                            rotation: 5,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    if (itemNumber) {
+                        gsap.to(itemNumber, {
+                            scale: 1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (itemIcon) {
+                        gsap.to(itemIcon, {
+                            scale: 1,
+                            rotation: 0,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                });
+            });
+        }
+    }
+}
+
+/**
+ * Apps Page Hero Animations
+ */
+function initAppsPageAnimations() {
+    const hero = document.querySelector('.hero--enhanced');
+    if (!hero) return;
+
+    const heroContent = hero.querySelector('.hero__content');
+    const heroNumber = hero.querySelector('.hero__number');
+    const heroTitle = hero.querySelector('.hero__title');
+    const heroSubtitle = hero.querySelector('.hero__subtitle');
+    const heroText = hero.querySelector('.hero__text');
+    const heroStats = hero.querySelectorAll('.stats__item');
+    const heroVisual = hero.querySelector('.hero__visual');
+    const heroImage = hero.querySelector('.hero__image');
+    const heroCircles = hero.querySelectorAll('.hero__circle');
+    const heroCircleSmalls = hero.querySelectorAll('.hero__circle-small');
+
+    // Set initial states
+    gsap.set(heroContent, { opacity: 0, x: -50 });
+    gsap.set(heroNumber, { opacity: 0, scale: 0.5 });
+    gsap.set([heroTitle, heroSubtitle], { opacity: 0, y: 30 });
+    gsap.set(heroText, { opacity: 0, x: -30 });
+    gsap.set(heroStats, { opacity: 0, y: 20 });
+    gsap.set(heroVisual, { opacity: 0, x: 50 });
+    gsap.set(heroImage, { opacity: 0, scale: 0.9 });
+    gsap.set(heroCircles, { opacity: 0, scale: 0 });
+    gsap.set(heroCircleSmalls, { opacity: 0, scale: 0 });
+
+    // Create timeline
+    const heroTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: hero,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+            once: false
+        }
+    });
+
+    // Animate decorative circles
+    heroTl.to(heroCircles, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: 'back.out(1.7)',
+        stagger: 0.2
+    });
+
+    // Animate content
+    heroTl.to(heroContent, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+    }, '-=0.5');
+
+    // Animate number
+    heroTl.to(heroNumber, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: 'back.out(1.7)'
+    }, '-=0.6');
+
+    // Animate title and subtitle
+    heroTl.to([heroTitle, heroSubtitle], {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.1
+    }, '-=0.5');
+
+    // Animate text
+    heroTl.to(heroText, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+    }, '-=0.4');
+
+    // Animate stats
+    heroTl.to(heroStats, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        stagger: 0.1
+    }, '-=0.4');
+
+    // Animate visual
+    heroTl.to(heroVisual, {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+    }, '-=0.6');
+
+    // Animate image
+    heroTl.to(heroImage, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: 'power2.out'
+    }, '-=0.5');
+
+    // Animate small circles
+    heroTl.to(heroCircleSmalls, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        ease: 'back.out(1.7)',
+        stagger: 0.1
+    }, '-=0.4');
+}
+
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', function() {
     initNavbarDropdowns();
+    initHeaderAnimations();
     initHeroAnimations();
     initWorksAnimations();
     initSpecialSection();
@@ -318,6 +2308,106 @@ document.addEventListener('DOMContentLoaded', function() {
     initParallaxEffects();
     initBounceEffect();
     initPageTop();
+    initUniversalAnimations();
+    initFooterAnimations();
+    initMessageSectionAnimations();
+    initJobCardsAnimations();
+    initSelectionProcessAnimations();
+    initBusinessPageAnimations();
+    initAppsPageAnimations();
+    initLocalActivitiesPageAnimations();
+    initNewsPageAnimations();
+    initCorporatePhilosophyPageAnimations();
+    initMemberPageAnimations();
+    
+    // Refresh ScrollTrigger after all resources load
+    window.addEventListener('load', function() {
+        // Small delay to ensure layout is stable
+        setTimeout(function() {
+            ScrollTrigger.refresh();
+            // Fallback: Force show elements if still hidden after refresh
+            forceShowHiddenElements();
+        }, 150);
+    });
+    
+    // Also refresh on resize to handle viewport changes
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            ScrollTrigger.refresh();
+        }, 250);
+    });
+    
+    // Safety fallback: If elements are still hidden after 2 seconds, show them
+    setTimeout(function() {
+        forceShowHiddenElements();
+    }, 2000);
+});
+
+/**
+ * Local Activities Page Hero Animations
+ */
+function initLocalActivitiesPageAnimations() {
+    const hero = document.querySelector('.hero--enhanced');
+    if (!hero) return;
+    
+    // Only run if we're on the local activities page
+    if (document.body.id !== 'regional-revitalization') return;
+
+    const heroContent = hero.querySelector('.hero__content');
+    const heroNumber = hero.querySelector('.hero__number');
+    const heroTitle = hero.querySelector('.hero__title');
+    const heroSubtitle = hero.querySelector('.hero__subtitle');
+    const heroTexts = hero.querySelectorAll('.hero__text');
+    const heroStats = hero.querySelectorAll('.stats__item');
+    const heroVisual = hero.querySelector('.hero__visual');
+    const heroImage = hero.querySelector('.hero__image');
+    const heroCircles = hero.querySelectorAll('.hero__circle');
+    const heroCircleSmalls = hero.querySelectorAll('.hero__circle-small');
+
+    // Make everything visible immediately - no animations on local activities page
+    if (heroContent) gsap.set(heroContent, { opacity: 1, x: 0, clearProps: 'all' });
+    if (heroNumber) gsap.set(heroNumber, { opacity: 1, scale: 1, clearProps: 'all' });
+    if (heroTitle) gsap.set(heroTitle, { opacity: 1, y: 0, clearProps: 'all' });
+    if (heroSubtitle) gsap.set(heroSubtitle, { opacity: 1, y: 0, clearProps: 'all' });
+    if (heroTexts.length) gsap.set(heroTexts, { opacity: 1, x: 0, clearProps: 'all' });
+    if (heroStats.length) gsap.set(heroStats, { opacity: 1, y: 0, clearProps: 'all' });
+    if (heroVisual) gsap.set(heroVisual, { opacity: 1, x: 0, clearProps: 'all' });
+    if (heroImage) gsap.set(heroImage, { opacity: 1, scale: 1, clearProps: 'all' });
+    if (heroCircles.length) gsap.set(heroCircles, { opacity: 1, scale: 1, clearProps: 'all' });
+    if (heroCircleSmalls.length) gsap.set(heroCircleSmalls, { opacity: 1, scale: 1, clearProps: 'all' });
+    
+    // Also make sure all main content is visible
+    const allMainContent = document.querySelectorAll('#regional-revitalization main *');
+    if (allMainContent.length) {
+        gsap.set(allMainContent, { clearProps: 'opacity,transform' });
+    }
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', function() {
+    initNavbarDropdowns();
+    initHeaderAnimations();
+    initHeroAnimations();
+    initWorksAnimations();
+    initSpecialSection();
+    initScrollAnimations();
+    initCarousels();
+    initParallaxEffects();
+    initBounceEffect();
+    initPageTop();
+    initUniversalAnimations();
+    initFooterAnimations();
+    initMessageSectionAnimations();
+    initJobCardsAnimations();
+    initSelectionProcessAnimations();
+    initBusinessPageAnimations();
+    initAppsPageAnimations();
+    initLocalActivitiesPageAnimations();
+    initNewsPageAnimations();
+    initCorporatePhilosophyPageAnimations();
+    initMemberPageAnimations();
     
     // Refresh ScrollTrigger after all resources load
     window.addEventListener('load', function() {

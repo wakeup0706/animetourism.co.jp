@@ -41,6 +41,9 @@ body {
     padding: 20px 0;
     border-bottom: 1px solid rgba(13, 13, 13, 0.1);
     transition: all 0.3s ease;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
 }
 
 .header-fresh__inner {

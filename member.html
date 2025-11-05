@@ -7,27 +7,30 @@
     <meta name="description" content="AnimeTourism Inc. のチームメンバーをご紹介します。多様な経験と専門知識を持ったプロフェッショナルが集まっています。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/member.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="img/animetourism_logo_min.png">
-    <!-- Added Font Awesome for improved icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <!-- GSAP Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="css/member.css">
 </head>
 <body id="member">
-    <header class="header">
-        <div class="header__inner">
-            <h1 class="header__logo">
-                <a href="https://animetourism.co.jp" class="header__logo-link" aria-label="AnimeTourism トップページへ">
-                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header__logo-img">
+    <header class="header-fresh">
+        <div class="header-fresh__inner">
+            <h1 class="header-fresh__logo">
+                <a href="/" class="header-fresh__logo-link">
+                    <img src="img/animetourism_logo2.jpg" alt="AnimeTourism" class="header-fresh__logo-img">
                 </a>
             </h1>
-            <nav class="header__nav">
-                <ul class="header__nav-list">
-                    <li class="header__nav-item has-dropdown">
-                        <a href="business.html" class="header__nav-link">
+            <nav class="header-fresh__nav">
+                <ul class="header-fresh__nav-list">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="business.html" class="header-fresh__nav-link">
                             <i class="fas fa-briefcase nav-icon"></i>事業内容
                         </a>
                         <div class="dropdown-menu">
@@ -44,8 +47,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="news.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="news.html" class="header-fresh__nav-link">
                             <i class="fas fa-newspaper nav-icon"></i>お知らせ
                         </a>
                         <div class="dropdown-menu">
@@ -59,13 +62,13 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="recruit.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item">
+                        <a href="recruit.html" class="header-fresh__nav-link">
                             <i class="fas fa-user-plus nav-icon"></i>採用情報
                         </a>
                     </li>
-                    <li class="header__nav-item has-dropdown">
-                        <a href="aboutus.html" class="header__nav-link">
+                    <li class="header-fresh__nav-item has-dropdown">
+                        <a href="aboutus.html" class="header-fresh__nav-link">
                             <i class="fas fa-building nav-icon"></i>企業情報
                         </a>
                         <div class="dropdown-menu">
@@ -85,8 +88,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="header__nav-item">
-                        <a href="contact.html" class="header__nav-link header__nav-link--contact">
+                    <li class="header-fresh__nav-item">
+                        <a href="contact.php" class="header-fresh__nav-link header-fresh__nav-link--contact">
                             <i class="fas fa-envelope nav-icon"></i>お問い合わせ
                         </a>
                     </li>
@@ -95,31 +98,56 @@
         </div>
     </header>
 
-    <main>
-        <section class="page-header">
-            <div class="page-header__inner">
-                <h2 class="page-header__title">メンバー紹介</h2>
-                <p class="page-header__subtitle">Our Team</p>
+    <main class="main-fresh">
+        <!-- Hero Section with Split Layout -->
+        <section class="hero hero--enhanced">
+            <div class="hero__decorative">
+                <div class="hero__circle hero__circle--yellow"></div>
+                <div class="hero__circle hero__circle--red"></div>
             </div>
-        </section>
-
-        <section class="team-intro">
             <div class="container">
-                <div class="team-intro__content">
-                    <h3 class="team-intro__title animated-title">多様な専門性を持つプロフェッショナル集団</h3>
-                    <p class="team-intro__text">
-                        AnimeTourism Inc.は、アニメ・IT・地域活性化のスペシャリストが集まったチームです。<br>
-                        アニメの魅力を通じて日本の地域と世界をつなぐため、様々なバックグラウンドと専門知識を持ったメンバーが協力し合い、革新的なサービスを提供しています。
-                    </p>
+                <div class="hero__inner hero__inner--split">
+                    <div class="hero__content">
+                        <div class="hero__number">01</div>
+                        <h1 class="hero__title">
+                            メンバー紹介
+                            <span class="hero__subtitle">Our Team</span>
+                        </h1>
+                        <p class="hero__text">
+                            アニメ・IT・地域活性化のスペシャリストが集まったチームです。<br>
+                            アニメの魅力を通じて日本の地域と世界をつなぐため、<br>
+                            様々なバックグラウンドと専門知識を持ったメンバーが協力し合い、革新的なサービスを提供しています。
+                        </p>
+                    </div>
+                    <div class="hero__visual">
+                        <div class="hero__image-wrapper">
+                            <div class="hero__image-decorative">
+                                <div class="hero__circle-small hero__circle-small--yellow"></div>
+                                <div class="hero__circle-small hero__circle-small--red"></div>
+                            </div>
+                            <img src="img/test_pic1.jpeg" alt="Our Team" class="hero__image">
+                            <div class="hero__image-overlay">
+                                <div class="hero__image-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Executive Team Section -->
         <section class="executive-team">
             <div class="container">
-                <h3 class="section-title">経営陣</h3>
+                <div class="executive-team__decorative">
+                    <div class="member-circle member-circle--yellow"></div>
+                    <div class="member-circle member-circle--red"></div>
+                </div>
+                <h2 class="section-title">経営陣</h2>
                 <div class="executive-grid">
-                    <div class="executive-card" id="ceo">
+                    <div class="executive-card fade-in">
+                        <div class="executive-card__number">01</div>
                         <div class="executive-card__inner">
                             <div class="executive-card__photo">
                                 <div class="photo-frame">
@@ -141,15 +169,12 @@
                                     <span class="tag">ビジネス開発</span>
                                     <span class="tag">リーダーシップ</span>
                                 </div>
-                                <!-- <div class="executive-card__socials">
-                                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
-                                </div> -->
                             </div>
                         </div>
                     </div>
 
-                    <div class="executive-card" id="cto">
+                    <div class="executive-card fade-in">
+                        <div class="executive-card__number">02</div>
                         <div class="executive-card__inner">
                             <div class="executive-card__photo">
                                 <div class="photo-frame">
@@ -178,43 +203,18 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="executive-card" id="coo">
-                        <div class="executive-card__inner">
-                            <div class="executive-card__photo">
-                                <div class="photo-frame">
-                                    <img src="/api/placeholder/300/300" alt="COO" class="executive-img">
-                                </div>
-                            </div>
-                            <div class="executive-card__content">
-                                <h4 class="executive-card__name">鈴木 美穂</h4>
-                                <p class="executive-card__position">最高執行責任者 / COO</p>
-                                <div class="executive-card__bio">
-                                    <p>
-                                        地域振興や観光業界での豊富な経験を持ち、自治体との連携プロジェクトを多数成功させてきた実績がある。
-                                        アニメツーリズム事業の展開と運営において中心的な役割を果たし、持続可能な地域活性化モデルを構築。
-                                        地域とアニメファンをつなぐ橋渡し役として活躍している。
-                                    </p>
-                                </div>
-                                <div class="executive-card__tags">
-                                    <span class="tag">事業運営</span>
-                                    <span class="tag">地域連携</span>
-                                    <span class="tag">マーケティング</span>
-                                </div>
-                                <div class="executive-card__socials">
-                                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </section>
 
+        <!-- Team Members Section -->
         <section class="team-members">
             <div class="container">
-                <h3 class="section-title">チームメンバー</h3>
+                <div class="team-members__decorative">
+                    <div class="member-circle member-circle--yellow"></div>
+                    <div class="member-circle member-circle--red"></div>
+                </div>
+                <h2 class="section-title">チームメンバー</h2>
                 
                 <div class="teams-filter">
                     <button class="filter-btn active" data-filter="all">すべて</button>
@@ -226,7 +226,8 @@
                 </div>
                 
                 <div class="team-grid">
-                    <div class="member-card" data-category="marketing,management">
+                    <div class="member-card fade-in" data-category="marketing,management">
+                        <div class="member-card__number">01</div>
                         <div class="member-card__inner">
                             <div class="member-card__front">
                                 <div class="member-card__photo">
@@ -254,7 +255,8 @@
                         </div>
                     </div>
 
-                    <div class="member-card" data-category="engineering,management">
+                    <div class="member-card fade-in" data-category="engineering,management">
+                        <div class="member-card__number">02</div>
                         <div class="member-card__inner">
                             <div class="member-card__front">
                                 <div class="member-card__photo">
@@ -280,7 +282,8 @@
                         </div>
                     </div>
 
-                    <div class="member-card" data-category="engineering,design">
+                    <div class="member-card fade-in" data-category="engineering,design">
+                        <div class="member-card__number">03</div>
                         <div class="member-card__inner">
                             <div class="member-card__front">
                                 <div class="member-card__photo">
@@ -312,11 +315,17 @@
             </div>
         </section>
 
+        <!-- Team Culture Section -->
         <section class="team-culture">
             <div class="container">
-                <h3 class="section-title">私たちの企業文化</h3>
+                <div class="team-culture__decorative">
+                    <div class="member-circle member-circle--yellow"></div>
+                    <div class="member-circle member-circle--red"></div>
+                </div>
+                <h2 class="section-title">私たちの企業文化</h2>
                 <div class="culture-grid">
-                    <div class="culture-item" id="diversity">
+                    <div class="culture-item fade-in" id="diversity">
+                        <div class="culture-item__number">01</div>
                         <div class="culture-item__icon">
                             <i class="fas fa-globe"></i>
                         </div>
@@ -326,7 +335,8 @@
                         </p>
                     </div>
 
-                    <div class="culture-item" id="innovation">
+                    <div class="culture-item fade-in" id="innovation">
+                        <div class="culture-item__number">02</div>
                         <div class="culture-item__icon">
                             <i class="fas fa-lightbulb"></i>
                         </div>
@@ -336,7 +346,8 @@
                         </p>
                     </div>
 
-                    <div class="culture-item" id="passion">
+                    <div class="culture-item fade-in" id="passion">
+                        <div class="culture-item__number">03</div>
                         <div class="culture-item__icon">
                             <i class="fas fa-fire"></i>
                         </div>
@@ -346,7 +357,8 @@
                         </p>
                     </div>
 
-                    <div class="culture-item" id="balance">
+                    <div class="culture-item fade-in" id="balance">
+                        <div class="culture-item__number">04</div>
                         <div class="culture-item__icon">
                             <i class="fas fa-balance-scale"></i>
                         </div>
@@ -375,26 +387,21 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__info">
-                    <a href="/" class="footer__logo">
-                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer__logo-img">
+    <footer class="footer-fresh">
+        <div class="footer-fresh__inner">
+            <div class="footer-fresh__main">
+                <div class="footer-fresh__left">
+                    <a href="/" class="footer-fresh__logo">
+                        <img src="img/company_logo.png" alt="AnimeTourism" class="footer-fresh__logo-img">
                     </a>
-                    <p class="footer__address">
-                        〒150-0043<br>
-                        東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル
-                    </p>
-                    <!-- ソーシャルリンク -->
-                    <div class="footer__social">
-                        <a href="https://x.com/JapanAnimeMaps" class="social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
-                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <div class="footer-fresh__social">
+                        <a href="https://x.com/JapanAnimeMaps" class="footer-fresh__social-link" aria-label="Twitter"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@japan_anime_maps?is_from_webapp=1&sender_device=pc" class="footer-fresh__social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/japananimemaps_seichi_junrei?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-fresh__social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <nav class="footer__nav">
-                    <ul class="footer__nav-list">
+                <nav class="footer-fresh__nav">
+                    <ul class="footer-fresh__nav-list">
                         <li><a href="business.html">事業内容</a></li>
                         <li><a href="news.html">お知らせ</a></li>
                         <li><a href="recruit.html">採用情報</a></li>
@@ -402,23 +409,27 @@
                         <li><a href="contact.html">お問い合わせ</a></li>
                     </ul>
                 </nav>
+                <div class="footer-fresh__links">
+                    <ul class="footer-fresh__links-list">
+                        <li><a href="sitemap.html">サイトマップ</a></li>
+                        <li><a href="privacy.html">プライバシーポリシー</a></li>
+                        <li><a href="terms.html">利用規約</a></li>
+                        <li><a href="faq.html">よくある問い合わせ</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <!-- サイトマップなどのリンク追加 -->
-            <div class="footer__links">
-                <ul class="footer__links-list">
-                    <li class="footer__links-item"><a href="sitemap.html" class="footer__links-link">サイトマップ</a></li>
-                    <li class="footer__links-item"><a href="privacy.html" class="footer__links-link">プライバシーポリシー</a></li>
-                    <li class="footer__links-item"><a href="terms.html" class="footer__links-link">利用規約</a></li>
-                    <li class="footer__links-item"><a href="faq.html" class="footer__links-link">よくある問い合わせ</a></li>
-                </ul>
+            <div class="footer-fresh__bottom">
+                <div class="footer-fresh__address">
+                    <p>〒150-0043<br>東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル</p>
+                </div>
+                <p class="footer-fresh__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
             </div>
-            
-            <p class="footer__copyright">© 2024-2025 AnimeTourism Inc. All Rights Reserved.</p>
+        </div>
+        <div class="footer-fresh__pagetop">
+            <a href="#" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
         </div>
     </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/member.js"></script>
+    
+    <script src="js/index-fresh.js"></script>
 </body>
 </html>
